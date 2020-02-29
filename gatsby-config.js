@@ -18,8 +18,8 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Open Sans`,
-            variants: [`400`, `400i`, `600`, `700`],
+            family: `Roboto`,
+            variants: [`300`, `300i`, `400`, `400i`, `700`],
             subsets: [`latin`],
           },
           {

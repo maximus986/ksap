@@ -1,11 +1,12 @@
 export default {
   colors: {
-    text: '#787976',
+    text: '#0d153e',
     background: '#fff',
-    primary: '#14bf98',
-    secondary: '#153e52',
-    muted: '#c1cace',
-    heading: '#484a46',
+    primary: '#1e2548',
+    secondary: '#db2c26',
+    muted: '#a3a6b6',
+    heading: '#fff',
+    socialLinks: '#a3a6b6',
     modes: {
       dark: {
         text: '#fff',
@@ -15,14 +16,15 @@ export default {
     },
   },
   fonts: {
-    body: 'Open Sans',
+    body: 'Roboto',
     heading: 'Montserrat',
     monospace: 'Menlo, monospace',
   },
   fontWeights: {
-    body: 400,
-    links: 600,
-    heading: 700,
+    body: 300,
+    lightItalic: `300i`,
+    regular: 400,
+    medium: 500,
     bold: 700,
   },
   lineHeights: {
