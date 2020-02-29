@@ -1,26 +1,14 @@
 export default [
   {
-    path: '#home',
-    text: 'home',
+    path: `/`,
+    text: `kongres srpsko američkog prijateljstva`,
   },
   {
-    path: '#intro',
-    text: 'intro',
+    path: `centar-za-americke-studije-vudro-vilson`,
+    text: `centar za americke studije vudro vilson`,
   },
   {
-    path: '#services',
-    text: 'services',
-  },
-  {
-    path: '#callMe',
-    text: 'callMe',
-  },
-  {
-    path: '#projects',
-    text: 'projects',
-  },
-  {
-    path: '#contact',
-    text: 'contact',
+    path: `centar-za-regionalnu-bezbednost`,
+    text: `centar za regionalnu bezbednost`,
   },
 ];

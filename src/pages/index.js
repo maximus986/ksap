@@ -14,9 +14,9 @@ const IndexPage = () => {
     siteMetadata: { title },
   } = useSiteMetadata();
 
-  const { bgImage } = useStaticQuery(graphql`
+  const { heroImage } = useStaticQuery(graphql`
     {
-      bgImage: file(relativePath: { eq: "header-background.jpg" }) {
+      heroImage: file(relativePath: { eq: "hero.png" }) {
         name
         childImageSharp {
           fluid(maxWidth: 4160, quality: 90) {
@@ -30,7 +30,11 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title={title} />
-      <Hero img={bgImage.childImageSharp.fluid} alt={bgImage.name} hero={true}>
+      <Hero
+        img={heroImage.childImageSharp.fluid}
+        alt={heroImage.name}
+        hero={true}
+      >
         <Container>
           <Row>
             <Col lg={12}>

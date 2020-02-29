@@ -23,6 +23,15 @@ const Layout = ({ children }) => {
           a {
             text-decoration: none;
           }
+          ::-webkit-scrollbar {
+            width: 4px;
+            background-color: #1e2548;
+            opacity: 0.7;
+          }
+
+          ::-webkit-scrollbar-thumb {
+            background-color: #1e2548;
+          }
         `}
       />
       <Header />

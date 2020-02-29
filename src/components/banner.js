@@ -1,19 +1,13 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import { Button } from './button';
 
 export const Banner = () => {
   return (
     <BannerContainer>
-      <h1 sx={{ fontFamily: 'heading', fontWeight: 'heading' }}>
-        business solutions
+      <h1 sx={{ fontFamily: 'body', fontWeight: 'bold', color: 'heading' }}>
+        dobro došli u ksap
       </h1>
-      <p sx={{ fontFamily: 'body', fontWeight: 'body' }}>
-        Aria is a top consultancy company specializing in business growth using
-        online marketing and conversion optimization tactics
-      </p>
-      <Button path="#intro">discover</Button>
     </BannerContainer>
   );
 };
@@ -22,34 +16,40 @@ const BannerContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (min-width: 768px) {
+    width: 80%;
+    margin: 0 auto;
+  }
+  @media (min-width: 1200px) {
+    width: 100%;
+    margin: 0 auto;
+  }
 
   h1 {
     font-size: 4rem;
-    line-height: 4.8rem;
-    @media (min-width: 768px) {
-      font-size: 5.6rem;
-      line-height: 6.4rem;
-    }
-    margin-bottom: 0.8rem;
-    color: #fff;
+    line-height: 4rem;
     text-transform: uppercase;
     text-align: center;
-  }
 
-  p {
-    font-size: 1.8rem;
-    line-height: 2.6rem;
-    color: #fff;
-    margin: 0 auto 3.2rem;
-    text-align: center;
+    @media (min-width: 576px) {
+      font-size: 5rem;
+      line-height: 5rem;
+    }
     @media (min-width: 768px) {
-      width: 58.65rem;
+      font-size: 7rem;
+      line-height: 7rem;
     }
     @media (min-width: 992px) {
-      width: 60.4rem;
+      font-size: 8rem;
+      line-height: 8rem;
     }
     @media (min-width: 1200px) {
-      width: 61rem;
+      font-size: 9rem;
+      line-height: 9rem;
+    }
+    @media (min-width: 1600px) {
+      font-size: 10rem;
+      line-height: 10rem;
     }
   }
 `;
