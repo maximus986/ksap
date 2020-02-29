@@ -1,13 +1,13 @@
-/** @jsx jsx */
+import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Col, Container, Row } from 'react-grid-system';
-import { jsx } from 'theme-ui';
 import { Banner } from '../components/banner';
 import Hero from '../components/hero';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import { AboutUs } from '../components/aboutUs';
+import { Founders } from '../components/founders/founders';
 
 const IndexPage = () => {
   const {
@@ -44,6 +44,7 @@ const IndexPage = () => {
         </Container>
       </Hero>
       <AboutUs />
+      <Founders />
     </Layout>
   );
 };
