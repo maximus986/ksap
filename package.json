@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter",
+  "name": "KSAP",
   "private": true,
-  "description": "gatsby-starter",
+  "description": "KSAP",
   "version": "0.1.0",
   "author": "Aleksandar Maksimovic <aleksandar.maksimovic2608@gmail.com>",
   "dependencies": {
@@ -24,12 +24,10 @@
     "gatsby-transformer-sharp": "^2.3.13",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
-    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^16.12.0",
     "react-grid-system": "^6.1.0",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.9.0",
-    "react-scrollspy": "^3.4.2",
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {

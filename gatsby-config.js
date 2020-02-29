@@ -1,18 +1,18 @@
 module.exports = {
   siteMetadata: {
-    title: `Aria - Business HTML Landing Page Template`,
-    description: `Gatsby Starter`,
+    title: `Kongres srpsko-američkog prijateljstva`,
+    description: `Kongres srpsko-američkog prijateljstva`,
     author: `@AleksandarM986`,
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        host: `site-url`, // add site url
-        sitemap: `site-url/sitemap.xml`, // add site url
-        policy: [{ userAgent: '*', allow: '/' }],
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-robots-txt',
+    //   options: {
+    //     host: `site-url`, // add site url
+    //     sitemap: `site-url/sitemap.xml`, // add site url
+    //     policy: [{ userAgent: '*', allow: '/' }],
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
@@ -31,7 +31,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-theme-ui`,
-    `gatsby-plugin-sitemap`,
+    // `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -47,8 +47,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Kongres srpsko-američkog prijateljstva`,
+        short_name: `KSAP`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
