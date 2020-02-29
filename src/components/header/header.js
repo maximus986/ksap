@@ -42,7 +42,7 @@ export const Header = () => {
 
 const HeaderContainer = styled.header`
   background: ${props => props.colors.primary};
-  opacity: 0.7;
+  opacity: 1;
   position: fixed;
   top: 0;
   left: 0;

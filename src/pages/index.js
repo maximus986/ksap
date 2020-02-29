@@ -4,10 +4,10 @@ import { Col, Container, Row } from 'react-grid-system';
 import { jsx } from 'theme-ui';
 import { Banner } from '../components/banner';
 import Hero from '../components/hero';
-import { Intro } from '../components/intro';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
+import { AboutUs } from '../components/aboutUs';
 
 const IndexPage = () => {
   const {
@@ -43,7 +43,7 @@ const IndexPage = () => {
           </Row>
         </Container>
       </Hero>
-      <Intro />
+      <AboutUs />
     </Layout>
   );
 };

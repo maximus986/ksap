@@ -4,11 +4,11 @@ export default [
     text: `kongres srpsko američkog prijateljstva`,
   },
   {
-    path: `centar-za-americke-studije-vudro-vilson`,
+    path: `/centar-za-americke-studije-vudro-vilson`,
     text: `centar za americke studije vudro vilson`,
   },
   {
-    path: `centar-za-regionalnu-bezbednost`,
+    path: `/centar-za-regionalnu-bezbednost`,
     text: `centar za regionalnu bezbednost`,
   },
 ];
