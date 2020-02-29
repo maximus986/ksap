@@ -60,6 +60,7 @@ const HeaderContainer = styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 4rem;
+    box-shadow: none;
   @media (min-width: 1200px) {
     padding: 8rem 8rem;
     /* padding: ${props => (props.animate ? '1rem 8rem' : '3.4rem 8rem')}; */
