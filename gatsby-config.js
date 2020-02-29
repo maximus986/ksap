@@ -1,5 +1,5 @@
 require('dotenv').config({
-  path: `.env${process.env.NODE_ENV}`,
+  path: `.env.${process.env.NODE_ENV}`,
 });
 
 module.exports = {
@@ -35,13 +35,13 @@ module.exports = {
       },
     },
 
-    // {
-    //   resolve: `gatsby-source-contentful`,
-    //   options: {
-    //     spaceId: process.env.CONTENTFUL_SPACE_ID,
-    //     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
     `gatsby-plugin-theme-ui`,
     // `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
