@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
 import { jsx, useThemeUI } from 'theme-ui';
-import { SectionTitle } from './sectionTitle';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
+import { SectionContainer } from './sectionContainer';
 
 export const AboutUs = () => {
   const { aboutUsImg } = useStaticQuery(graphql`
@@ -23,8 +23,7 @@ export const AboutUs = () => {
     theme: { colors },
   } = useThemeUI();
   return (
-    <AboutUsSection {...{ colors }}>
-      <SectionTitle>o nama</SectionTitle>
+    <SectionContainer sectionTitle="o nama" sectionBgColor={colors.muted}>
       <AboutUsContent>
         <Figure>
           <Img fluid={aboutUsImg.childImageSharp.fluid} alt={aboutUsImg.name} />
@@ -42,21 +41,12 @@ export const AboutUs = () => {
           inventore veritatis et quasi architecto beatae vitae
         </AboutUsInfo>
       </AboutUsContent>
-    </AboutUsSection>
+    </SectionContainer>
   );
 };
 
-const AboutUsSection = styled.section`
-  padding: 5rem 0;
-  background: ${props => props.colors.muted};
-  text-align: center;
-  @media (min-width: 1200px) {
-    padding: 7rem 0;
-  }
-`;
-
 const AboutUsContent = styled.div`
-  @media (min-width: 1200px) {
+  @media (min-width: 1600px) {
     display: flex;
     align-items: center;
   }
@@ -65,12 +55,12 @@ const AboutUsContent = styled.div`
 const Figure = styled.figure`
   margin-bottom: 2rem;
   @media (min-width: 1200px) {
-    flex-basis: 50%;
-    margin-right: 5%;
+    margin-bottom: 4rem;
   }
   @media (min-width: 1600px) {
     flex-basis: 50%;
     margin-right: 3%;
+    margin-bottom: 0;
   }
 `;
 
@@ -81,15 +71,11 @@ const AboutUsInfo = styled.p`
   line-height: 3rem;
   font-weight: 300;
   color: ${props => props.colors.primary};
-  @media (min-width: 1200px) {
-    flex-basis: 40%;
-    text-align: left;
-    padding: 0 4rem;
-  }
   @media (min-width: 1600px) {
     flex-basis: 43%;
     font-size: 2.5rem;
     line-height: 3.5rem;
+    text-align: left;
   }
   @media (min-width: 1800px) {
     flex-basis: 35%;
