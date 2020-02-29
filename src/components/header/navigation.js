@@ -1,7 +1,5 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import Scrollspy from 'react-scrollspy';
 import { jsx, useThemeUI } from 'theme-ui';
 import navLinks from '../../static-data/nav-links';
 
@@ -12,11 +10,7 @@ export const Navigation = ({ showMenu, onNavigate }) => {
 
   return (
     <NavigationContainer>
-      <NavLinks
-        open={showMenu}
-        items={navLinks.map(link => link.text)}
-        currentClassName="active"
-      >
+      <NavLinks open={showMenu}>
         {navLinks.map((link, i) => (
           <ListItem key={i} {...{ colors }}>
             <Link
@@ -48,7 +42,7 @@ const NavigationContainer = styled.nav`
   }
 `;
 
-const NavLinks = styled(Scrollspy)`
+const NavLinks = styled.ul`
   overflow: hidden;
   transition: height 0.35s ease;
   height: ${props => (props.open ? '258px' : '0')};
@@ -67,7 +61,7 @@ const ListItem = styled.li`
   }
 `;
 
-const Link = styled(AnchorLink)`
+const Link = styled.a`
   display: block;
   font-size: 1.4rem;
   text-transform: uppercase;
