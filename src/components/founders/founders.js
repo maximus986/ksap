@@ -1,10 +1,9 @@
-import React from 'react';
-import { SectionContainer } from '../sectionContainer';
-import { useThemeUI } from 'theme-ui';
-import { graphql, useStaticQuery } from 'gatsby';
-import { Founder } from './founder';
 import styled from '@emotion/styled';
-import { Container, Row, Col } from 'react-grid-system';
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
+import { useThemeUI } from 'theme-ui';
+import { SectionContainer } from '../sectionContainer';
+import { Founder } from './founder';
 
 export const Founders = () => {
   const foundersSorter = (founder1, founder2) => {
@@ -36,25 +35,20 @@ export const Founders = () => {
   } = useThemeUI();
   return (
     <SectionContainer sectionTitle="osnivači" sectionBgColor={colors.primary}>
-      <Container>
-        <Row>
-          {founders.edges.sort(foundersSorter).map((node, i) => {
-            return (
-              <Col lg={6} xl={3} key={i}>
-                <Founder founder={node} />
-              </Col>
-            );
-          })}
-        </Row>
-      </Container>
+      <FoundersContainer>
+        {founders.edges.sort(foundersSorter).map((node, i) => {
+          return <Founder founder={node} />;
+        })}
+      </FoundersContainer>
     </SectionContainer>
   );
 };
 
 const FoundersContainer = styled.div`
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: start;
     justify-content: space-between;
   }
 `;

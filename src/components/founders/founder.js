@@ -24,12 +24,24 @@ export const Founder = ({ founder }) => {
 const FounderContainer = styled.figure`
   text-align: center;
   margin-bottom: 3rem;
-  @media (min-width: 992px) {
+  letter-spacing: 2px;
+  line-height: 4rem;
+  @media (min-width: 768px) {
+    flex-basis: 45%;
+  }
+  @media (min-width: 1200px) {
     margin-bottom: 0;
+    flex-basis: 23%;
+  }
+  @media (min-width: 1600px) {
+    margin-bottom: 0;
+    flex-basis: 20%;
   }
 `;
 
 const FounderImg = styled(Img)`
+  line-height: 4rem;
+  letter-spacing: 2px;
   margin-bottom: 1rem;
 `;
 
@@ -44,6 +56,6 @@ const FounderName = styled.span`
 const FounderPosition = styled.span`
   font-weight: 300;
   display: block;
-  font-size: 3rem;
+  font-size: 2rem;
   text-transform: uppercase;
 `;
