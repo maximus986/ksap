@@ -1,17 +1,17 @@
-import React from 'react';
+import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Col, Container, Row } from 'react-grid-system';
+import React from 'react';
+import { useThemeUI } from 'theme-ui';
+import { AboutUs } from '../components/aboutUs';
 import { Banner } from '../components/banner';
+import { Founders } from '../components/founders/founders';
 import Hero from '../components/hero';
 import Layout from '../components/layout';
+import { News } from '../components/news';
 import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
-import { AboutUs } from '../components/aboutUs';
-import { Founders } from '../components/founders/founders';
-import { News } from '../components/news';
-import styled from '@emotion/styled';
 import sectionImg from '../images/section-bg.png';
-import { useThemeUI } from 'theme-ui';
+import { Academy } from '../components/Academy';
 
 const IndexPage = () => {
   const {
@@ -50,6 +50,7 @@ const IndexPage = () => {
         <Founders />
         <News />
       </BackgroundSection>
+      <Academy />
     </Layout>
   );
 };
