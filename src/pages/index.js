@@ -14,6 +14,7 @@ import sectionImg from '../images/section-bg.png';
 import { Academy } from '../components/Academy';
 import { Members } from '../components/members';
 import { Contact } from '../components/contact';
+import Map from '../components/map';
 
 const IndexPage = () => {
   const {
@@ -55,6 +56,7 @@ const IndexPage = () => {
       <Academy />
       <Members />
       <Contact />
+      <Map />
     </Layout>
   );
 };
