@@ -12,6 +12,7 @@ import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import sectionImg from '../images/section-bg.png';
 import { Academy } from '../components/Academy';
+import { Members } from '../components/members';
 
 const IndexPage = () => {
   const {
@@ -51,6 +52,7 @@ const IndexPage = () => {
         <News />
       </BackgroundSection>
       <Academy />
+      <Members />
     </Layout>
   );
 };
