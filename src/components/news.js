@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
-import { jsx, useThemeUI } from 'theme-ui';
-import { SectionContainer } from './sectionContainer';
+import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import { useStaticQuery, graphql } from 'gatsby';
+import { jsx } from 'theme-ui';
+import { SectionContainer } from './sectionContainer';
 
 export const News = () => {
   const { calendarImg } = useStaticQuery(graphql`
@@ -19,9 +19,6 @@ export const News = () => {
     }
   `);
 
-  const {
-    theme: { colors },
-  } = useThemeUI();
   return (
     <SectionContainer sectionTitle="aktuelnosti ksap">
       <NewsContainer>

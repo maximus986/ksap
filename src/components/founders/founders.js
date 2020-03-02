@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { useThemeUI } from 'theme-ui';
 import { SectionContainer } from '../sectionContainer';
 import { Founder } from './founder';
 
@@ -30,9 +29,6 @@ export const Founders = () => {
     }
   `);
 
-  const {
-    theme: { colors },
-  } = useThemeUI();
   return (
     <SectionContainer sectionTitle="osnivači">
       <FoundersContainer>
