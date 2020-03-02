@@ -13,6 +13,7 @@ import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import sectionImg from '../images/section-bg.png';
 import { Academy } from '../components/Academy';
 import { Members } from '../components/members';
+import { Contact } from '../components/contact';
 
 const IndexPage = () => {
   const {
@@ -53,6 +54,7 @@ const IndexPage = () => {
       </BackgroundSection>
       <Academy />
       <Members />
+      <Contact />
     </Layout>
   );
 };
