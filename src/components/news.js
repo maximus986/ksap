@@ -23,10 +23,7 @@ export const News = () => {
     theme: { colors },
   } = useThemeUI();
   return (
-    <SectionContainer
-      sectionBgColor={colors.primary}
-      sectionTitle="aktuelnosti ksap"
-    >
+    <SectionContainer sectionTitle="aktuelnosti ksap">
       <NewsContainer>
         <ImgContainer>
           <Img

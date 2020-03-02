@@ -9,8 +9,15 @@ import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import { AboutUs } from '../components/aboutUs';
 import { Founders } from '../components/founders/founders';
 import { News } from '../components/news';
+import styled from '@emotion/styled';
+import sectionImg from '../images/section-bg.png';
+import { useThemeUI } from 'theme-ui';
 
 const IndexPage = () => {
+  const {
+    theme: { colors },
+  } = useThemeUI();
+
   const {
     siteMetadata: { title },
   } = useSiteMetadata();
@@ -36,19 +43,34 @@ const IndexPage = () => {
         alt={heroImage.name}
         hero={true}
       >
-        <Container>
-          <Row>
-            <Col lg={12}>
-              <Banner />
-            </Col>
-          </Row>
-        </Container>
+        <Banner />
       </Hero>
       <AboutUs />
-      <Founders />
-      <News />
+      <BackgroundSection {...{ colors }}>
+        <Founders />
+        <News />
+      </BackgroundSection>
     </Layout>
   );
 };
 
 export default IndexPage;
+
+const BackgroundSection = styled.div`
+  background-image: url(${sectionImg});
+  background-color: ${props => props.colors.primary};
+  background-position: 12% 67%;
+  background-repeat: no-repeat;
+  @media (min-width: 576px) {
+    background-position: 12% 75%;
+  }
+  @media (min-width: 768px) {
+    background-position: 12% 41%;
+  }
+  @media (min-width: 1200px) {
+    background-position: 12% 46%;
+  }
+  @media (min-width: 1600px) {
+    background-position: 9px 62%;
+  }
+`;

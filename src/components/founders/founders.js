@@ -34,10 +34,10 @@ export const Founders = () => {
     theme: { colors },
   } = useThemeUI();
   return (
-    <SectionContainer sectionTitle="osnivači" sectionBgColor={colors.primary}>
+    <SectionContainer sectionTitle="osnivači">
       <FoundersContainer>
         {founders.edges.sort(foundersSorter).map((node, i) => {
-          return <Founder founder={node} />;
+          return <Founder founder={node} key={i} />;
         })}
       </FoundersContainer>
     </SectionContainer>
