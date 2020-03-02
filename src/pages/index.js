@@ -10,7 +10,8 @@ import Layout from '../components/layout';
 import { News } from '../components/news';
 import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
-import sectionImg from '../images/section-bg.png';
+import foundersMembersSectionImg from '../images/section-bg.png';
+import membersContactSectionImg from '../images/postanite-clan-bg.png';
 import { Academy } from '../components/Academy';
 import { Members } from '../components/members';
 import { Contact } from '../components/contact';
@@ -49,13 +50,15 @@ const IndexPage = () => {
         <Banner />
       </Hero>
       <AboutUs />
-      <BackgroundSection {...{ colors }}>
+      <FoundersNewsBackgroundSection {...{ colors }}>
         <Founders />
         <News />
-      </BackgroundSection>
+      </FoundersNewsBackgroundSection>
       <Academy />
-      <Members />
-      <Contact />
+      <MembersContactBackgroundSection>
+        <Members />
+        <Contact />
+      </MembersContactBackgroundSection>
       <Map />
     </Layout>
   );
@@ -63,8 +66,8 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-const BackgroundSection = styled.div`
-  background-image: url(${sectionImg});
+const FoundersNewsBackgroundSection = styled.div`
+  background-image: url(${foundersMembersSectionImg});
   background-color: ${props => props.colors.primary};
   background-position: 12% 67%;
   background-repeat: no-repeat;
@@ -79,5 +82,19 @@ const BackgroundSection = styled.div`
   }
   @media (min-width: 1600px) {
     background-position: 9px 62%;
+  }
+`;
+
+const MembersContactBackgroundSection = styled.div`
+  @media (min-width: 992px) {
+    background-image: url(${membersContactSectionImg});
+    background-repeat: no-repeat;
+    background-position: 132% 131%;
+  }
+  @media (min-width: 1200px) {
+    background-position: 98% 117%;
+  }
+  @media (min-width: 1600px) {
+    background-position: 100% 100%;
   }
 `;
