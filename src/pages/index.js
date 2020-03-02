@@ -8,6 +8,7 @@ import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import { AboutUs } from '../components/aboutUs';
 import { Founders } from '../components/founders/founders';
+import { News } from '../components/news';
 
 const IndexPage = () => {
   const {
@@ -45,6 +46,7 @@ const IndexPage = () => {
       </Hero>
       <AboutUs />
       <Founders />
+      <News />
     </Layout>
   );
 };

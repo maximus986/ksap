@@ -27,7 +27,7 @@ const Title = styled.h2`
   &:after {
     content: '';
     height: 1px;
-    width: 230px;
+    width: 265px;
     display: block;
     margin: 2rem auto 0;
     background: ${props => props.colors.secondary};
@@ -39,7 +39,7 @@ const Title = styled.h2`
     margin-bottom: 8rem;
     font-size: 6rem;
     &:after {
-      width: 500px;
+      width: 610px;
     }
   }
 `;
