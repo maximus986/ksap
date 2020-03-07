@@ -1,11 +1,15 @@
 /** @jsx jsx */
+import { useState } from 'react';
 import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import { jsx } from 'theme-ui';
 import { SectionContainer } from './sectionContainer';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export const News = () => {
+  const [date, setDate] = useState(new Date());
   const { calendarImg } = useStaticQuery(graphql`
     {
       calendarImg: file(relativePath: { eq: "calendar.png" }) {
@@ -22,12 +26,7 @@ export const News = () => {
   return (
     <SectionContainer sectionTitle="aktuelnosti ksap">
       <NewsContainer>
-        <ImgContainer>
-          <Img
-            fluid={calendarImg.childImageSharp.fluid}
-            alt={calendarImg.name}
-          />
-        </ImgContainer>
+        <DatePicker selected={date} />
         <NewsContent sx={{ fontFamily: 'body' }}>
           <EventDate sx={{ color: 'secondary' }}>april 2.</EventDate>
           <EventTitle sx={{ color: 'heading' }}>
