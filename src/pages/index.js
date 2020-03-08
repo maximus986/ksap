@@ -7,7 +7,7 @@ import { Banner } from '../components/banner';
 import { Founders } from '../components/founders/founders';
 import Hero from '../components/hero';
 import Layout from '../components/layout';
-import { News } from '../components/news';
+import { News } from '../components/news/news';
 import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import foundersMembersSectionImg from '../images/section-bg.png';
