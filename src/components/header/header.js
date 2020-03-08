@@ -49,7 +49,7 @@ const HeaderContainer = styled.header`
   right: 0;
   z-index: 1030;
   padding: 1.2rem 1.6rem 0;
-  box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
+  box-shadow: -5px 0rem 0rem 3px rgba(0,0,0,0.1);
   @media (min-width: 576px) {
     padding: 1.8rem 2.6rem 0.6rem;
   }
