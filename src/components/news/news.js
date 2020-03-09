@@ -14,15 +14,15 @@ import { defaultEvent } from './default-event';
 registerLocale('sr', sr);
 
 export const News = () => {
-  const [date, setDate] = useState(new Date('2020/04/02'));
+  const [date, setDate] = useState(new Date());
   const [event, setEvent] = useState({});
-  const [showEvent, setShowEvent] = useState(true);
+  const [showEvent, setShowEvent] = useState(false);
 
   const { events } = useStaticQuery(graphql`
     {
       events: allContentfulEvent {
         edges {
-          node {
+          event: node {
             id
             title
             eventDate
@@ -37,7 +37,7 @@ export const News = () => {
   `);
 
   const highlightDates = events.edges.map(
-    ({ node }) => new Date(node.eventDate)
+    ({ event }) => new Date(event.eventDate)
   );
 
   const highlightWithRanges = [
@@ -46,11 +46,11 @@ export const News = () => {
     },
   ];
 
-  const handleChange = date => {
+  const handleDateSelect = date => {
     setDate(date);
-    events.edges.forEach(({ node }) => {
-      setEvent(node);
-      setShowEvent(isSameDay(date, new Date(node.eventDate)));
+    events.edges.forEach(({ event }) => {
+      setEvent(event);
+      setShowEvent(isSameDay(date, new Date(event.eventDate)));
     });
   };
 
@@ -58,10 +58,8 @@ export const News = () => {
     <SectionContainer sectionTitle="aktuelnosti ksap">
       <NewsContainer>
         <DatePicker
-          selected={date}
           inline
-          onChange={handleChange}
-          openToDate={new Date('2020/04/02')}
+          onSelect={handleDateSelect}
           dateFormat="MMMM d."
           highlightDates={highlightWithRanges}
           locale="sr"
@@ -75,14 +73,11 @@ export const News = () => {
           {showEvent ? (
             <>
               <EventTitle sx={{ color: 'heading' }}>
-                {event.title || defaultEvent.title}
-                <span>
-                  {event.eventDescription || defaultEvent.eventDescription}
-                </span>
+                {event.title}
+                <span>{event.eventDescription}</span>
               </EventTitle>
               <EventDetails sx={{ color: 'heading' }}>
-                {(event.eventContent && event.eventContent.eventContent) ||
-                  defaultEvent.eventContent}
+                {event.eventContent && event.eventContent.eventContent}
               </EventDetails>
             </>
           ) : (
