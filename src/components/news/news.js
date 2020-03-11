@@ -12,6 +12,8 @@ import { SectionContainer } from '../sectionContainer';
 import format from 'date-fns/format';
 import { defaultEvent } from './default-event';
 import setHours from 'date-fns/setHours';
+import toDate from 'date-fns/toDate';
+import { zonedTimeToUtc } from 'date-fns-tz';
 registerLocale('sr', sr);
 
 export const News = () => {
@@ -37,15 +39,17 @@ export const News = () => {
     }
   `);
 
-  const highlightDates = events.edges.map(({ event }) =>
-    setHours(new Date(event.eventDate), 14)
-  );
+  const highlightDates = events.edges.map(({ event }) => {
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const utcDate = zonedTimeToUtc(event.eventDate, timeZone);
+    console.log('event:', event, 'highlightedDate: ', utcDate, 'date', date);
 
-  console.log(highlightDates);
+    return utcDate;
+  });
 
   const highlightWithRanges = [
     {
-      'react-datepicker__day--highlighted-custom-1': [...highlightDates],
+      'react-datepicker__day--highlighted-custom-1': [new Date('2020/04/02')],
     },
   ];
 
