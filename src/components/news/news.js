@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
+import React from 'react';
 import format from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
 import sr from 'date-fns/locale/sr-Latn';
@@ -56,6 +57,7 @@ export const News = () => {
     <SectionContainer sectionTitle="aktuelnosti ksap">
       <NewsContainer>
         <DatePicker
+          openToDate={date}
           inline
           onSelect={handleDateSelect}
           dateFormat="MMMM d."
@@ -193,6 +195,9 @@ const NewsContainer = styled.div`
           border-radius: 0;
           color: #fff;
           background: #0d153e;
+        }
+        &--today {
+          font-weight: 700;
         }
       }
       &__week {
