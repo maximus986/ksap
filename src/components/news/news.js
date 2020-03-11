@@ -11,6 +11,7 @@ import { jsx } from 'theme-ui';
 import { SectionContainer } from '../sectionContainer';
 import format from 'date-fns/format';
 import { defaultEvent } from './default-event';
+import setHours from 'date-fns/setHours';
 registerLocale('sr', sr);
 
 export const News = () => {
@@ -36,9 +37,11 @@ export const News = () => {
     }
   `);
 
-  const highlightDates = events.edges.map(
-    ({ event }) => new Date(event.eventDate)
+  const highlightDates = events.edges.map(({ event }) =>
+    setHours(new Date(event.eventDate), 14)
   );
+
+  console.log(highlightDates);
 
   const highlightWithRanges = [
     {
