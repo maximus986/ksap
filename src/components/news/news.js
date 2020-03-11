@@ -1,19 +1,15 @@
 /** @jsx jsx */
-import React from 'react';
 import styled from '@emotion/styled';
+import format from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
 import sr from 'date-fns/locale/sr-Latn';
+import toDate from 'date-fns/toDate';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useState } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { jsx } from 'theme-ui';
 import { SectionContainer } from '../sectionContainer';
-import format from 'date-fns/format';
-import { defaultEvent } from './default-event';
-import setHours from 'date-fns/setHours';
-import toDate from 'date-fns/toDate';
-import { zonedTimeToUtc } from 'date-fns-tz';
 registerLocale('sr', sr);
 
 export const News = () => {
@@ -27,7 +23,6 @@ export const News = () => {
         edges {
           event: node {
             id
-            title
             eventDate
             eventDescription
             eventContent {
@@ -39,21 +34,11 @@ export const News = () => {
     }
   `);
 
-  const highlightDates = events.edges.map(({ event }) => {
-    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const utcDate = zonedTimeToUtc(event.eventDate, timeZone);
-    console.log(
-      'event:',
-      event,
-      'highlightedDate: ',
-      utcDate,
-      'date',
-      date,
-      new Date('2020/04/02')
-    );
+  const highlightDates = events.edges.map(({ event }) =>
+    toDate(new Date(event.eventDate))
+  );
 
-    return utcDate;
-  });
+  console.log(highlightDates, date);
 
   const highlightWithRanges = [
     {
