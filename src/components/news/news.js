@@ -38,8 +38,6 @@ export const News = () => {
     toDate(new Date(event.eventDate))
   );
 
-  console.log(highlightDates, date);
-
   const highlightWithRanges = [
     {
       'react-datepicker__day--highlighted-custom-1': [...highlightDates],
