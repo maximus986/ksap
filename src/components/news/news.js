@@ -42,14 +42,22 @@ export const News = () => {
   const highlightDates = events.edges.map(({ event }) => {
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const utcDate = zonedTimeToUtc(event.eventDate, timeZone);
-    console.log('event:', event, 'highlightedDate: ', utcDate, 'date', date);
+    console.log(
+      'event:',
+      event,
+      'highlightedDate: ',
+      utcDate,
+      'date',
+      date,
+      new Date('2020/04/02')
+    );
 
     return utcDate;
   });
 
   const highlightWithRanges = [
     {
-      'react-datepicker__day--highlighted-custom-1': [new Date('2020/04/02')],
+      'react-datepicker__day--highlighted-custom-1': [...highlightDates],
     },
   ];
 
