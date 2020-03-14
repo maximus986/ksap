@@ -13,8 +13,9 @@ export const Contact = () => {
       <Title
         {...{ colors }}
         sx={{
-          fontFamily: 'heading',
+          fontFamily: 'body',
           color: 'primary',
+          fontWeight: 'medium',
         }}
       >
         kontaktirajte ksap
@@ -63,7 +64,7 @@ const Title = styled.h2`
     font-size: 4rem;
   }
   @media (min-width: 1200px) {
-    margin: 0 auto 8rem;
+    margin: 0 0 8rem;
     font-size: 4.8rem;
   }
   @media (min-width: 1600px) {
