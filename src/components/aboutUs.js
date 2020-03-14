@@ -1,12 +1,13 @@
 /** @jsx jsx */
+import React from 'react';
 import styled from '@emotion/styled';
-import { jsx, useThemeUI } from 'theme-ui';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
+import { jsx, useThemeUI } from 'theme-ui';
 import { SectionContainer } from './sectionContainer';
 
 export const AboutUs = () => {
-  const { aboutUsImg } = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
       aboutUsImg: file(relativePath: { eq: "about-us.png" }) {
         name
@@ -16,68 +17,144 @@ export const AboutUs = () => {
           }
         }
       }
+      about: allContentfulAbout {
+        edges {
+          node {
+            title
+            paragraph1 {
+              paragraph1
+            }
+            paragraph2 {
+              paragraph2
+            }
+          }
+        }
+      }
     }
   `);
+
+  const { aboutUsImg, about } = data;
+  console.log(data);
 
   const {
     theme: { colors },
   } = useThemeUI();
+
   return (
     <SectionContainer sectionTitle="o nama" sectionBgColor={colors.muted}>
-      <AboutUsContent>
-        <Figure>
-          <Img fluid={aboutUsImg.childImageSharp.fluid} alt={aboutUsImg.name} />
-        </Figure>
-        <AboutUsInfo {...{ colors }} sx={{ fontFamily: 'body' }}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum. Sed ut
-          perspiciatis unde omnis iste natus error sit voluptatem accusantium
-          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-          inventore veritatis et quasi architecto beatae vitae
-        </AboutUsInfo>
-      </AboutUsContent>
+      <Container>
+        <AboutUsContent>
+          <Figure>
+            <Img
+              fluid={aboutUsImg.childImageSharp.fluid}
+              alt={aboutUsImg.name}
+            />
+          </Figure>
+          <AboutUsInfo sx={{ fontFamily: 'body', color: 'primary' }}>
+            <p sx={{ marginBottom: 16 }}>
+              Inicijativa za osnivanje Kongresa srpsko-američkog prijateljstva
+              (KSAP) je logično i očekivano ishodište istorijske saradnje i
+              društvenih procesa i odnosa, koji su u proteklom periodu
+              uspostavljeni između Sjedinjenih Američkih Država i Republike
+              Srbije.
+            </p>
+            <p sx={{ marginBottom: 32 }}>
+              Pokretači ove inicijative, kako sa američke, tako i sa srpske
+              strane, samo su integrisali čitav niz pozitivnih procesa u
+              srpsko-američkim odnosima, pretvarajući ih u vidljivu i
+              prepoznatljivu inicijativu, koja će dati snagu i otvoriti prostor
+              za nove inicijative i sadržaje prijateljstva dve zemlje i dva
+              naroda.
+            </p>
+          </AboutUsInfo>
+        </AboutUsContent>
+        <AboutUsAdditionalInfo sx={{ fontFamily: 'body', color: 'primary' }}>
+          {about.edges.map(({ node }) => {
+            return (
+              <>
+                <AboutUsSubtitle sx={{ color: 'primary', fontFamily: 'body' }}>
+                  {node.title}
+                </AboutUsSubtitle>
+                <p sx={{ marginBottom: 16 }}>
+                  {node.paragraph1 && node.paragraph1.paragraph1}
+                </p>
+                <p sx={{ marginBottom: 32 }}>
+                  {node.paragraph2 && node.paragraph2.paragraph2}
+                </p>
+              </>
+            );
+          })}
+        </AboutUsAdditionalInfo>
+      </Container>
     </SectionContainer>
   );
 };
 
-const AboutUsContent = styled.div`
+const Container = styled.div`
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
   @media (min-width: 1600px) {
-    display: flex;
-    align-items: center;
+    max-width: 1410px;
+  }
+  @media (min-width: 1800px) {
+    max-width: 1420px;
   }
 `;
+
+const AboutUsContent = styled.div``;
 
 const Figure = styled.figure`
   margin-bottom: 2rem;
   @media (min-width: 1200px) {
     margin-bottom: 4rem;
-  }
-  @media (min-width: 1600px) {
-    flex-basis: 50%;
-    margin-right: 3%;
+    width: 50%;
+    float: left;
+    margin-right: 3rem;
     margin-bottom: 0;
   }
 `;
 
-const AboutUsInfo = styled.p`
+const AboutUsInfo = styled.div`
   padding: 0 1.6rem;
   letter-spacing: 2px;
   font-size: 2rem;
   line-height: 3rem;
   font-weight: 300;
-  color: ${props => props.colors.primary};
-  @media (min-width: 1600px) {
-    flex-basis: 43%;
-    font-size: 2.5rem;
+  @media (min-width: 1200px) {
+    padding: 0;
+    font-size: 2rem;
     line-height: 3.5rem;
     text-align: left;
   }
   @media (min-width: 1800px) {
-    flex-basis: 35%;
+    font-size: 2.5rem;
+  }
+`;
+
+const AboutUsAdditionalInfo = styled.div`
+  padding: 0 1.6rem;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 300;
+  @media (min-width: 1200px) {
+    padding: 0;
+    font-size: 2rem;
+    line-height: 3.5rem;
+    text-align: left;
+  }
+  @media (min-width: 1800px) {
+    font-size: 2.5rem;
+  }
+`;
+
+const AboutUsSubtitle = styled.h5`
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  @media (min-width: 1200px) {
+    font-size: 3rem;
   }
 `;
