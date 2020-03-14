@@ -7,6 +7,8 @@ module.exports = {
     title: `Kongres srpsko-američkog prijateljstva`,
     description: `Kongres srpsko-američkog prijateljstva`,
     author: `@AleksandarM986`,
+    VudroVilson: `Centar za američke studije Vudro Vilson`,
+    regionSafety: `Centar za regionalnu bezbednost`,
   },
   plugins: [
     // {
