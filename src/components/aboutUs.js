@@ -34,7 +34,6 @@ export const AboutUs = () => {
   `);
 
   const { aboutUsImg, about } = data;
-  console.log(data);
 
   const {
     theme: { colors },
@@ -69,9 +68,9 @@ export const AboutUs = () => {
           </AboutUsInfo>
         </AboutUsContent>
         <AboutUsAdditionalInfo sx={{ fontFamily: 'body', color: 'primary' }}>
-          {about.edges.map(({ node }) => {
+          {about.edges.map(({ node }, i) => {
             return (
-              <>
+              <div key={i}>
                 <AboutUsSubtitle sx={{ color: 'primary', fontFamily: 'body' }}>
                   {node.title}
                 </AboutUsSubtitle>
@@ -81,7 +80,7 @@ export const AboutUs = () => {
                 <p sx={{ marginBottom: 32 }}>
                   {node.paragraph2 && node.paragraph2.paragraph2}
                 </p>
-              </>
+              </div>
             );
           })}
         </AboutUsAdditionalInfo>
