@@ -57,8 +57,8 @@ export const News = () => {
     <SectionContainer sectionTitle="aktuelnosti ksap">
       <NewsContainer>
         <DatePicker
-          openToDate={date}
           inline
+          openToDate={date}
           onSelect={handleDateSelect}
           dateFormat="MMMM d."
           highlightDates={highlightWithRanges}
@@ -197,7 +197,7 @@ const NewsContainer = styled.div`
           background: #0d153e;
         }
         &--today {
-          font-weight: 700;
+          font-weight: 400;
         }
       }
       &__week {
