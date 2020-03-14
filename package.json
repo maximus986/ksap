@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Aleksandar Maksimovic <aleksandar.maksimovic2608@gmail.com>",
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
     "date-fns": "^2.10.0",
