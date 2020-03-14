@@ -17,7 +17,7 @@ export default {
   },
   fonts: {
     body: 'Roboto',
-    heading: 'Montserrat',
+    heading: 'NeoplantaBG',
     monospace: 'Menlo, monospace',
   },
   fontWeights: {

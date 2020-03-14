@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 export const Banner = () => {
   return (
     <BannerContainer>
-      <h1 sx={{ fontFamily: 'body', fontWeight: 'bold', color: 'heading' }}>
+      <h1 sx={{ fontFamily: 'heading', fontWeight: 'bold', color: 'heading' }}>
         dobro došli u ksap
       </h1>
     </BannerContainer>

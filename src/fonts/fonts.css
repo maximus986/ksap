@@ -1,0 +1,28 @@
+@font-face {
+  font-family: NeoplantaBG-Bold;
+  font-weight: 700;
+  font-style: normal;
+  src: url('NeoplantaBG-Bold.otf') format('otf');
+  font-display: swap;
+}
+@font-face {
+  font-family: NeoplantaBG-BoldITalic;
+  font-weight: 700;
+  font-style: normal;
+  src: url('NeoplantaBG-BoldItalic.otf') format('otf');
+  font-display: swap;
+}
+@font-face {
+  font-family: NeoplantaBG-Italic;
+  font-weight: 700;
+  font-style: normal;
+  src: url('NeoplantaBG-Italic.otf') format('otf');
+  font-display: swap;
+}
+@font-face {
+  font-family: NeoplantaBG;
+  font-weight: 700;
+  font-style: normal;
+  src: url('NeoplantaBG.otf') format('otf');
+  font-display: swap;
+}
