@@ -82,7 +82,9 @@ export const News = () => {
               </EventDetails>
             </>
           ) : (
-            <NoEvent sx={{ color: 'heading', fontFamily: 'body' }}>
+            <NoEvent
+              sx={{ color: 'heading', fontFamily: 'body', fontWeight: 'body' }}
+            >
               Ne postoje događaji za izabrani datum.
             </NoEvent>
           )}
