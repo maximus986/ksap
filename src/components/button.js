@@ -7,9 +7,10 @@ export const Button = ({ path, children }) => {
   const {
     theme: { colors },
   } = useThemeUI();
+
   return (
     <Btn
-      href={path}
+      to={path}
       sx={{
         bg: 'primary',
         fontFamily: 'heading',
