@@ -12,7 +12,7 @@ import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import foundersMembersSectionImg from '../images/section-bg.png';
 import membersContactSectionImg from '../images/postanite-clan-bg.png';
-import { Academy } from '../components/Academy';
+import { Academy } from '../components/academy';
 import { Members } from '../components/members';
 import { Contact } from '../components/contact';
 import Map from '../components/map';
