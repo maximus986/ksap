@@ -25,6 +25,7 @@ export const News = () => {
           event: node {
             id
             eventDate
+            title
             eventDescription
             eventContent {
               eventContent
@@ -67,12 +68,12 @@ export const News = () => {
         />
 
         <NewsContent sx={{ fontFamily: 'body' }}>
-          <EventDate sx={{ color: 'secondary' }}>
+          <EventDate sx={{ color: 'secondary', fontWeight: 'medium' }}>
             {format(date, 'MMMM d.', { locale: sr })}
           </EventDate>
           {showEvent ? (
             <>
-              <EventTitle sx={{ color: 'heading' }}>
+              <EventTitle sx={{ color: 'heading', fontWeight: 'body' }}>
                 {event.title}
                 <span>{event.eventDescription}</span>
               </EventTitle>
@@ -222,14 +223,12 @@ const NewsContent = styled.div`
 `;
 const EventDate = styled.h4`
   font-size: 4.8rem;
-  font-weight: 500;
   margin-bottom: 5rem;
   text-transform: uppercase;
 `;
 
 const EventTitle = styled.h5`
   font-size: 3.6rem;
-  font-weight: 300;
   letter-spacing: 3px;
   margin-bottom: 5rem;
   span {
