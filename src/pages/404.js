@@ -14,11 +14,11 @@ const NotFoundPage = () => {
     <Background {...{ colors }}>
       <SectionContainer sectionTitle="stranica ne postoji">
         <SEO title="Stranica ne postoji" />
-        <SubTitle sx={{ color: 'heading', fontFamily: 'heading' }}>
+        <SubTitle sx={{ color: 'heading', fontFamily: 'body' }}>
           Zahtevana stranica nije pronađena.
         </SubTitle>
         <Button path="/">
-          <span>Početna strana</span>
+          <span sx={{ fontFamily: 'body' }}>Početna strana</span>
         </Button>
       </SectionContainer>
     </Background>
