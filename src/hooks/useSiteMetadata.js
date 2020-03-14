@@ -9,6 +9,8 @@ export const useSiteMetadata = () => {
             title
             description
             author
+            VudroVilson
+            regionSafety
           }
         }
       }
