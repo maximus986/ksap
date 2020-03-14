@@ -1,8 +1,23 @@
 import { css, Global } from '@emotion/core';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
+import { Banner } from './banner';
 import { Header } from './header/header';
+import Hero from './hero';
 
 const Layout = ({ children }) => {
+  const { heroImage } = useStaticQuery(graphql`
+    {
+      heroImage: file(relativePath: { eq: "hero.png" }) {
+        name
+        childImageSharp {
+          fluid(maxWidth: 4160, quality: 90) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `);
   return (
     <>
       <Global
@@ -27,6 +42,13 @@ const Layout = ({ children }) => {
         sx={{ fontFamily: 'body' }}
       />
       <Header />
+      <Hero
+        img={heroImage.childImageSharp.fluid}
+        alt={heroImage.name}
+        hero={true}
+      >
+        <Banner />
+      </Hero>
       <main>{children}</main>
     </>
   );

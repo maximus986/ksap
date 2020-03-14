@@ -1,21 +1,18 @@
 import styled from '@emotion/styled';
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useThemeUI } from 'theme-ui';
 import { AboutUs } from '../components/aboutUs';
-import { Banner } from '../components/banner';
+import { Academy } from '../components/academy';
+import { Contact } from '../components/contact';
 import { Founders } from '../components/founders/founders';
-import Hero from '../components/hero';
 import Layout from '../components/layout';
+import Map from '../components/map';
+import { Members } from '../components/members';
 import { News } from '../components/news/news';
 import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
-import foundersMembersSectionImg from '../images/section-bg.png';
 import membersContactSectionImg from '../images/postanite-clan-bg.png';
-import { Academy } from '../components/academy';
-import { Members } from '../components/members';
-import { Contact } from '../components/contact';
-import Map from '../components/map';
+import foundersMembersSectionImg from '../images/section-bg.png';
 
 const IndexPage = () => {
   const {
@@ -26,29 +23,9 @@ const IndexPage = () => {
     siteMetadata: { title },
   } = useSiteMetadata();
 
-  const { heroImage } = useStaticQuery(graphql`
-    {
-      heroImage: file(relativePath: { eq: "hero.png" }) {
-        name
-        childImageSharp {
-          fluid(maxWidth: 4160, quality: 90) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `);
-
   return (
     <Layout>
       <SEO title={title} />
-      <Hero
-        img={heroImage.childImageSharp.fluid}
-        alt={heroImage.name}
-        hero={true}
-      >
-        <Banner />
-      </Hero>
       <AboutUs />
       <FoundersNewsBackgroundSection {...{ colors }}>
         <Founders />
