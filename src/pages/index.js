@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { useThemeUI } from 'theme-ui';
 import { AboutUs } from '../components/aboutUs';
-import { Academy } from '../components/academy';
+import { Academy } from '../components/Academy';
 import { Contact } from '../components/contact';
 import { Founders } from '../components/founders/founders';
 import Layout from '../components/layout';
