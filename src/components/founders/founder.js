@@ -46,6 +46,7 @@ const FounderContainer = styled.figure`
 const FounderImg = styled(Img)`
   line-height: 4rem;
   letter-spacing: 2px;
+  margin-bottom: 2rem;
 `;
 
 const FounderName = styled.span`
