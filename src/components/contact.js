@@ -26,7 +26,15 @@ export const Contact = () => {
               <SocialLink href={link.url} {...{ colors }}>
                 {link.icon}
               </SocialLink>
-              <SocialLinkLabel {...{ colors }}>{link.label}</SocialLinkLabel>
+              <SocialLinkLabel
+                sx={{
+                  fontFamily: 'body',
+                  fontWeight: 'body',
+                  color: 'muted',
+                }}
+              >
+                {link.label}
+              </SocialLinkLabel>
             </SocialLinkContainer>
           );
         })}
@@ -113,7 +121,6 @@ const SocialLink = styled.a`
 
 const SocialLinkLabel = styled.span`
   font-size: 3rem;
-  color: ${props => props.colors.muted};
   font-weight: 300;
   @media (min-width: 992px) {
     font-size: 4.8rem;

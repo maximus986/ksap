@@ -24,6 +24,7 @@ const Layout = ({ children }) => {
             text-decoration: none;
           }
         `}
+        sx={{ fontFamily: 'body' }}
       />
       <Header />
       <main>{children}</main>

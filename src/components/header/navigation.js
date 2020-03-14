@@ -18,7 +18,7 @@ export const Navigation = ({ showMenu, onNavigate }) => {
               to={link.path}
               sx={{
                 fontFamily: 'body',
-                fontWeight: 'bold',
+                fontWeight: 'medium',
                 transition: 'link',
                 '&:hover': {
                   color: 'secondary',
