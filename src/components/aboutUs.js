@@ -151,7 +151,7 @@ const AboutUsAdditionalInfo = styled.div`
 
 const AboutUsSubtitle = styled.h5`
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.6rem;
   font-size: 2.5rem;
   @media (min-width: 1200px) {
     font-size: 3rem;
