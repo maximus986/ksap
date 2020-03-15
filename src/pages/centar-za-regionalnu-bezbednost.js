@@ -34,8 +34,43 @@ const CentarZaRegionalnuBezbednost = () => {
 
   const regionSafetyContent = center.edges[0].node.aboutCenter.json;
 
-  const Bold = ({ children }) => <span className="bold">{children}</span>;
-  const Text = ({ children }) => <p className="align-center">{children}</p>;
+  const Bold = ({ children }) => (
+    <span sx={{ fontWeight: 'bold' }}>{children}</span>
+  );
+  const Text = ({ children }) => <p sx={{ marginBottom: 16 }}>{children}</p>;
+  const Heading5 = ({ children }) => (
+    <h5
+      sx={{
+        fontSize: ['2.5rem', '3rem'],
+        fontFamily: 'body',
+        mb: 16,
+        mt: 32,
+        textTransform: 'uppercase',
+      }}
+    >
+      {children}
+    </h5>
+  );
+  const Heading6 = ({ children }) => (
+    <h6
+      sx={{
+        fontSize: ['2rem', '2.5rem'],
+        fontFamily: 'body',
+        mb: 16,
+        mt: 32,
+        textTransform: 'uppercase',
+      }}
+    >
+      {children}
+    </h6>
+  );
+  const UlList = ({ children }) => (
+    <ul sx={{ pl: ['4rem', '10rem'], textAlign: ['left'] }}>{children}</ul>
+  );
+  const OlList = ({ children }) => (
+    <ol sx={{ pl: ['4rem', '10rem'], textAlign: ['left'] }}>{children}</ol>
+  );
+  const ListItem = ({ children }) => <li sx={{}}>{children}</li>;
 
   const options = {
     renderMark: {
@@ -43,6 +78,11 @@ const CentarZaRegionalnuBezbednost = () => {
     },
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+      [BLOCKS.HEADING_5]: (node, children) => <Heading5>{children}</Heading5>,
+      [BLOCKS.HEADING_6]: (node, children) => <Heading6>{children}</Heading6>,
+      [BLOCKS.UL_LIST]: (node, children) => <UlList>{children}</UlList>,
+      [BLOCKS.OL_LIST]: (node, children) => <OlList>{children}</OlList>,
+      [BLOCKS.LIST_ITEM]: (node, children) => <ListItem>{children}</ListItem>,
     },
   };
   return (
