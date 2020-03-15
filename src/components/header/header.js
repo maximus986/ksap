@@ -63,12 +63,9 @@ const HeaderContainer = styled.header`
     box-shadow: none;
   @media (min-width: 1200px) {
     padding: 8rem 8rem;
-    /* padding: ${props => (props.animate ? '1rem 8rem' : '3.4rem 8rem')}; */
   }
   @media (min-width: 1600px) {
     padding: 8rem 15rem;
-    /* padding: ${props =>
-      props.animate ? '1rem 19.2rem' : '3.4rem 19.2rem'}; */
   }
 `;
 
