@@ -8,8 +8,12 @@ import Layout from '../components/layout';
 import { SectionContainer } from '../components/sectionContainer';
 import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
+import Hero from '../components/hero';
+import { Banner } from '../components/banner';
+import { useHeroImage } from '../hooks/useHeroImage';
 
 const CentarZaRegionalnuBezbednost = () => {
+  const { name, childImageSharp } = useHeroImage();
   const {
     siteMetadata: { regionSafety },
   } = useSiteMetadata();
@@ -88,6 +92,9 @@ const CentarZaRegionalnuBezbednost = () => {
   return (
     <Layout>
       <SEO title={regionSafety} />
+      <Hero img={childImageSharp.fluid} alt={name} hero={true}>
+        <Banner>{regionSafety}</Banner>
+      </Hero>
       <SectionContainer sectionTitle="o centru" sectionBgColor={colors.muted}>
         <Container>
           <Content sx={{ fontFamily: 'body', color: 'primary' }}>

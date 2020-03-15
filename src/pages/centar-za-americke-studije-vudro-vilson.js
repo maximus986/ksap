@@ -8,8 +8,12 @@ import Layout from '../components/layout';
 import { SectionContainer } from '../components/sectionContainer';
 import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
+import Hero from '../components/hero';
+import { Banner } from '../components/banner';
+import { useHeroImage } from '../hooks/useHeroImage';
 
 const CentarZaAmerickeStudijeVudroVilson = () => {
+  const { name, childImageSharp } = useHeroImage();
   const {
     siteMetadata: { VudroVilson },
   } = useSiteMetadata();
@@ -75,6 +79,9 @@ const CentarZaAmerickeStudijeVudroVilson = () => {
   return (
     <Layout>
       <SEO title={VudroVilson} />
+      <Hero img={childImageSharp.fluid} alt={name} hero={true}>
+        <Banner>{VudroVilson}</Banner>
+      </Hero>
       <SectionContainer sectionTitle="o centru" sectionBgColor={colors.muted}>
         <Container>
           <Content sx={{ fontFamily: 'body', color: 'primary' }}>

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
-import React from 'react';
+import { Fragment } from 'react';
 import format from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
 import sr from 'date-fns/locale/sr-Latn';
@@ -66,13 +66,12 @@ export const News = () => {
           locale="sr"
           calendarClassName="ksap-datepicker"
         />
-
         <NewsContent sx={{ fontFamily: 'body' }}>
           <EventDate sx={{ color: 'secondary', fontWeight: 'medium' }}>
             {format(date, 'MMMM d.', { locale: sr })}
           </EventDate>
           {showEvent ? (
-            <>
+            <Fragment>
               <EventTitle sx={{ color: 'heading', fontWeight: 'body' }}>
                 {event.title}
                 <span>{event.eventDescription}</span>
@@ -80,7 +79,7 @@ export const News = () => {
               <EventDetails sx={{ color: 'heading' }}>
                 {event.eventContent && event.eventContent.eventContent}
               </EventDetails>
-            </>
+            </Fragment>
           ) : (
             <NoEvent
               sx={{ color: 'heading', fontFamily: 'body', fontWeight: 'body' }}

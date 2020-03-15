@@ -11,10 +11,14 @@ import { Members } from '../components/members';
 import { News } from '../components/news/news';
 import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
+import { useHeroImage } from '../hooks/useHeroImage';
 import membersContactSectionImg from '../images/postanite-clan-bg.png';
 import foundersMembersSectionImg from '../images/section-bg.png';
+import Hero from '../components/hero';
+import { Banner } from '../components/banner';
 
 const IndexPage = () => {
+  const { name, childImageSharp } = useHeroImage();
   const {
     theme: { colors },
   } = useThemeUI();
@@ -26,6 +30,9 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title={title} />
+      <Hero img={childImageSharp.fluid} alt={name} hero={true}>
+        <Banner>dobro došli u ksap</Banner>
+      </Hero>
       <AboutUs />
       <FoundersNewsBackgroundSection {...{ colors }}>
         <Founders />

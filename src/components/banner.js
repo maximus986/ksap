@@ -1,12 +1,13 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
+import React from 'react';
 
-export const Banner = () => {
+export const Banner = ({ children }) => {
   return (
     <BannerContainer>
       <h1 sx={{ fontFamily: 'heading', fontWeight: 'bold', color: 'heading' }}>
-        dobro došli u ksap
+        {children}
       </h1>
     </BannerContainer>
   );
