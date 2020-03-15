@@ -36,4 +36,5 @@ export default {
   transition: {
     link: '0.3s ease',
   },
+  breakpoints: ['1200px'],
 };
