@@ -6,6 +6,7 @@ import { jsx, useThemeUI } from 'theme-ui';
 import { useForm } from '../hooks/useForm';
 import axios from 'axios';
 import sectionBg from '../images/postanite-clan-bg.png';
+import { Spinner } from 'theme-ui';
 
 const GOOGLE_FORM_NAME_ID = 'entry.1273178056';
 const GOOGLE_FORM_ORG_ID = 'entry.751534368';
@@ -40,9 +41,17 @@ export const Form = () => {
     },
     phone: {
       required: true,
+      validator: {
+        regEx: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/,
+        error: 'Uneli ste nevalidan broj telefona',
+      },
     },
     email: {
       required: true,
+      validator: {
+        regEx: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+        error: 'Uneli ste nevalidnu email adresu',
+      },
     },
     website: {
       required: false,
@@ -94,11 +103,6 @@ export const Form = () => {
     onSubmitForm
   );
 
-  const errorStyle = {
-    color: 'red',
-    fontSize: '13px',
-  };
-
   const {
     theme: { colors },
   } = useThemeUI();
@@ -109,147 +113,193 @@ export const Form = () => {
     >
       <Background>
         <FormContainer>
-          {!loading && (
-            <SignUpForm onSubmit={handleOnSubmit}>
-              <Col>
-                <FormGroup>
-                  <Label
-                    htmlFor="name"
+          <SignUpForm onSubmit={handleOnSubmit}>
+            <Col>
+              <FormGroup>
+                <Label
+                  htmlFor="name"
+                  sx={{ color: 'primary', fontFamily: 'body' }}
+                >
+                  Ime i Prezime*
+                  <Input
+                    type="text"
+                    name="name"
+                    id="name"
+                    value={state.name.value}
+                    onChange={handleOnChange}
                     sx={{ color: 'primary', fontFamily: 'body' }}
+                  />
+                </Label>
+                {state.name.error && (
+                  <p
+                    sx={{
+                      color: 'secondary',
+                      fontFamily: 'body',
+                      fontSize: '1.2rem',
+                      mt: '0.5rem',
+                      fontWeight: 'bold',
+                    }}
                   >
-                    Ime i Prezime*
-                    <Input
-                      type="text"
-                      name="name"
-                      id="name"
-                      value={state.name.value}
-                      onChange={handleOnChange}
-                      sx={{ color: 'primary', fontFamily: 'body' }}
-                    />
-                  </Label>
-                  {state.name.error && (
-                    <p style={errorStyle}>{state.name.error}</p>
-                  )}
-                </FormGroup>
-                <FormGroup>
-                  <Label
-                    htmlFor="org"
+                    {state.name.error}
+                  </p>
+                )}
+              </FormGroup>
+              <FormGroup>
+                <Label
+                  htmlFor="org"
+                  sx={{ color: 'primary', fontFamily: 'body' }}
+                >
+                  Organizacija
+                  <Input
+                    type="text"
+                    name="org"
+                    id="org"
+                    value={state.org.value}
+                    onChange={handleOnChange}
                     sx={{ color: 'primary', fontFamily: 'body' }}
-                  >
-                    Organizacija
-                    <Input
-                      type="text"
-                      name="org"
-                      id="org"
-                      value={state.org.value}
-                      onChange={handleOnChange}
-                      sx={{ color: 'primary', fontFamily: 'body' }}
-                    />
-                  </Label>
-                  {state.org.error && (
-                    <p style={errorStyle}>{state.org.error}</p>
-                  )}
-                </FormGroup>
-                <FormGroup>
-                  <Label
-                    htmlFor="phone"
+                  />
+                </Label>
+              </FormGroup>
+              <FormGroup>
+                <Label
+                  htmlFor="phone"
+                  sx={{ color: 'primary', fontFamily: 'body' }}
+                >
+                  Kontakt telefon*
+                  <Input
+                    type="text"
+                    name="phone"
+                    value={state.phone.value}
+                    onChange={handleOnChange}
                     sx={{ color: 'primary', fontFamily: 'body' }}
+                  />
+                </Label>
+                {state.phone.error && (
+                  <p
+                    sx={{
+                      color: 'secondary',
+                      fontFamily: 'body',
+                      fontSize: '1.2rem',
+                      mt: '0.5rem',
+                      fontWeight: 'bold',
+                    }}
                   >
-                    Kontakt telefon*
-                    <Input
-                      type="text"
-                      name="phone"
-                      value={state.phone.value}
-                      onChange={handleOnChange}
-                      sx={{ color: 'primary', fontFamily: 'body' }}
-                    />
-                  </Label>
-                  {state.phone.error && (
-                    <p style={errorStyle}>{state.phone.error}</p>
-                  )}
-                </FormGroup>
-                <FormGroup>
-                  <Label
-                    htmlFor="email"
+                    {state.phone.error}
+                  </p>
+                )}
+              </FormGroup>
+              <FormGroup>
+                <Label
+                  htmlFor="email"
+                  sx={{ color: 'primary', fontFamily: 'body' }}
+                >
+                  Email*
+                  <Input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={state.email.value}
+                    onChange={handleOnChange}
                     sx={{ color: 'primary', fontFamily: 'body' }}
+                  />
+                </Label>
+                {state.email.error && (
+                  <p
+                    sx={{
+                      color: 'secondary',
+                      fontFamily: 'body',
+                      fontSize: '1.2rem',
+                      mt: '0.5rem',
+                      fontWeight: 'bold',
+                    }}
                   >
-                    Email*
-                    <Input
-                      type="email"
-                      name="email"
-                      id="email"
-                      value={state.email.value}
-                      onChange={handleOnChange}
-                      sx={{ color: 'primary', fontFamily: 'body' }}
-                    />
-                  </Label>
-                  {state.email.error && (
-                    <p style={errorStyle}>{state.email.error}</p>
-                  )}
-                </FormGroup>
-                <FormGroup>
-                  <Label
-                    htmlFor="website"
+                    {state.email.error}
+                  </p>
+                )}
+              </FormGroup>
+              <FormGroup>
+                <Label
+                  htmlFor="website"
+                  sx={{ color: 'primary', fontFamily: 'body' }}
+                >
+                  Web stranica
+                  <Input
+                    type="text"
+                    name="website"
+                    id="website"
+                    value={state.website.value}
+                    onChange={handleOnChange}
                     sx={{ color: 'primary', fontFamily: 'body' }}
-                  >
-                    Web stranica
-                    <Input
-                      type="text"
-                      name="website"
-                      id="website"
-                      value={state.website.value}
-                      onChange={handleOnChange}
-                      sx={{ color: 'primary', fontFamily: 'body' }}
-                    />
-                  </Label>
-                  {state.website.error && (
-                    <p style={errorStyle}>{state.website.error}</p>
-                  )}
-                </FormGroup>
-              </Col>
-              <Col>
-                <FormGroup>
-                  <Label
-                    htmlFor="message"
+                  />
+                </Label>
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Label
+                  htmlFor="message"
+                  sx={{ color: 'primary', fontFamily: 'body' }}
+                >
+                  Zašto želite da postanete član KSAP?
+                  <Textarea
+                    type="text"
+                    name="message"
+                    id="message"
+                    value={state.message.value}
+                    onChange={handleOnChange}
                     sx={{ color: 'primary', fontFamily: 'body' }}
-                  >
-                    Zašto želite da postanete član KSAP?
-                    <Textarea
-                      type="text"
-                      name="message"
-                      id="message"
-                      value={state.message.value}
-                      onChange={handleOnChange}
-                      sx={{ color: 'primary', fontFamily: 'body' }}
-                    ></Textarea>
-                  </Label>
-                  {state.message.error && (
-                    <p style={errorStyle}>{state.message.error}</p>
-                  )}
-                </FormGroup>
-                <Button
-                  type="submit"
-                  name="submit"
-                  disabled={disable}
+                  ></Textarea>
+                </Label>
+              </FormGroup>
+              <Button
+                type="submit"
+                name="submit"
+                disabled={disable}
+                sx={{
+                  backgroundColor: 'primary',
+                  color: 'background',
+                  fontFamily: 'body',
+                }}
+              >
+                {loading ? (
+                  <Spinner
+                    title="Loading"
+                    size={24}
+                    strokeWidth={4}
+                    sx={{ color: 'heading' }}
+                  />
+                ) : (
+                  <span>Pošalji</span>
+                )}
+              </Button>
+              {submitStatus && (
+                <p
                   sx={{
-                    backgroundColor: 'primary',
-                    color: 'background',
+                    color: 'primary',
                     fontFamily: 'body',
-                    '&:not(:disabled):hover': {
-                      backgroundColor: 'heading',
-                      borderColor: 'primary',
-                      color: 'primary',
-                    },
+                    fontSize: '2rem',
+                    mt: '1rem',
+                    fontWeight: 'bold',
                   }}
                 >
-                  Pošalji
-                </Button>
-              </Col>
-            </SignUpForm>
-          )}
-
-          {submitStatus && <p>Vasa prijava je uspesno poslata</p>}
-          {error && <p>Došlo je do greške, molimo Vas pokušajte ponovo.</p>}
+                  Vasa prijava je uspesno poslata!
+                </p>
+              )}
+              {error && (
+                <p
+                  sx={{
+                    color: 'secondary',
+                    fontFamily: 'body',
+                    fontSize: '2rem',
+                    mt: '1rem',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Došlo je do greške, molimo Vas pokušajte ponovo.
+                </p>
+              )}
+            </Col>
+          </SignUpForm>
         </FormContainer>
       </Background>
     </SectionContainer>
@@ -300,13 +350,17 @@ const SignUpForm = styled.form`
 
 const Col = styled.div`
   flex-basis: 48%;
+  &:last-of-type {
+    min-height: 490px;
+  }
   @media (min-width: 1600px) {
     flex-basis: 45%;
   }
 `;
 
 const FormGroup = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  min-height: 106px;
 `;
 
 const Label = styled.label`
@@ -338,6 +392,9 @@ const Button = styled.button`
   width: 100%;
   font-size: 2rem;
   transition: 0.3s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &:disabled {
     opacity: 0.7;
   }

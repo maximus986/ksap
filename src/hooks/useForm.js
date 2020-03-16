@@ -56,6 +56,12 @@ export const useForm = (stateSchema, validationSchema = {}, callback) => {
         if (value && !validationSchema[name].validator.regEx.test(value)) {
           error = validationSchema[name].validator.error;
         }
+        if (
+          value &&
+          value.length < validationSchema[name].validator.minLength
+        ) {
+          error = validationSchema[name].validator.error;
+        }
       }
 
       setState(prevState => ({
