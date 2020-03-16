@@ -98,13 +98,13 @@ const NewsContainer = styled.div`
     padding: 0 1.6rem;
     display: flex;
     align-items: start;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   @media (min-width: 1200px) {
     padding: 0 6rem;
   }
   @media (min-width: 1600px) {
-    padding: 0 30rem;
+    padding: 0 29rem;
   }
   .ksap-datepicker {
     margin-bottom: 2rem;
@@ -220,6 +220,7 @@ const NewsContent = styled.div`
     flex-basis: 45%;
     text-align: left;
     padding: 0;
+    margin-left: 8rem;
   }
 `;
 const EventDate = styled.h4`
