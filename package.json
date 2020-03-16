@@ -8,6 +8,7 @@
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
+    "axios": "^0.19.2",
     "date-fns": "^2.10.0",
     "date-fns-tz": "^1.0.10",
     "dotenv": "^8.2.0",
