@@ -107,11 +107,8 @@ export const Form = () => {
     theme: { colors },
   } = useThemeUI();
   return (
-    <SectionContainer
-      sectionBgColor={colors.muted}
-      sectionTitle="postanite član"
-    >
-      <Background>
+    <Background {...{ colors }}>
+      <SectionContainer sectionTitle="postanite član">
         <FormContainer>
           <SignUpForm onSubmit={handleOnSubmit}>
             <Col>
@@ -301,22 +298,21 @@ export const Form = () => {
             </Col>
           </SignUpForm>
         </FormContainer>
-      </Background>
-    </SectionContainer>
+      </SectionContainer>
+    </Background>
   );
 };
 
 const Background = styled.div`
+  background-color: ${props => props.colors.muted};
   @media (min-width: 992px) {
     background-image: url(${sectionBg});
     background-repeat: no-repeat;
-    background-position: 132% 24%;
+    background-position: 105% -66%;
   }
   @media (min-width: 1200px) {
     background-position: 100% 26%;
-  }
-  @media (min-width: 1600px) {
-    background-position: 100% 0;
+  }background-position: 100% 0;
   }
 `;
 
@@ -331,11 +327,12 @@ const FormContainer = styled.div`
   }
   @media (min-width: 1200px) {
     padding: 0 6rem;
+    width: 67%;
+    margin: 0 auto 0 0;
   }
   @media (min-width: 1600px) {
-    padding: 0 30rem;
+    padding: 0 29rem;
     width: 90%;
-    margin: 0 auto 0 0;
   }
 `;
 
@@ -346,6 +343,9 @@ const SignUpForm = styled.form`
     justify-content: space-between;
     align-items: flex-start;
   }
+  @media (min-width: 992px) {
+    justify-content: flex-start;
+  }
 `;
 
 const Col = styled.div`
@@ -353,8 +353,20 @@ const Col = styled.div`
   &:last-of-type {
     min-height: 490px;
   }
+  @media (min-width: 992px) {
+    flex-basis: 30%;
+    &:last-of-type {
+      margin-left: 7rem;
+    }
+  }
+  @media (min-width: 1200px) {
+    flex-basis: 38%;
+    &:last-of-type {
+      margin-left: 11rem;
+    }
+  }
   @media (min-width: 1600px) {
-    flex-basis: 45%;
+    flex-basis: 29%;
   }
 `;
 
