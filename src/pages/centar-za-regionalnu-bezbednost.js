@@ -36,7 +36,7 @@ const CentarZaRegionalnuBezbednost = () => {
     }
   `);
 
-  const regionSafetyContent = center.edges[0].node.aboutCenter.json;
+  const regionSafetyContent = center.edges[1].node.aboutCenter.json;
 
   const Bold = ({ children }) => (
     <span sx={{ fontWeight: 'bold' }}>{children}</span>

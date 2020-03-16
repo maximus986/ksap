@@ -36,7 +36,7 @@ const CentarZaAmerickeStudijeVudroVilson = () => {
     }
   `);
 
-  const vudroVilsonContent = center.edges[1].node.aboutCenter.json;
+  const vudroVilsonContent = center.edges[0].node.aboutCenter.json;
 
   const Bold = ({ children }) => (
     <span sx={{ fontWeight: 'bold' }}>{children}</span>
