@@ -55,6 +55,7 @@ const CentarZaRegionalnuBezbednost = () => {
       {children}
     </h5>
   );
+  // TODO Check font size
   const Heading6 = ({ children }) => (
     <h6
       sx={{
