@@ -28,11 +28,6 @@ module.exports = {
             variants: [`300`, `300i`, `400`, `400i`, `700`],
             subsets: [`latin-ext`],
           },
-          {
-            family: `Montserrat`,
-            variants: [`500`, `700`],
-            subsets: [`latin-ext`],
-          },
         ],
       },
     },
