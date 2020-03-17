@@ -401,6 +401,7 @@ const Textarea = styled.textarea`
 const Button = styled.button`
   border: none;
   padding: 1rem 2rem;
+  margin: 2rem 0;
   width: 100%;
   font-size: 2rem;
   transition: 0.3s linear;
