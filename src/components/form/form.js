@@ -59,11 +59,11 @@ export const Form = () => {
     validationStateSchema,
     onSubmitForm
   );
-  console.log(state);
 
   const {
     theme: { colors },
   } = useThemeUI();
+
   return (
     <Background {...{ colors }}>
       <SectionContainer sectionTitle="postanite član">
@@ -303,13 +303,6 @@ const Label = styled.label`
   font-size: 2.5rem;
   display: flex;
   flex-direction: column;
-  font-weight: 700;
-`;
-
-const Input = styled.input`
-  margin-top: 1em;
-  padding: 1rem 0.5rem;
-  font-size: 1.5rem;
   font-weight: 700;
 `;
 
