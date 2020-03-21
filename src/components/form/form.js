@@ -1,30 +1,16 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
-import { SectionContainer } from './sectionContainer';
+import { SectionContainer } from '../sectionContainer';
 import { jsx, useThemeUI } from 'theme-ui';
-import { useForm } from '../hooks/useForm';
+import { useForm } from '../../hooks/useForm';
 import axios from 'axios';
-import sectionBg from '../images/postanite-clan-bg.png';
+import sectionBg from '../../images/postanite-clan-bg.png';
 import { Spinner } from 'theme-ui';
-
-const GOOGLE_FORM_NAME_ID = 'entry.1273178056';
-const GOOGLE_FORM_ORG_ID = 'entry.751534368';
-const GOOGLE_FORM_PHONE_ID = 'entry.1659232797';
-const GOOGLE_FORM_EMAIL_ID = 'entry.1350179022';
-const GOOGLE_FORM_WEBSITE_ID = 'entry.18113544';
-const GOOGLE_FORM_MESSAGE_ID = 'entry.1597825015';
-const GOOGLE_FORM_ACTION_URL =
-  'https://docs.google.com/forms/u/0/d/e/1FAIpQLScBs7AuvNYQxelM3diHLZYhOpnvmW2rvCr84XIOt3cYGKaQjg/formResponse';
-const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
-const DEFAULT_VALUE = {
-  name: { value: '', error: '' },
-  org: { value: '', error: '' },
-  phone: { value: '', error: '' },
-  email: { value: '', error: '' },
-  website: { value: '', error: '' },
-  message: { value: '', error: '' },
-};
+import { DEFAULT_VALUE } from './form-default-value';
+import { formConfig } from './form-config';
+import { validationStateSchema } from './valdation-schema';
+import { Field } from './field';
 
 export const Form = () => {
   const [submitStatus, setSubmitStatus] = useState(false);
@@ -32,50 +18,21 @@ export const Form = () => {
   const [error, setError] = useState(false);
   const stateSchema = DEFAULT_VALUE;
 
-  const validationStateSchema = {
-    name: {
-      required: true,
-    },
-    org: {
-      required: false,
-    },
-    phone: {
-      required: true,
-      validator: {
-        regEx: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/,
-        error: 'Uneli ste nevalidan broj telefona',
-      },
-    },
-    email: {
-      required: true,
-      validator: {
-        regEx: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-        error: 'Uneli ste nevalidnu email adresu',
-      },
-    },
-    website: {
-      required: false,
-    },
-    message: {
-      required: false,
-    },
-  };
-
-  const onSubmitForm = event => {
+  const onSubmitForm = () => {
     sendMessage();
   };
 
   const sendMessage = () => {
     const formData = new FormData();
-    formData.append(GOOGLE_FORM_NAME_ID, state.name.value);
-    formData.append(GOOGLE_FORM_ORG_ID, state.org.value);
-    formData.append(GOOGLE_FORM_PHONE_ID, state.phone.value);
-    formData.append(GOOGLE_FORM_EMAIL_ID, state.email.value);
-    formData.append(GOOGLE_FORM_WEBSITE_ID, state.website.value);
-    formData.append(GOOGLE_FORM_MESSAGE_ID, state.message.value);
+    formData.append(formConfig.GOOGLE_FORM_NAME_ID, state.name.value);
+    formData.append(formConfig.GOOGLE_FORM_ORG_ID, state.org.value);
+    formData.append(formConfig.GOOGLE_FORM_PHONE_ID, state.phone.value);
+    formData.append(formConfig.GOOGLE_FORM_EMAIL_ID, state.email.value);
+    formData.append(formConfig.GOOGLE_FORM_WEBSITE_ID, state.website.value);
+    formData.append(formConfig.GOOGLE_FORM_MESSAGE_ID, state.message.value);
     setLoading(true);
     axios
-      .post(CORS_PROXY + GOOGLE_FORM_ACTION_URL, formData)
+      .post(formConfig.CORS_PROXY + formConfig.GOOGLE_FORM_ACTION_URL, formData)
       .then(() => {
         setState(prevState => ({
           ...prevState,
@@ -102,6 +59,7 @@ export const Form = () => {
     validationStateSchema,
     onSubmitForm
   );
+  console.log(state);
 
   const {
     theme: { colors },
@@ -113,20 +71,13 @@ export const Form = () => {
           <SignUpForm onSubmit={handleOnSubmit}>
             <Col>
               <FormGroup>
-                <Label
-                  htmlFor="name"
-                  sx={{ color: 'primary', fontFamily: 'body' }}
-                >
-                  Ime i Prezime*
-                  <Input
-                    type="text"
-                    name="name"
-                    id="name"
-                    value={state.name.value}
-                    onChange={handleOnChange}
-                    sx={{ color: 'primary', fontFamily: 'body' }}
-                  />
-                </Label>
+                <Field
+                  name="name"
+                  id="name"
+                  fieldValue={state.name.value}
+                  label="Ime i Prezime*"
+                  onChange={handleOnChange}
+                />
                 {state.name.error && (
                   <p
                     sx={{
@@ -142,35 +93,22 @@ export const Form = () => {
                 )}
               </FormGroup>
               <FormGroup>
-                <Label
-                  htmlFor="org"
-                  sx={{ color: 'primary', fontFamily: 'body' }}
-                >
-                  Organizacija
-                  <Input
-                    type="text"
-                    name="org"
-                    id="org"
-                    value={state.org.value}
-                    onChange={handleOnChange}
-                    sx={{ color: 'primary', fontFamily: 'body' }}
-                  />
-                </Label>
+                <Field
+                  name="org"
+                  id="org"
+                  fieldValue={state.org.value}
+                  label="Organizacija"
+                  onChange={handleOnChange}
+                />
               </FormGroup>
               <FormGroup>
-                <Label
-                  htmlFor="phone"
-                  sx={{ color: 'primary', fontFamily: 'body' }}
-                >
-                  Kontakt telefon*
-                  <Input
-                    type="text"
-                    name="phone"
-                    value={state.phone.value}
-                    onChange={handleOnChange}
-                    sx={{ color: 'primary', fontFamily: 'body' }}
-                  />
-                </Label>
+                <Field
+                  name="phone"
+                  id="phone"
+                  fieldValue={state.phone.value}
+                  label="Kontakt telefon*"
+                  onChange={handleOnChange}
+                />
                 {state.phone.error && (
                   <p
                     sx={{
@@ -186,20 +124,13 @@ export const Form = () => {
                 )}
               </FormGroup>
               <FormGroup>
-                <Label
-                  htmlFor="email"
-                  sx={{ color: 'primary', fontFamily: 'body' }}
-                >
-                  Email*
-                  <Input
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={state.email.value}
-                    onChange={handleOnChange}
-                    sx={{ color: 'primary', fontFamily: 'body' }}
-                  />
-                </Label>
+                <Field
+                  name="email"
+                  id="email"
+                  fieldValue={state.email.value}
+                  label="Email*"
+                  onChange={handleOnChange}
+                />
                 {state.email.error && (
                   <p
                     sx={{
@@ -215,20 +146,13 @@ export const Form = () => {
                 )}
               </FormGroup>
               <FormGroup>
-                <Label
-                  htmlFor="website"
-                  sx={{ color: 'primary', fontFamily: 'body' }}
-                >
-                  Web stranica
-                  <Input
-                    type="text"
-                    name="website"
-                    id="website"
-                    value={state.website.value}
-                    onChange={handleOnChange}
-                    sx={{ color: 'primary', fontFamily: 'body' }}
-                  />
-                </Label>
+                <Field
+                  name="website"
+                  id="website"
+                  fieldValue={state.website.value}
+                  label="Web stranica"
+                  onChange={handleOnChange}
+                />
               </FormGroup>
             </Col>
             <Col>

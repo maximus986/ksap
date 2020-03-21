@@ -16,7 +16,7 @@ import membersContactSectionImg from '../images/postanite-clan-bg.png';
 import foundersMembersSectionImg from '../images/section-bg.png';
 import Hero from '../components/hero';
 import { Banner } from '../components/banner';
-import { Form } from '../components/form';
+import { Form } from '../components/form/form';
 
 const IndexPage = () => {
   const { name, childImageSharp } = useHeroImage();
