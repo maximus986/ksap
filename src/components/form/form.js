@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { SectionContainer } from '../sectionContainer';
 import { jsx, useThemeUI } from 'theme-ui';
 import { useForm } from '../../hooks/useForm';

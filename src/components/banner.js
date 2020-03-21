@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import React from 'react';
 
 export const Banner = ({ children }) => {
   return (
