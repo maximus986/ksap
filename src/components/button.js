@@ -1,23 +1,17 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
-import { jsx, useThemeUI } from 'theme-ui';
 import { Link } from 'gatsby';
+import { jsx } from 'theme-ui';
 
-export const Button = ({ path, children }) => {
-  const {
-    theme: { colors },
-  } = useThemeUI();
-
+export const Button = ({ variant = 'primary',
+  to,
+  children, }) => {
   return (
     <Btn
-      to={path}
+      to={to}
       sx={{
-        bg: 'primary',
-        fontFamily: 'heading',
-        fontWeight: 'bold',
-        transition: 'link',
+        variant: `buttons.${variant}`,
       }}
-      {...{ colors }}
     >
       {children}
     </Btn>
@@ -30,12 +24,5 @@ const Btn = styled(Link)`
   text-align: center;
   text-transform: uppercase;
   border-radius: 4px;
-  color: #fff;
-  border: ${props => `2px solid ${props.colors.secondary}`};
   text-decoration: none;
-  &:hover {
-    background: transparent;
-    border-color: ${props => props.colors.heading};
-    color: ${props => props.colors.heading};
-  }
 `;

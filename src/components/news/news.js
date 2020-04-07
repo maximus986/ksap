@@ -6,7 +6,7 @@ import isSameDay from 'date-fns/isSameDay';
 import sr from 'date-fns/locale/sr-Latn';
 import toDate from 'date-fns/toDate';
 import { graphql, useStaticQuery } from 'gatsby';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { jsx } from 'theme-ui';
@@ -14,10 +14,6 @@ import { SectionContainer } from '../sectionContainer';
 registerLocale('sr', sr);
 
 export const News = () => {
-  const [date, setDate] = useState(new Date());
-  const [event, setEvent] = useState({});
-  const [showEvent, setShowEvent] = useState(false);
-
   const { events } = useStaticQuery(graphql`
     {
       events: allContentfulEvent {
@@ -27,16 +23,22 @@ export const News = () => {
             eventDate
             title
             eventDescription
-            eventContent {
-              eventContent
-            }
           }
         }
       }
     }
   `);
 
-  const highlightDates = events.edges.map(({ event }) =>
+  const [date, setDate] = useState(new Date());
+  const [scheduledEvents, setscheduledEvents] = useState(events.edges);
+  const [shownEvent, setShownEvent] = useState({});
+
+  // NOTE: At the moment there is no event with eventDate and because this eventDate {eventDate} is removed from query bellow
+  useEffect(() => {
+    console.log('called')
+  })
+
+  const highlightDates = scheduledEvents.map(({ event }) =>
     toDate(new Date(event.eventDate))
   );
 
@@ -48,9 +50,10 @@ export const News = () => {
 
   const handleDateSelect = date => {
     setDate(date);
-    events.edges.forEach(({ event }) => {
-      setEvent(event);
-      setShowEvent(isSameDay(date, new Date(event.eventDate)));
+    scheduledEvents.forEach(({ event }) => {
+      if (isSameDay(date, new Date(event.eventDate))) {
+        setShownEvent(event);
+      }
     });
   };
 
@@ -70,23 +73,27 @@ export const News = () => {
           <EventDate sx={{ color: 'secondary', fontWeight: 'medium' }}>
             {format(date, 'MMMM d.', { locale: sr })}
           </EventDate>
-          {showEvent ? (
+          {shownEvent ? (
             <Fragment>
               <EventTitle sx={{ color: 'heading', fontWeight: 'body' }}>
-                {event.title}
-                <span>{event.eventDescription}</span>
+                <span sx={{ mb: 3, display: 'block' }}>{shownEvent.title}</span>
+                <span sx={{
+                  fontStyle: 'italic',
+                  display: 'block',
+                  fontSize: '3rem',
+                }}>{shownEvent && shownEvent.eventDescription}</span>
               </EventTitle>
               <EventDetails sx={{ color: 'heading' }}>
-                {event.eventContent && event.eventContent.eventContent}
+                {shownEvent.eventContent && shownEvent.eventContent.eventContent}
               </EventDetails>
             </Fragment>
           ) : (
-            <NoEvent
-              sx={{ color: 'heading', fontFamily: 'body', fontWeight: 'body' }}
-            >
-              Ne postoje događaji za izabrani datum.
-            </NoEvent>
-          )}
+              <NoEvent
+                sx={{ color: 'heading', fontFamily: 'body', fontWeight: 'body' }}
+              >
+                Ne postoje događaji za izabrani datum.
+              </NoEvent>
+            )}
         </NewsContent>
       </NewsContainer>
     </SectionContainer>
@@ -233,11 +240,6 @@ const EventTitle = styled.h5`
   font-size: 3.6rem;
   letter-spacing: 3px;
   margin-bottom: 5rem;
-  span {
-    font-style: italic;
-    display: block;
-    font-size: 3rem;
-  }
 `;
 
 const EventDetails = styled.p`

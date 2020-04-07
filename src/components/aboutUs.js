@@ -16,24 +16,10 @@ export const AboutUs = () => {
           }
         }
       }
-      about: allContentfulAbout {
-        edges {
-          node {
-            title
-            paragraph1 {
-              paragraph1
-            }
-            paragraph2 {
-              paragraph2
-            }
-          }
-        }
-      }
     }
   `);
 
-  const { aboutUsImg, about } = data;
-
+  const { aboutUsImg } = data;
   const {
     theme: { colors },
   } = useThemeUI();
@@ -66,23 +52,6 @@ export const AboutUs = () => {
             </p>
           </AboutUsInfo>
         </AboutUsContent>
-        <AboutUsAdditionalInfo sx={{ fontFamily: 'body', color: 'primary' }}>
-          {about.edges.map(({ node }, i) => {
-            return (
-              <div key={i}>
-                <AboutUsSubtitle sx={{ color: 'primary', fontFamily: 'body' }}>
-                  {node.title}
-                </AboutUsSubtitle>
-                <p sx={{ marginBottom: 16 }}>
-                  {node.paragraph1 && node.paragraph1.paragraph1}
-                </p>
-                <p sx={{ marginBottom: 32 }}>
-                  {node.paragraph2 && node.paragraph2.paragraph2}
-                </p>
-              </div>
-            );
-          })}
-        </AboutUsAdditionalInfo>
       </Container>
     </SectionContainer>
   );
@@ -131,28 +100,3 @@ const AboutUsInfo = styled.div`
   }
 `;
 
-const AboutUsAdditionalInfo = styled.div`
-  padding: 0 1.6rem;
-  letter-spacing: 2px;
-  font-size: 2rem;
-  line-height: 3rem;
-  font-weight: 300;
-  @media (min-width: 1200px) {
-    padding: 0;
-    font-size: 2rem;
-    line-height: 3.5rem;
-    text-align: left;
-  }
-  @media (min-width: 1800px) {
-    font-size: 2.5rem;
-  }
-`;
-
-const AboutUsSubtitle = styled.h5`
-  text-transform: uppercase;
-  margin-bottom: 1.6rem;
-  font-size: 2.5rem;
-  @media (min-width: 1200px) {
-    font-size: 3rem;
-  }
-`;

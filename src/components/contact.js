@@ -24,9 +24,9 @@ export const Contact = () => {
         {socialLinks.map((link, i) => {
           return (
             <SocialLinkContainer key={i}>
-              <SocialLink href={link.url} {...{ colors }}>
+              <SocialLink href={link.url} target="_blank" rel="noopener noreferrer" {...{ colors }}>
                 <IconContainer {...{ colors }}>{link.icon}</IconContainer>
-                <SocialLinkLabel
+                {/* <SocialLinkLabel
                   sx={{
                     fontFamily: 'body',
                     fontWeight: 'body',
@@ -34,7 +34,7 @@ export const Contact = () => {
                   }}
                 >
                   {link.label}
-                </SocialLinkLabel>
+                </SocialLinkLabel> */}
               </SocialLink>
             </SocialLinkContainer>
           );
@@ -72,6 +72,9 @@ const Title = styled.h2`
 `;
 
 const SectionContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   max-width: 60rem;
   margin: 0 auto;
   @media (min-width: 992px) {
@@ -108,14 +111,14 @@ const SocialLink = styled.a`
   }
 `;
 
-const SocialLinkLabel = styled.span`
-  font-size: 3rem;
-  font-weight: 300;
-  transition: 0.3s linear;
-  @media (min-width: 992px) {
-    font-size: 4.8rem;
-  }
-`;
+// const SocialLinkLabel = styled.span`
+//   font-size: 3rem;
+//   font-weight: 300;
+//   transition: 0.3s linear;
+//   @media (min-width: 992px) {
+//     font-size: 4.8rem;
+//   }
+// `;
 const IconContainer = styled.div`
   display: flex;
   align-items: center;
@@ -124,20 +127,18 @@ const IconContainer = styled.div`
   height: 80px;
   line-height: 80px;
   border-radius: 50%;
-  margin-right: 2rem;
+  margin-right: 1rem;
   background: ${props => props.colors.primary};
   transition: 0.3s linear;
   svg {
     font-size: 4rem;
     color: ${props => props.colors.heading};
   }
+  @media (min-width: 576px) {
+  margin-right: 2rem;
+
+  }
   @media (min-width: 992px) {
     margin-right: 5rem;
-    width: 140px;
-    height: 140px;
-    line-height: 140px;
-    svg {
-      font-size: 8rem;
-    }
   }
 `;

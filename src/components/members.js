@@ -47,12 +47,6 @@ export const Members = () => {
           <Img fluid={images.pm.childImageSharp.fluid} alt={images.pm.name} />
         </figure>
       </SectionContent>
-      <Membership sx={{ color: 'primary', fontFamily: 'body' }}>
-        Sponzorstva članovi Udruženja plaćaju nezavisno od članarine. Visina
-        sponzorstava se iskazuje u evrima, a uplaćuje u dinarskoj
-        protivvrednosti po srednjem kursu Narodne banke Srbije na dan uplate.
-        Sponzorstva se uplaćuju na tekući račun Udruženja.
-      </Membership>
     </Section>
   );
 };
@@ -138,35 +132,5 @@ const SectionContent = styled.div`
 
 const Figure = styled.figure`
   @media (min-width: 576px) {
-  }
-`;
-
-const Membership = styled.p`
-  padding: 0 1.6rem;
-  letter-spacing: 2px;
-  font-size: 2rem;
-  line-height: 3rem;
-  font-weight: 300;
-  @media (min-width: 768px) {
-    margin-top: 2rem;
-    max-width: 60rem;
-    margin: 0 auto;
-  }
-  @media (min-width: 992px) {
-    max-width: 90rem;
-    text-align: left;
-  }
-  @media (min-width: 1200px) {
-    padding: 0;
-    font-size: 2rem;
-    line-height: 3.5rem;
-    text-align: left;
-    max-width: 100rem;
-  }
-  @media (min-width: 1600px) {
-    max-width: 120rem;
-  }
-  @media (min-width: 1800px) {
-    font-size: 2.5rem;
   }
 `;

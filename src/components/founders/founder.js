@@ -4,19 +4,19 @@ import Img from 'gatsby-image';
 import { jsx } from 'theme-ui';
 
 export const Founder = ({ founder }) => {
-  const { name, position, founderImage } = founder.node;
+  const { name, image } = founder.node;
 
   return (
     <FounderContainer>
-      <FounderImg fluid={founderImage.fluid} alt={name} />
-      <figcaption>
+      <FounderImg fluid={image.fluid} alt={name} />
+      {/* <figcaption>
         <FounderName sx={{ color: 'heading', fontFamily: 'body' }}>
           {name}
         </FounderName>
         <FounderPosition sx={{ color: 'heading', fontFamily: 'body' }}>
           {position}
         </FounderPosition>
-      </figcaption>
+      </figcaption> */}
     </FounderContainer>
   );
 };

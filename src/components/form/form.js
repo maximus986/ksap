@@ -1,16 +1,13 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
-import { useState } from 'react';
-import { SectionContainer } from '../sectionContainer';
-import { jsx, useThemeUI } from 'theme-ui';
-import { useForm } from '../../hooks/useForm';
 import axios from 'axios';
-import sectionBg from '../../images/postanite-clan-bg.png';
-import { Spinner } from 'theme-ui';
-import { DEFAULT_VALUE } from './form-default-value';
-import { formConfig } from './form-config';
-import { validationStateSchema } from './valdation-schema';
+import { useState } from 'react';
+import { jsx, Spinner, useThemeUI } from 'theme-ui';
+import { useForm } from '../../hooks/useForm';
 import { Field } from './field';
+import { formConfig } from './form-config';
+import { DEFAULT_VALUE } from './form-default-value';
+import { validationStateSchema } from './valdation-schema';
 
 export const Form = () => {
   const [submitStatus, setSubmitStatus] = useState(false);
@@ -65,200 +62,163 @@ export const Form = () => {
   } = useThemeUI();
 
   return (
-    <Background {...{ colors }}>
-      <SectionContainer sectionTitle="postanite član">
-        <FormContainer>
-          <SignUpForm onSubmit={handleOnSubmit}>
-            <Col>
-              <FormGroup>
-                <Field
-                  name="name"
-                  id="name"
-                  fieldValue={state.name.value}
-                  label="Ime i Prezime*"
-                  onChange={handleOnChange}
-                />
-                {state.name.error && (
-                  <p
-                    sx={{
-                      color: 'secondary',
-                      fontFamily: 'body',
-                      fontSize: '1.2rem',
-                      mt: '0.5rem',
-                      fontWeight: 'bold',
-                    }}
-                  >
-                    {state.name.error}
-                  </p>
-                )}
-              </FormGroup>
-              <FormGroup>
-                <Field
-                  name="org"
-                  id="org"
-                  fieldValue={state.org.value}
-                  label="Organizacija"
-                  onChange={handleOnChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Field
-                  name="phone"
-                  id="phone"
-                  fieldValue={state.phone.value}
-                  label="Kontakt telefon*"
-                  onChange={handleOnChange}
-                />
-                {state.phone.error && (
-                  <p
-                    sx={{
-                      color: 'secondary',
-                      fontFamily: 'body',
-                      fontSize: '1.2rem',
-                      mt: '0.5rem',
-                      fontWeight: 'bold',
-                    }}
-                  >
-                    {state.phone.error}
-                  </p>
-                )}
-              </FormGroup>
-              <FormGroup>
-                <Field
-                  name="email"
-                  id="email"
-                  fieldValue={state.email.value}
-                  label="Email*"
-                  onChange={handleOnChange}
-                />
-                {state.email.error && (
-                  <p
-                    sx={{
-                      color: 'secondary',
-                      fontFamily: 'body',
-                      fontSize: '1.2rem',
-                      mt: '0.5rem',
-                      fontWeight: 'bold',
-                    }}
-                  >
-                    {state.email.error}
-                  </p>
-                )}
-              </FormGroup>
-              <FormGroup>
-                <Field
-                  name="website"
-                  id="website"
-                  fieldValue={state.website.value}
-                  label="Web stranica"
-                  onChange={handleOnChange}
-                />
-              </FormGroup>
-            </Col>
-            <Col>
-              <FormGroup>
-                <Label
-                  htmlFor="message"
-                  sx={{ color: 'primary', fontFamily: 'body' }}
-                >
-                  Zašto želite da postanete član KSAP?
+    <SignUpForm onSubmit={handleOnSubmit}>
+      <Col>
+        <FormGroup>
+          <Field
+            name="name"
+            id="name"
+            fieldValue={state.name.value}
+            label="Ime i Prezime*"
+            onChange={handleOnChange}
+          />
+          {state.name.error && (
+            <p
+              sx={{
+                color: 'secondary',
+                fontFamily: 'body',
+                fontSize: '1.2rem',
+                mt: '0.5rem',
+                fontWeight: 'bold',
+              }}
+            >
+              {state.name.error}
+            </p>
+          )}
+        </FormGroup>
+        <FormGroup>
+          <Field
+            name="org"
+            id="org"
+            fieldValue={state.org.value}
+            label="Organizacija"
+            onChange={handleOnChange}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Field
+            name="phone"
+            id="phone"
+            fieldValue={state.phone.value}
+            label="Kontakt telefon*"
+            onChange={handleOnChange}
+          />
+          {state.phone.error && (
+            <p
+              sx={{
+                color: 'secondary',
+                fontFamily: 'body',
+                fontSize: '1.2rem',
+                mt: '0.5rem',
+                fontWeight: 'bold',
+              }}
+            >
+              {state.phone.error}
+            </p>
+          )}
+        </FormGroup>
+        <FormGroup>
+          <Field
+            name="email"
+            id="email"
+            fieldValue={state.email.value}
+            label="Email*"
+            onChange={handleOnChange}
+          />
+          {state.email.error && (
+            <p
+              sx={{
+                color: 'secondary',
+                fontFamily: 'body',
+                fontSize: '1.2rem',
+                mt: '0.5rem',
+                fontWeight: 'bold',
+              }}
+            >
+              {state.email.error}
+            </p>
+          )}
+        </FormGroup>
+        <FormGroup>
+          <Field
+            name="website"
+            id="website"
+            fieldValue={state.website.value}
+            label="Web stranica"
+            onChange={handleOnChange}
+          />
+        </FormGroup>
+      </Col>
+      <Col>
+        <FormGroup>
+          <Label
+            htmlFor="message"
+            sx={{ color: 'primary', fontFamily: 'body' }}
+          >
+            Zašto želite da postanete član KSAP?
                   <Textarea
-                    type="text"
-                    name="message"
-                    id="message"
-                    value={state.message.value}
-                    onChange={handleOnChange}
-                    sx={{ color: 'primary', fontFamily: 'body' }}
-                  ></Textarea>
-                </Label>
-              </FormGroup>
-              <Button
-                type="submit"
-                name="submit"
-                disabled={disable}
-                sx={{
-                  backgroundColor: 'primary',
-                  color: 'background',
-                  fontFamily: 'body',
-                }}
-              >
-                {loading ? (
-                  <Spinner
-                    title="Loading"
-                    size={24}
-                    strokeWidth={4}
-                    sx={{ color: 'heading' }}
-                  />
-                ) : (
-                  <span>Pošalji</span>
-                )}
-              </Button>
-              {submitStatus && (
-                <p
-                  sx={{
-                    color: 'primary',
-                    fontFamily: 'body',
-                    fontSize: '2rem',
-                    mt: '1rem',
-                    fontWeight: 'bold',
-                  }}
-                >
-                  Vasa prijava je uspesno poslata!
-                </p>
-              )}
-              {error && (
-                <p
-                  sx={{
-                    color: 'secondary',
-                    fontFamily: 'body',
-                    fontSize: '2rem',
-                    mt: '1rem',
-                    fontWeight: 'bold',
-                  }}
-                >
-                  Došlo je do greške, molimo Vas pokušajte ponovo.
-                </p>
-              )}
-            </Col>
-          </SignUpForm>
-        </FormContainer>
-      </SectionContainer>
-    </Background>
+              type="text"
+              name="message"
+              id="message"
+              value={state.message.value}
+              onChange={handleOnChange}
+              sx={{ color: 'primary', fontFamily: 'body' }}
+            ></Textarea>
+          </Label>
+        </FormGroup>
+        <Button
+          type="submit"
+          name="submit"
+          disabled={disable}
+          sx={{
+            backgroundColor: 'primary',
+            color: 'background',
+            fontFamily: 'body',
+          }}
+        >
+          {loading ? (
+            <Spinner
+              title="Loading"
+              size={24}
+              strokeWidth={4}
+              sx={{ color: 'heading' }}
+            />
+          ) : (
+              <span>Pošalji</span>
+            )}
+        </Button>
+        {submitStatus && (
+          <p
+            sx={{
+              color: 'primary',
+              fontFamily: 'body',
+              fontSize: '2rem',
+              mt: '1rem',
+              fontWeight: 'bold',
+            }}
+          >
+            Vasa prijava je uspesno poslata!
+          </p>
+        )}
+        {error && (
+          <p
+            sx={{
+              color: 'secondary',
+              fontFamily: 'body',
+              fontSize: '2rem',
+              mt: '1rem',
+              fontWeight: 'bold',
+            }}
+          >
+            Došlo je do greške, molimo Vas pokušajte ponovo.
+          </p>
+        )}
+      </Col>
+    </SignUpForm>
   );
 };
 
-const Background = styled.div`
-  background-color: ${props => props.colors.muted};
-  @media (min-width: 992px) {
-    background-image: url(${sectionBg});
-    background-repeat: no-repeat;
-    background-position: 105% -66%;
-  }
-  @media (min-width: 1200px) {
-    background-position: 100% 26%;
-  }background-position: 100% 0;
-  }
-`;
 
-const FormContainer = styled.div`
-  padding: 0 1.6rem;
-  @media (min-width: 576px) {
-    width: 60%;
-    margin: 0 auto;
-  }
-  @media (min-width: 768px) {
-    width: 100%;
-  }
-  @media (min-width: 1200px) {
-    padding: 0 6rem;
-    width: 67%;
-    margin: 0 auto 0 0;
-  }
-  @media (min-width: 1600px) {
-    padding: 0 29rem;
-    width: 90%;
-  }
-`;
 
 const SignUpForm = styled.form`
   @media (min-width: 768px) {

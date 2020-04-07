@@ -1,42 +1,37 @@
 /** @jsx jsx */
+import styled from '@emotion/styled';
+import { graphql } from 'gatsby';
+import { jsx, useThemeUI } from 'theme-ui';
+import { Banner } from '../../components/banner';
+import Hero from '../../components/hero';
+import Layout from '../../components/layout';
+import SEO from '../../components/seo';
+import { useHeroImage } from '../../hooks/useHeroImage';
+import { useSiteMetadata } from '../../hooks/useSiteMetadata';
+import { SectionContainer } from '../../components/sectionContainer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-import styled from '@emotion/styled';
-import { graphql, useStaticQuery } from 'gatsby';
-import { jsx, useThemeUI } from 'theme-ui';
-import Layout from '../components/layout';
-import { SectionContainer } from '../components/sectionContainer';
-import SEO from '../components/seo';
-import { useSiteMetadata } from '../hooks/useSiteMetadata';
-import Hero from '../components/hero';
-import { Banner } from '../components/banner';
-import { useHeroImage } from '../hooks/useHeroImage';
 
-const CentarZaAmerickeStudijeVudroVilson = () => {
+export const PAGE_QURY = graphql`
+    {
+      about: contentfulAbout {
+        aboutContent: about {
+          json
+        }
+      }
+    }
+  `;
+
+const ONama = ({ data }) => {
+  const { about: { aboutContent } } = data;
   const { name, childImageSharp } = useHeroImage();
   const {
-    siteMetadata: { VudroVilson },
+    siteMetadata: { title },
   } = useSiteMetadata();
-
   const {
     theme: { colors },
   } = useThemeUI();
 
-  const { center } = useStaticQuery(graphql`
-    {
-      center: allContentfulCenter {
-        edges {
-          node {
-            aboutCenter {
-              json
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const vudroVilsonContent = center.edges[0].node.aboutCenter.json;
   const Bold = ({ children }) => (
     <span sx={{ fontWeight: 'bold' }}>{children}</span>
   );
@@ -73,26 +68,39 @@ const CentarZaAmerickeStudijeVudroVilson = () => {
       [BLOCKS.OL_LIST]: (node, children) => <OlList>{children}</OlList>,
       [BLOCKS.LIST_ITEM]: (node, children) => <ListItem>{children}</ListItem>,
     },
-  };
+  }
 
   return (
     <Layout>
-      <SEO title={VudroVilson} />
+      <SEO title={title} />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
-        <Banner>{VudroVilson}</Banner>
+        <Banner>o nama</Banner>
       </Hero>
-      <SectionContainer sectionTitle="o centru" sectionBgColor={colors.muted}>
+      <SectionContainer sectionBgColor={colors.muted}>
         <Container>
           <Content sx={{ fontFamily: 'body', color: 'primary' }}>
-            {documentToReactComponents(vudroVilsonContent, options)}
+            {documentToReactComponents(aboutContent.json, options)}
           </Content>
         </Container>
       </SectionContainer>
     </Layout>
   );
-};
+}
 
-export default CentarZaAmerickeStudijeVudroVilson;
+export default ONama;
+
+const Container = styled.div`
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  @media (min-width: 1600px) {
+    max-width: 1410px;
+  }
+  @media (min-width: 1800px) {
+    max-width: 1420px;
+  }
+`;
 
 const Content = styled.div`
   padding: 0 1.6rem;
@@ -108,18 +116,5 @@ const Content = styled.div`
   }
   @media (min-width: 1800px) {
     font-size: 2.5rem;
-  }
-`;
-
-const Container = styled.div`
-  @media (min-width: 1200px) {
-    max-width: 1140px;
-    margin: 0 auto;
-  }
-  @media (min-width: 1600px) {
-    max-width: 1410px;
-  }
-  @media (min-width: 1800px) {
-    max-width: 1420px;
   }
 `;

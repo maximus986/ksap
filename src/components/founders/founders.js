@@ -9,20 +9,12 @@ import { carouselSettings } from './carousel-settings';
 import { Founder } from './founder';
 
 export const Founders = () => {
-  const foundersSorter = (founder1, founder2) => {
-    const order1 = founder1.node.order;
-    const order2 = founder2.node.order;
-    return order1 - order2;
-  };
   const { founders } = useStaticQuery(graphql`
     {
       founders: allContentfulFounder {
         edges {
           node {
-            name
-            position
-            order
-            founderImage {
+            image: founderImage {
               fluid {
                 ...GatsbyContentfulFluid_withWebp
               }
@@ -34,10 +26,10 @@ export const Founders = () => {
   `);
 
   return (
-    <SectionContainer sectionTitle="osnivači">
+    <SectionContainer sectionTitle="KSAP koktel">
       <FoundersContainer>
         <Slider {...carouselSettings}>
-          {founders.edges.sort(foundersSorter).map((node, i) => {
+          {founders.edges.map((node, i) => {
             return <Founder founder={node} key={i} />;
           })}
         </Slider>

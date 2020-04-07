@@ -5,7 +5,7 @@ export default [
   },
   {
     path: `/centar-za-americke-studije-vudro-vilson`,
-    text: `centar za americke studije vudro vilson`,
+    text: `centar za američke studije vudro vilson`,
   },
   {
     path: `/centar-za-regionalnu-bezbednost`,

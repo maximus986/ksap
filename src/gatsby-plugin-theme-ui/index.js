@@ -15,6 +15,35 @@ export default {
       },
     },
   },
+  buttons: {
+    common: {
+      fontFamily: 'body',
+      bg: 'primary',
+      fontWeight: 'bold',
+      transition: 'link',
+      borderWidth: '2px',
+      borderColor: 'secondary',
+      borderStyle: 'solid',
+      color: 'background',
+    },
+    primary: {
+      variant: 'buttons.common',
+      '&:hover': {
+        background: 'transparent',
+        borderColor: 'heading',
+        color: 'heading',
+      }
+    },
+    secondary: {
+      variant: 'buttons.common',
+      borderColor: 'primary',
+      '&:hover': {
+        borderColor: 'secondary',
+        bg: 'secondary',
+        color: 'heading',
+      }
+    },
+  },
   fonts: {
     body: 'Roboto',
     heading: 'NeoplantaBG',
@@ -36,5 +65,5 @@ export default {
   transition: {
     link: '0.3s ease',
   },
-  breakpoints: ['1200px'],
+  breakpoints: ['576px', '768px', '1200px'],
 };
