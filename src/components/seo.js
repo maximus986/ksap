@@ -5,8 +5,8 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import Helmet from 'react-helmet';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
@@ -14,6 +14,7 @@ function SEO({ description, lang, meta, title }) {
   const { siteMetadata } = useSiteMetadata();
 
   const metaDescription = description || siteMetadata.description;
+  const metaKeywords = siteMetadata.keywords;
 
   return (
     <Helmet
@@ -26,6 +27,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `keywords`,
+          content: metaKeywords,
         },
         {
           property: `og:title`,
@@ -61,7 +66,7 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `sr`,
   meta: [],
   description: ``,
 };
