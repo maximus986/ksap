@@ -218,35 +218,34 @@ export const Form = () => {
 
 const SignUpForm = styled.form`
   @media (min-width: 768px) {
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
   }
   @media (min-width: 992px) {
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
     justify-content: flex-start;
   }
 `;
 
 const Col = styled.div`
-  flex-basis: 48%;
+  /* flex-basis: 48%; */
   &:last-of-type {
     min-height: 490px;
   }
   @media (min-width: 992px) {
-    flex-basis: 30%;
+    flex-basis: 48%;
     &:last-of-type {
       margin-left: 7rem;
     }
   }
   @media (min-width: 1200px) {
-    flex-basis: 38%;
+    /* flex-basis: 38%; */
     &:last-of-type {
       margin-left: 11rem;
     }
   }
   @media (min-width: 1600px) {
-    flex-basis: 29%;
+    /* flex-basis: 29%; */
   }
 `;
 
