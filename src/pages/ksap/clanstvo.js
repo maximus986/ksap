@@ -1,18 +1,17 @@
 /** @jsx jsx */
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import styled from '@emotion/styled';
-import { jsx, useThemeUI } from 'theme-ui';
+import { graphql } from 'gatsby';
+import { Grid, jsx, useThemeUI } from 'theme-ui';
 import { Banner } from '../../components/banner';
+import { Form } from '../../components/form/form';
 import Hero from '../../components/hero';
 import Layout from '../../components/layout';
 import { SectionContainer } from '../../components/sectionContainer';
 import SEO from '../../components/seo';
 import { useHeroImage } from '../../hooks/useHeroImage';
 import { useSiteMetadata } from '../../hooks/useSiteMetadata';
-import { Form } from '../../components/form/form';
-import sectionBg from '../../images/postanite-clan-bg.png';
-import { graphql } from 'gatsby'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
 export const PAGE_QUERY = graphql`
   {
@@ -91,55 +90,52 @@ const Clanstvo = ({ data }) => {
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>članstvo</Banner>
       </Hero>
-      <Background {...{ colors }}>
-        <SectionContainer>
-          <MembershipContainer sx={{ fontFamily: 'body' }}>
-            <p
-              sx={{
-                mb: 3,
-              }}
-            >
-              Postanite član Kongresa srpsko-američkog prijateljstva!
+      <SectionContainer sectionBgColor={colors.muted}>
+        <MembershipContainer sx={{ fontFamily: 'body', textAlign: 'left' }}>
+          <Grid columns={[1, '1fr 1fr', '1fr 2fr', 1]} gap={['30px']}>
+            <div sx={{ textAlign: 'left' }}>
+              <p
+                sx={{
+                  mb: 3,
+                }}
+              >
+                Postanite član Kongresa srpsko-američkog prijateljstva!
           </p>
-            <p sx={{ marginBottom: 4 }}>
-              Popunite zahtev, a mi ćemo  organizovati sastanak na kom ćemo dogovoriti
-              dalje zajedničke aktivnosti i angažovanje u cilju jačanja srpsko-američkog prijateljstva.
+              <p sx={{ marginBottom: 4 }}>
+                Popunite zahtev, a mi ćemo  organizovati sastanak na kom ćemo dogovoriti
+                dalje zajedničke aktivnosti i angažovanje u cilju jačanja srpsko-američkog prijateljstva.
           </p>
-            <p>
-              Zahtev možete preuzeti i u pdf formatu na sledećim linkovima:
+              <p>
+                Zahtev možete preuzeti i u pdf formatu na sledećim linkovima:
           </p>
-            <ul>
-              {
-                documents.edges.map((document, i) => (
-                  <li key={i}>
-                    <a href={document.node.document.file.url} target="_blank" rel="noopener noreferrer">{document.node.label}</a>
-                  </li>
-                ))
-              }
-            </ul>
-            <Form />
-            {documentToReactComponents(membership.content.json, options)}
-          </MembershipContainer>
-        </SectionContainer>
-      </Background>
+              <ul>
+                {
+                  documents.edges.map((document, i) => (
+                    <li key={i} sx={{ listStyle: 'none', my: '15px' }}>
+                      <Link
+                        href={document.node.document.file.url}
+                        target="_blank" rel="noopener noreferrer"
+                        {...{ colors }}
+                      >
+                        {document.node.label}
+                      </Link>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div sx={{ textAlign: 'center', width: [null, null, null, '60%'] }}>
+              <Form />
+            </div>
+          </Grid>
+          {documentToReactComponents(membership.content.json, options)}
+        </MembershipContainer>
+      </SectionContainer>
     </Layout>
   );
 }
 
 export default Clanstvo;
-
-const Background = styled.div`
-  background-color: ${props => props.colors.muted};
-  @media (min-width: 992px) {
-    background-image: url(${sectionBg});
-    background-repeat: no-repeat;
-    background-position: 105% -66%;
-  }
-  @media (min-width: 1200px) {
-    background-position: 100% 26%;
-  }background-position: 100% 0;
-  }
-`;
 
 const MembershipContainer = styled.div`
   padding: 0 1.6rem;
@@ -148,25 +144,31 @@ const MembershipContainer = styled.div`
   line-height: 3rem;
   font-weight: 300;
   @media (min-width: 576px) {
-    width: 60%;
-    margin: 0 auto;
   }
   @media (min-width: 768px) {
     width: 100%;
   }
   @media (min-width: 1200px) {
+    text-align: left;
     font-size: 2rem;
     line-height: 3.5rem;
-    text-align: left;
-    padding: 0 6rem;
-    width: 67%;
-    margin: 0 auto 0 0;
+    max-width: 1140px;
+    margin: 0 auto;
   }
   @media (min-width: 1600px) {
-    padding: 0 29rem;
-    width: 90%;
+  max-width: 1410px;
   }
   @media (min-width: 1800px) {
+    max-width: 1420px;
     font-size: 2.5rem;
+  }
+`;
+
+const Link = styled.a`
+  color: ${props => props.colors.primary};
+  border-bottom: 1px solid ${ props => props.colors.primary};
+  transition: 0.3s linear;
+    &:hover {
+    border-bottom: 1px solid ${ props => props.colors.secondary};
   }
 `;

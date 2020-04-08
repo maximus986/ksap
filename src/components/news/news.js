@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
-import { Fragment } from 'react';
 import format from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
 import sr from 'date-fns/locale/sr-Latn';
 import toDate from 'date-fns/toDate';
 import { graphql, useStaticQuery } from 'gatsby';
-import { useState, useEffect } from 'react';
+import { Fragment, useState } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { jsx } from 'theme-ui';
@@ -14,6 +13,7 @@ import { SectionContainer } from '../sectionContainer';
 registerLocale('sr', sr);
 
 export const News = () => {
+  // NOTE: At the moment there is no event with eventDate and because this eventDate {eventDate} is removed from query bellow
   const { events } = useStaticQuery(graphql`
     {
       events: allContentfulEvent {
@@ -33,10 +33,6 @@ export const News = () => {
   const [scheduledEvents, setscheduledEvents] = useState(events.edges);
   const [shownEvent, setShownEvent] = useState({});
 
-  // NOTE: At the moment there is no event with eventDate and because this eventDate {eventDate} is removed from query bellow
-  useEffect(() => {
-    console.log('called')
-  })
 
   const highlightDates = scheduledEvents.map(({ event }) =>
     toDate(new Date(event.eventDate))
