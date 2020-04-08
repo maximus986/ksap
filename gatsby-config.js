@@ -5,20 +5,22 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Kongres srpsko-američkog prijateljstva`,
-    description: `Kongres srpsko-američkog prijateljstva`,
+    description: `KSAP je organizacija uticajnih pojedinica iz svih sfera društvenog i političkog života koji žele da Srbiju predstave SAD na jedan potpuno novi način, ali i da upoznaju Srbiju i njene građane sa istinskim vrednostima SAD`,
+    keywords: `Srbija, Sjedinjene Americke drzave, Kongres srpsko-američkog prijateljstva, Vudro Vilson, akademija, regionalna bezbednost`,
     author: `@AleksandarM986`,
     VudroVilson: `Centar za američke studije Vudro Vilson`,
     regionSafety: `Centar za regionalnu bezbednost`,
+    siteUrl: `https://ksap.netlify.com`,
   },
   plugins: [
-    // {
-    //   resolve: 'gatsby-plugin-robots-txt',
-    //   options: {
-    //     host: `site-url`, // add site url
-    //     sitemap: `site-url/sitemap.xml`, // add site url
-    //     policy: [{ userAgent: '*', allow: '/' }],
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: `https://ksap.netlify.com`, // add site url
+        sitemap: `https://ksap.netlify.com/sitemap.xml`, // add site url
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
@@ -40,7 +42,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-theme-ui`,
-    // `gatsby-plugin-sitemap`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
