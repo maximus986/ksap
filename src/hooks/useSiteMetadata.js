@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 export const useSiteMetadata = () => {
   const { site } = useStaticQuery(
@@ -9,6 +9,7 @@ export const useSiteMetadata = () => {
             title
             description
             author
+            keywords
             VudroVilson
             regionSafety
           }

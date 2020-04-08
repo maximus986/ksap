@@ -21,17 +21,17 @@ export const Header = () => {
     <HeaderContainer {...{ colors }}>
       <HeaderActionWrapper>
         <Link to="/">
-          <Img src={logo} alt="Site logo" />
+          <Img src={logo} alt="Logo" />
         </Link>
         {!showMenu ? (
           <MenuBtn {...{ colors }} onClick={handleShowMenu}>
             <GoThreeBars />
           </MenuBtn>
         ) : (
-          <MenuBtn {...{ colors }} onClick={handleShowMenu}>
-            <GoX />
-          </MenuBtn>
-        )}
+            <MenuBtn {...{ colors }} onClick={handleShowMenu}>
+              <GoX />
+            </MenuBtn>
+          )}
       </HeaderActionWrapper>
       <NavContainer>
         <Navigation showMenu={showMenu} onNavigate={() => setShowMenu(false)} />

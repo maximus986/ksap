@@ -1,7 +1,7 @@
 export default [
   {
     path: `/`,
-    text: `kongres srpsko američkog prijateljstva`,
+    text: `kongres srpsko-američkog prijateljstva`,
     submenu: [
       {
         path: `/ksap/o-nama`,
