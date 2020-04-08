@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 import axios from 'axios';
 import { useState } from 'react';
-import { jsx, Spinner, useThemeUI } from 'theme-ui';
+import { jsx, Spinner } from 'theme-ui';
 import { useForm } from '../../hooks/useForm';
 import { Field } from './field';
 import { formConfig } from './form-config';
@@ -56,10 +56,6 @@ export const Form = () => {
     validationStateSchema,
     onSubmitForm
   );
-
-  const {
-    theme: { colors },
-  } = useThemeUI();
 
   return (
     <SignUpForm onSubmit={handleOnSubmit}>
