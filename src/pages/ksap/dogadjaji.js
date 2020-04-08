@@ -42,7 +42,7 @@ const Dogadjaji = ({ data }) => {
     <Layout>
       <SEO title={title} />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
-        <Banner>o nama</Banner>
+        <Banner>događaji</Banner>
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
         <Container>
