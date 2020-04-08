@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { jsx, useThemeUI } from 'theme-ui';
 import styled from '@emotion/styled';
-import { SectionContainer } from './sectionContainer';
+import { jsx, useThemeUI } from 'theme-ui';
 import sectionBg from '../images/postanite-clan-bg.png';
-import { Button } from './button'
+import { Button } from './button';
+import { SectionContainer } from './sectionContainer';
 
 export const Membership = () => {
   const {
@@ -24,7 +24,7 @@ export const Membership = () => {
             Popunite zahtev, a mi ćemo  organizovati sastanak na kom ćemo dogovoriti
             dalje zajedničke aktivnosti i angažovanje u cilju jačanja srpsko-američkog prijateljstva.
           </p>
-          <Button path="/ksap/clanstvo" variant="secondary">
+          <Button to="/ksap/clanstvo" variant="secondary">
             <span sx={{ fontFamily: 'body' }}>Članstvo</span>
           </Button>
         </MembershipContainer>
