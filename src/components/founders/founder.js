@@ -49,17 +49,17 @@ const FounderImg = styled(Img)`
   margin-bottom: 2rem;
 `;
 
-const FounderName = styled.span`
-  font-size: 3rem;
-  font-weight: 300;
-  font-style: italic;
-  text-transform: capitalize;
-  display: block;
-`;
+// const FounderName = styled.span`
+//   font-size: 3rem;
+//   font-weight: 300;
+//   font-style: italic;
+//   text-transform: capitalize;
+//   display: block;
+// `;
 
-const FounderPosition = styled.span`
-  font-weight: 300;
-  display: block;
-  font-size: 2rem;
-  text-transform: uppercase;
-`;
+// const FounderPosition = styled.span`
+//   font-weight: 300;
+//   display: block;
+//   font-size: 2rem;
+//   text-transform: uppercase;
+// `;
