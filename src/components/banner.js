@@ -16,12 +16,9 @@ const BannerContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (min-width: 768px) {
-    width: 80%;
-    margin: 0 auto;
-  }
+  width: 80%;
+  margin: 0 auto;
   @media (min-width: 1200px) {
-    width: 100%;
     margin: 0 auto;
   }
 
