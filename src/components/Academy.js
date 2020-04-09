@@ -29,12 +29,12 @@ export const Academy = () => {
             textTransform: 'uppercase',
             transition: '0.3s',
             '&:hover': {
-              color: 'primary'
-            }
+              color: 'primary',
+            },
           }}
         >
           Srpsko-Američka akademija za lidere
-          </Link>
+        </Link>
       </h1>
     </BgImage>
   );
@@ -55,10 +55,10 @@ const BgImage = styled(BackgroundImage)`
   &::after {
     background-attachment: fixed;
   }
-  @media(min-width: 1200px) {
+  @media (min-width: 1200px) {
     min-height: 87vh;
   }
-  @media(min-width: 1600px) {
+  @media (min-width: 1600px) {
     min-height: 100vh;
   }
-`
+`;
