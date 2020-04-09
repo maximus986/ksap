@@ -13,17 +13,19 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
 export const PAGE_QURY = graphql`
-    {
-      about: contentfulAbout {
-        aboutContent: about {
-          json
-        }
+  {
+    about: contentfulAbout {
+      aboutContent: about {
+        json
       }
     }
-  `;
+  }
+`;
 
 const ONama = ({ data }) => {
-  const { about: { aboutContent } } = data;
+  const {
+    about: { aboutContent },
+  } = data;
   const { name, childImageSharp } = useHeroImage();
   const {
     siteMetadata: { title },
@@ -68,7 +70,7 @@ const ONama = ({ data }) => {
       [BLOCKS.OL_LIST]: (node, children) => <OlList>{children}</OlList>,
       [BLOCKS.LIST_ITEM]: (node, children) => <ListItem>{children}</ListItem>,
     },
-  }
+  };
 
   return (
     <Layout>
@@ -85,7 +87,7 @@ const ONama = ({ data }) => {
       </SectionContainer>
     </Layout>
   );
-}
+};
 
 export default ONama;
 

@@ -14,13 +14,12 @@ export default [
       {
         path: `/ksap/dogadjaji`,
         text: `događaji`,
-      }
-      ,
+      },
       {
         path: `/ksap/kontakt`,
         text: `kontakt`,
-      }
-    ]
+      },
+    ],
   },
   {
     path: `/centar-za-americke-studije-vudro-vilson`,

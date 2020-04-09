@@ -152,7 +152,7 @@ export const Form = () => {
             sx={{ color: 'primary', fontFamily: 'body' }}
           >
             Zašto želite da postanete član KSAP?
-                  <Textarea
+            <Textarea
               type="text"
               name="message"
               id="message"
@@ -180,8 +180,8 @@ export const Form = () => {
               sx={{ color: 'heading' }}
             />
           ) : (
-              <span>Pošalji</span>
-            )}
+            <span>Pošalji</span>
+          )}
         </Button>
         {submitStatus && (
           <p
@@ -213,8 +213,6 @@ export const Form = () => {
     </SignUpForm>
   );
 };
-
-
 
 const SignUpForm = styled.form`
   @media (min-width: 768px) {

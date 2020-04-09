@@ -24,7 +24,12 @@ export const Contact = () => {
         {socialLinks.map((link, i) => {
           return (
             <SocialLinkContainer key={i}>
-              <SocialLink href={link.url} target="_blank" rel="noopener noreferrer" {...{ colors }}>
+              <SocialLink
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                {...{ colors }}
+              >
                 <IconContainer {...{ colors }}>{link.icon}</IconContainer>
                 {/* <SocialLinkLabel
                   sx={{
@@ -135,8 +140,7 @@ const IconContainer = styled.div`
     color: ${props => props.colors.heading};
   }
   @media (min-width: 576px) {
-  margin-right: 2rem;
-
+    margin-right: 2rem;
   }
   @media (min-width: 992px) {
     margin-right: 5rem;

@@ -28,10 +28,10 @@ export const Header = () => {
             <GoThreeBars />
           </MenuBtn>
         ) : (
-            <MenuBtn {...{ colors }} onClick={handleShowMenu}>
-              <GoX />
-            </MenuBtn>
-          )}
+          <MenuBtn {...{ colors }} onClick={handleShowMenu}>
+            <GoX />
+          </MenuBtn>
+        )}
       </HeaderActionWrapper>
       <NavContainer>
         <Navigation showMenu={showMenu} onNavigate={() => setShowMenu(false)} />

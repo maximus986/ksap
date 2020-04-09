@@ -32,7 +32,7 @@ export default {
         background: 'transparent',
         borderColor: 'heading',
         color: 'heading',
-      }
+      },
     },
     secondary: {
       variant: 'buttons.common',
@@ -41,7 +41,7 @@ export default {
         borderColor: 'secondary',
         bg: 'secondary',
         color: 'heading',
-      }
+      },
     },
   },
   fonts: {

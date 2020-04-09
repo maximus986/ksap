@@ -3,9 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import { jsx } from 'theme-ui';
 
-export const Button = ({ variant = 'primary',
-  to,
-  children, }) => {
+export const Button = ({ variant = 'primary', to, children }) => {
   return (
     <Btn
       to={to}

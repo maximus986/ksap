@@ -21,8 +21,9 @@ export const Membership = () => {
             Postanite član Kongresa srpsko-američkog prijateljstva!
           </p>
           <p sx={{ marginBottom: 4 }}>
-            Popunite zahtev, a mi ćemo  organizovati sastanak na kom ćemo dogovoriti
-            dalje zajedničke aktivnosti i angažovanje u cilju jačanja srpsko-američkog prijateljstva.
+            Popunite zahtev, a mi ćemo organizovati sastanak na kom ćemo
+            dogovoriti dalje zajedničke aktivnosti i angažovanje u cilju jačanja
+            srpsko-američkog prijateljstva.
           </p>
           <Button to="/ksap/clanstvo" variant="secondary">
             <span sx={{ fontFamily: 'body' }}>Članstvo</span>
@@ -75,4 +76,3 @@ const MembershipContainer = styled.div`
     font-size: 2.5rem;
   }
 `;
-

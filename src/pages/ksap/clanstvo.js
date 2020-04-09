@@ -33,7 +33,7 @@ export const PAGE_QUERY = graphql`
       }
     }
   }
-  `;
+`;
 
 const Clanstvo = ({ data }) => {
   const { documents, membership } = data;
@@ -82,7 +82,7 @@ const Clanstvo = ({ data }) => {
       [BLOCKS.OL_LIST]: (node, children) => <OlList>{children}</OlList>,
       [BLOCKS.LIST_ITEM]: (node, children) => <ListItem>{children}</ListItem>,
     },
-  }
+  };
 
   return (
     <Layout>
@@ -100,28 +100,28 @@ const Clanstvo = ({ data }) => {
                 }}
               >
                 Postanite član Kongresa srpsko-američkog prijateljstva!
-          </p>
+              </p>
               <p sx={{ marginBottom: 4 }}>
-                Popunite zahtev, a mi ćemo  organizovati sastanak na kom ćemo dogovoriti
-                dalje zajedničke aktivnosti i angažovanje u cilju jačanja srpsko-američkog prijateljstva.
-          </p>
+                Popunite zahtev, a mi ćemo organizovati sastanak na kom ćemo
+                dogovoriti dalje zajedničke aktivnosti i angažovanje u cilju
+                jačanja srpsko-američkog prijateljstva.
+              </p>
               <p>
                 Zahtev možete preuzeti i u pdf formatu na sledećim linkovima:
-          </p>
+              </p>
               <ul>
-                {
-                  documents.edges.map((document, i) => (
-                    <li key={i} sx={{ listStyle: 'none', my: '15px' }}>
-                      <Link
-                        href={document.node.document.file.url}
-                        target="_blank" rel="noopener noreferrer"
-                        {...{ colors }}
-                      >
-                        {document.node.label}
-                      </Link>
-                    </li>
-                  ))
-                }
+                {documents.edges.map((document, i) => (
+                  <li key={i} sx={{ listStyle: 'none', my: '15px' }}>
+                    <Link
+                      href={document.node.document.file.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      {...{ colors }}
+                    >
+                      {document.node.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             <div sx={{ textAlign: 'center', width: [null, null, null, '60%'] }}>
@@ -133,7 +133,7 @@ const Clanstvo = ({ data }) => {
       </SectionContainer>
     </Layout>
   );
-}
+};
 
 export default Clanstvo;
 
@@ -156,7 +156,7 @@ const MembershipContainer = styled.div`
     margin: 0 auto;
   }
   @media (min-width: 1600px) {
-  max-width: 1410px;
+    max-width: 1410px;
   }
   @media (min-width: 1800px) {
     max-width: 1420px;
@@ -166,9 +166,9 @@ const MembershipContainer = styled.div`
 
 const Link = styled.a`
   color: ${props => props.colors.primary};
-  border-bottom: 1px solid ${ props => props.colors.primary};
+  border-bottom: 1px solid ${props => props.colors.primary};
   transition: 0.3s linear;
-    &:hover {
-    border-bottom: 1px solid ${ props => props.colors.secondary};
+  &:hover {
+    border-bottom: 1px solid ${props => props.colors.secondary};
   }
 `;

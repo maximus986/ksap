@@ -11,7 +11,6 @@ import SEO from '../../components/seo';
 import { useHeroImage } from '../../hooks/useHeroImage';
 import { useSiteMetadata } from '../../hooks/useSiteMetadata';
 
-
 const Kontakt = () => {
   const { name, childImageSharp } = useHeroImage();
   const {
@@ -28,22 +27,34 @@ const Kontakt = () => {
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
         <Container>
-          <Content sx={{
-            fontFamily: 'body', color: 'primary'
-          }}>
+          <Content
+            sx={{
+              fontFamily: 'body',
+              color: 'primary',
+            }}
+          >
             <Contact />
-            <Grid columns={[1, null, '1fr 1fr 1fr']} gap={['30px']} sx={{ alignItems: 'center' }}>
+            <Grid
+              columns={[1, null, '1fr 1fr 1fr']}
+              gap={['30px']}
+              sx={{ alignItems: 'center' }}
+            >
               <div>
                 <p sx={{ fontWeight: '700' }}>Adresa:</p>
                 <p>Njegoseva bb Beograd</p>
               </div>
               <div>
                 <p sx={{ fontWeight: '700' }}>Email adresa:</p>
-                <Link href="mailto: " {...{ colors }}>ksap@gmail.com</Link>
+                <Link href="mailto: " {...{ colors }}>
+                  ksap@gmail.com
+                </Link>
               </div>
               <div>
                 <p sx={{ fontWeight: '700' }}>Telefon:</p>
-                <Link href="tel: " {...{ colors }}> 0110110011</Link>
+                <Link href="tel: " {...{ colors }}>
+                  {' '}
+                  0110110011
+                </Link>
               </div>
             </Grid>
           </Content>
@@ -52,7 +63,7 @@ const Kontakt = () => {
       <Map />
     </Layout>
   );
-}
+};
 
 export default Kontakt;
 
@@ -87,9 +98,9 @@ const Content = styled.div`
 
 const Link = styled.a`
   color: ${props => props.colors.primary};
-  border-bottom: 1px solid ${ props => props.colors.primary};
+  border-bottom: 1px solid ${props => props.colors.primary};
   transition: 0.3s linear;
-    &:hover {
-    border-bottom: 1px solid ${ props => props.colors.secondary};
+  &:hover {
+    border-bottom: 1px solid ${props => props.colors.secondary};
   }
 `;

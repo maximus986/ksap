@@ -12,22 +12,22 @@ import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
 
 export const PAGE_QUERY = graphql`
-{
-  gallery: allFile(filter: {relativeDirectory: {eq: "gallery"}}) {
-    edges {
-      node {
-        id
-        name
-        childImageSharp {
-          fluid(maxWidth: 4160, quality: 90) {
-            ...GatsbyImageSharpFluid_withWebp
+  {
+    gallery: allFile(filter: { relativeDirectory: { eq: "gallery" } }) {
+      edges {
+        node {
+          id
+          name
+          childImageSharp {
+            fluid(maxWidth: 4160, quality: 90) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
           }
         }
       }
     }
   }
-}
-`
+`;
 
 const Dogadjaji = ({ data }) => {
   const { gallery } = data;
@@ -46,22 +46,18 @@ const Dogadjaji = ({ data }) => {
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
         <Container>
-          <Grid
-            columns={[1, '1fr 1fr', '1fr 1fr 1fr']}
-            gap={'20px'}>
-            {
-              gallery.edges.map(({ node }) => (
-                <figure key={node.id}>
-                  <Image fluid={node.childImageSharp.fluid} alt={node.name} />
-                </figure>
-              ))
-            }
+          <Grid columns={[1, '1fr 1fr', '1fr 1fr 1fr']} gap={'20px'}>
+            {gallery.edges.map(({ node }) => (
+              <figure key={node.id}>
+                <Image fluid={node.childImageSharp.fluid} alt={node.name} />
+              </figure>
+            ))}
           </Grid>
         </Container>
       </SectionContainer>
     </Layout>
   );
-}
+};
 
 export default Dogadjaji;
 
@@ -71,7 +67,6 @@ const Container = styled.div`
     padding: 0 2.6rem;
   }
   @media (min-width: 768px) {
-
   }
   @media (min-width: 1200px) {
     max-width: 1140px;

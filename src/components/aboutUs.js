@@ -99,4 +99,3 @@ const AboutUsInfo = styled.div`
     font-size: 2.5rem;
   }
 `;
-

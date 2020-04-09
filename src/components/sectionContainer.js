@@ -9,9 +9,7 @@ export const SectionContainer = ({
 }) => {
   return (
     <Section sectionBgColor={sectionBgColor}>
-      {
-        sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>
-      }
+      {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
       {children}
     </Section>
   );

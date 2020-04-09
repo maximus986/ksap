@@ -21,18 +21,16 @@ export const Navigation = ({ showMenu, onNavigate }) => {
       <NavLinks open={showMenu}>
         {navLinks.map((link, i) => (
           <ListItem key={i}>
-            {
-              link.submenu && (
-                showSubMenu ? (
-                  <MenuBtn {...{ colors }} onClick={handleShowSubMenu}>
-                    <GoDash />
-                  </MenuBtn>
-                ) : (
-                    <MenuBtn {...{ colors }} onClick={handleShowSubMenu}>
-                      <GoPlus />
-                    </MenuBtn>)
-              )
-            }
+            {link.submenu &&
+              (showSubMenu ? (
+                <MenuBtn {...{ colors }} onClick={handleShowSubMenu}>
+                  <GoDash />
+                </MenuBtn>
+              ) : (
+                <MenuBtn {...{ colors }} onClick={handleShowSubMenu}>
+                  <GoPlus />
+                </MenuBtn>
+              ))}
             <NavLink
               to={link.path}
               sx={{
@@ -49,32 +47,30 @@ export const Navigation = ({ showMenu, onNavigate }) => {
             >
               {link.text}
             </NavLink>
-            {
-              link.submenu &&
+            {link.submenu && (
               <SubMenuLinks openSubmenu={showSubMenu} {...{ colors }}>
-                {
-                  link.submenu.map((subMenuLink, i) => (
-                    <ListItem key={i}>
-                      <SubMenuNavLink
-                        to={subMenuLink.path}
-                        sx={{
-                          fontFamily: 'body',
-                          fontWeight: 'medium',
-                          transition: 'link',
-                          '&:hover': {
-                            color: 'secondary',
-                          },
-                        }}
-                        activeClassName="active"
-                        onClick={onNavigate}
-                        {...{ colors }}
-                      >{subMenuLink.text}
-                      </SubMenuNavLink>
-                    </ListItem>
-                  ))
-                }
+                {link.submenu.map((subMenuLink, i) => (
+                  <ListItem key={i}>
+                    <SubMenuNavLink
+                      to={subMenuLink.path}
+                      sx={{
+                        fontFamily: 'body',
+                        fontWeight: 'medium',
+                        transition: 'link',
+                        '&:hover': {
+                          color: 'secondary',
+                        },
+                      }}
+                      activeClassName="active"
+                      onClick={onNavigate}
+                      {...{ colors }}
+                    >
+                      {subMenuLink.text}
+                    </SubMenuNavLink>
+                  </ListItem>
+                ))}
               </SubMenuLinks>
-            }
+            )}
           </ListItem>
         ))}
       </NavLinks>
@@ -151,7 +147,7 @@ const NavLink = styled(Link)`
 `;
 
 const MenuBtn = styled.span`
-position: absolute;
+  position: absolute;
   top: 25px;
   right: 0;
   width: 3rem;
@@ -166,25 +162,25 @@ position: absolute;
 `;
 
 const SubMenuLinks = styled.ul`
-text-align: center;
-overflow: hidden;
-transition: height 0.35s ease;
-height: ${ props => (props.openSubmenu ? '230px' : '0')};
-@media(min-width: 576px) {
-  height: ${ props => (props.openSubmenu ? '280px' : '0')};
-}
-@media(min-width: 992px) {
-  position: absolute;
-  top: 100%;
-  left: 9px;
-  width: 90%;
-  padding: 1rem 0;
-  height: auto;
-  display: flex;
-  height: 0;
-  flex-direction: column;
-  text-align: left;
-}
+  text-align: center;
+  overflow: hidden;
+  transition: height 0.35s ease;
+  height: ${props => (props.openSubmenu ? '230px' : '0')};
+  @media (min-width: 576px) {
+    height: ${props => (props.openSubmenu ? '280px' : '0')};
+  }
+  @media (min-width: 992px) {
+    position: absolute;
+    top: 100%;
+    left: 9px;
+    width: 90%;
+    padding: 1rem 0;
+    height: auto;
+    display: flex;
+    height: 0;
+    flex-direction: column;
+    text-align: left;
+  }
 `;
 
 const SubMenuNavLink = styled(Link)`
