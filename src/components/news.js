@@ -9,17 +9,16 @@ import { Fragment, useState } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { jsx } from 'theme-ui';
-import { SectionContainer } from '../sectionContainer';
+import { SectionContainer } from './sectionContainer';
 registerLocale('sr', sr);
 
 export const News = () => {
-  // NOTE: At the moment there is no event with eventDate and because this eventDate {eventDate} is removed from query bellow
+  // NOTE: At the moment there is no event with eventContent and because of this eventContent {eventContent} is removed from query bellow
   const { events } = useStaticQuery(graphql`
     {
       events: allContentfulEvent {
         edges {
           event: node {
-            id
             eventDate
             title
             eventDescription
@@ -30,11 +29,9 @@ export const News = () => {
   `);
 
   const [date, setDate] = useState(new Date());
-  const [scheduledEvents, setscheduledEvents] = useState(events.edges);
-  const [shownEvent, setShownEvent] = useState({});
+  const [shownEvent, setShownEvent] = useState(null);
 
-
-  const highlightDates = scheduledEvents.map(({ event }) =>
+  const highlightDates = events.edges.map(({ event }) =>
     toDate(new Date(event.eventDate))
   );
 
@@ -46,10 +43,12 @@ export const News = () => {
 
   const handleDateSelect = date => {
     setDate(date);
-    scheduledEvents.forEach(({ event }) => {
+    let selectedEvent = null;
+    events.edges.forEach(({ event }) => {
       if (isSameDay(date, new Date(event.eventDate))) {
-        setShownEvent(event);
+        selectedEvent = event;
       }
+      setShownEvent(selectedEvent);
     });
   };
 
@@ -73,23 +72,28 @@ export const News = () => {
             <Fragment>
               <EventTitle sx={{ color: 'heading', fontWeight: 'body' }}>
                 <span sx={{ mb: 3, display: 'block' }}>{shownEvent.title}</span>
-                <span sx={{
-                  fontStyle: 'italic',
-                  display: 'block',
-                  fontSize: '3rem',
-                }}>{shownEvent && shownEvent.eventDescription}</span>
+                <span
+                  sx={{
+                    fontStyle: 'italic',
+                    display: 'block',
+                    fontSize: '3rem',
+                  }}
+                >
+                  {shownEvent && shownEvent.eventDescription}
+                </span>
               </EventTitle>
               <EventDetails sx={{ color: 'heading' }}>
-                {shownEvent.eventContent && shownEvent.eventContent.eventContent}
+                {shownEvent.eventContent &&
+                  shownEvent.eventContent.eventContent}
               </EventDetails>
             </Fragment>
           ) : (
-              <NoEvent
-                sx={{ color: 'heading', fontFamily: 'body', fontWeight: 'body' }}
-              >
-                Ne postoje događaji za izabrani datum.
-              </NoEvent>
-            )}
+            <NoEvent
+              sx={{ color: 'heading', fontFamily: 'body', fontWeight: 'body' }}
+            >
+              Ne postoje događaji za izabrani datum.
+            </NoEvent>
+          )}
         </NewsContent>
       </NewsContainer>
     </SectionContainer>

@@ -8,7 +8,7 @@ import { Founders } from '../components/founders/founders';
 import Layout from '../components/layout';
 import Map from '../components/map';
 import { Members } from '../components/members';
-import { News } from '../components/news/news';
+import { News } from '../components/news';
 import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import { useHeroImage } from '../hooks/useHeroImage';
