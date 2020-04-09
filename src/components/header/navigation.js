@@ -174,7 +174,7 @@ const SubMenuLinks = styled.ul`
     top: 100%;
     left: 9px;
     width: 90%;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     height: auto;
     display: flex;
     height: 0;
