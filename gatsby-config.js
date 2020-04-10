@@ -10,14 +10,14 @@ module.exports = {
     author: `@AleksandarM986`,
     VudroVilson: `Centar za američke studije Vudro Vilson`,
     regionSafety: `Centar za regionalnu bezbednost`,
-    siteUrl: `https://ksap.netlify.com`,
+    siteUrl: `https://ksap.org.rs`,
   },
   plugins: [
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: `https://ksap.netlify.com`, // add site url
-        sitemap: `https://ksap.netlify.com/sitemap.xml`, // add site url
+        host: `https://ksap.org.rs`,
+        sitemap: `https://ksap.org.rs/sitemap.xml`,
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
