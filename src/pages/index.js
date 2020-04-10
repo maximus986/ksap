@@ -3,20 +3,18 @@ import React from 'react';
 import { useThemeUI } from 'theme-ui';
 import { AboutUs } from '../components/aboutUs';
 import { Academy } from '../components/Academy';
+import { Banner } from '../components/banner';
 import { Contact } from '../components/contact';
 import { Founders } from '../components/founders/founders';
+import Hero from '../components/hero';
 import Layout from '../components/layout';
 import Map from '../components/map';
-import { Members } from '../components/members';
+import { Membership } from '../components/membership';
 import { News } from '../components/news';
 import SEO from '../components/seo';
-import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import { useHeroImage } from '../hooks/useHeroImage';
-import membersContactSectionImg from '../images/postanite-clan-bg.png';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import foundersMembersSectionImg from '../images/section-bg.png';
-import Hero from '../components/hero';
-import { Banner } from '../components/banner';
-import { Membership } from '../components/membership';
 
 const IndexPage = () => {
   const { name, childImageSharp } = useHeroImage();
@@ -41,10 +39,7 @@ const IndexPage = () => {
       </FoundersNewsBackgroundSection>
       <Membership />
       <Academy />
-      <MembersContactBackgroundSection>
-        <Members />
-        <Contact />
-      </MembersContactBackgroundSection>
+      <Contact />
       <Map />
     </Layout>
   );
@@ -68,19 +63,5 @@ const FoundersNewsBackgroundSection = styled.div`
   }
   @media (min-width: 1600px) {
     background-position: 9px 62%;
-  }
-`;
-
-const MembersContactBackgroundSection = styled.div`
-  @media (min-width: 992px) {
-    background-image: url(${membersContactSectionImg});
-    background-repeat: no-repeat;
-    background-position: 132% 131%;
-  }
-  @media (min-width: 1200px) {
-    background-position: 98% 117%;
-  }
-  @media (min-width: 1600px) {
-    background-position: 100% 100%;
   }
 `;
