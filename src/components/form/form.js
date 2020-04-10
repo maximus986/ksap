@@ -64,7 +64,7 @@ export const Form = () => {
           <Field
             name="name"
             id="name"
-            fieldValue={state.name.value}
+            value={state.name.value}
             label="Ime i Prezime*"
             onChange={handleOnChange}
           />
@@ -86,7 +86,7 @@ export const Form = () => {
           <Field
             name="org"
             id="org"
-            fieldValue={state.org.value}
+            value={state.org.value}
             label="Organizacija"
             onChange={handleOnChange}
           />
@@ -95,7 +95,7 @@ export const Form = () => {
           <Field
             name="phone"
             id="phone"
-            fieldValue={state.phone.value}
+            value={state.phone.value}
             label="Kontakt telefon*"
             onChange={handleOnChange}
           />
@@ -117,7 +117,7 @@ export const Form = () => {
           <Field
             name="email"
             id="email"
-            fieldValue={state.email.value}
+            value={state.email.value}
             label="Email*"
             onChange={handleOnChange}
           />
@@ -139,7 +139,7 @@ export const Form = () => {
           <Field
             name="website"
             id="website"
-            fieldValue={state.website.value}
+            value={state.website.value}
             label="Web stranica"
             onChange={handleOnChange}
           />

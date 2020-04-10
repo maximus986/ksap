@@ -10,7 +10,7 @@ export const Field = ({ name, value, onChange, label }) => {
         type="text"
         name={name}
         id={name}
-        fieldValue={value}
+        value={value}
         onChange={onChange}
         sx={{ color: 'primary', fontFamily: 'body' }}
       />
