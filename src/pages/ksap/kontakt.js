@@ -35,25 +35,22 @@ const Kontakt = () => {
           >
             <Contact />
             <Grid
-              columns={[1, null, '1fr 1fr 1fr']}
+              columns={[1, null, '1fr 1fr']}
               gap={['30px']}
-              sx={{ alignItems: 'center' }}
+              sx={{
+                alignItems: 'center',
+                width: [null, null, null, '70%'],
+                mx: [null, null, null, 'auto'],
+              }}
             >
               <div>
                 <p sx={{ fontWeight: '700' }}>Adresa:</p>
-                <p>Njegoseva bb Beograd</p>
+                <p>Đorđa Radojlovića 21 Beograd</p>
               </div>
               <div>
                 <p sx={{ fontWeight: '700' }}>Email adresa:</p>
-                <Link href="mailto: " {...{ colors }}>
-                  ksap@gmail.com
-                </Link>
-              </div>
-              <div>
-                <p sx={{ fontWeight: '700' }}>Telefon:</p>
-                <Link href="tel: " {...{ colors }}>
-                  {' '}
-                  0110110011
+                <Link href="mailto: office@ksap.org.rs" {...{ colors }}>
+                  office@ksap.org.rs
                 </Link>
               </div>
             </Grid>
