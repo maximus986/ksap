@@ -9,6 +9,7 @@ export default [
   },
   {
     icon: <FaTwitter />,
+    url: 'https://www.twitter.com/ksap_org/',
     label: 'ksap_org',
   },
   {
