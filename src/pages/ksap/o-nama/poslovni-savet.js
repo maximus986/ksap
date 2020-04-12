@@ -38,9 +38,9 @@ const PoslovniSavet = ({ data }) => {
   } = useThemeUI();
   return (
     <Layout>
-      <SEO title="Savetodavni odbor" />
+      <SEO title="Poslovni Savet" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
-        <Banner>Savetodavni odbor</Banner>
+        <Banner>Poslovni Savet</Banner>
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
         <Container>
