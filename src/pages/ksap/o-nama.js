@@ -14,8 +14,8 @@ import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
 export const PAGE_QURY = graphql`
   {
-    about: contentfulAbout {
-      aboutContent: about {
+    about: contentfulAbout(id: { eq: "9d571117-6a24-5530-b312-ba0065d3a626" }) {
+      content: about {
         json
       }
     }
@@ -24,7 +24,7 @@ export const PAGE_QURY = graphql`
 
 const ONama = ({ data }) => {
   const {
-    about: { aboutContent },
+    about: { content },
   } = data;
   const { name, childImageSharp } = useHeroImage();
   const {
@@ -74,14 +74,14 @@ const ONama = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title="O nama" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>o nama</Banner>
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
         <Container>
           <Content sx={{ fontFamily: 'body', color: 'primary' }}>
-            {documentToReactComponents(aboutContent.json, options)}
+            {documentToReactComponents(content.json, options)}
           </Content>
         </Container>
       </SectionContainer>
