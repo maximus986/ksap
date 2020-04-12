@@ -16,14 +16,14 @@ const BannerContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
   @media (min-width: 1200px) {
     margin: 0 auto;
   }
 
   h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     line-height: 4rem;
     text-transform: uppercase;
     text-align: center;
@@ -33,20 +33,10 @@ const BannerContainer = styled.div`
       line-height: 5rem;
     }
     @media (min-width: 768px) {
-      font-size: 7rem;
       line-height: 7rem;
     }
     @media (min-width: 992px) {
-      font-size: 8rem;
-      line-height: 8rem;
-    }
-    @media (min-width: 1200px) {
-      font-size: 9rem;
-      line-height: 9rem;
-    }
-    @media (min-width: 1600px) {
-      font-size: 10rem;
-      line-height: 10rem;
+      font-size: 6rem;
     }
   }
 `;

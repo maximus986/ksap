@@ -9,7 +9,7 @@ module.exports = {
     keywords: `Srbija, Sjedinjene Americke drzave, Kongres srpsko-američkog prijateljstva, Vudro Vilson, akademija, regionalna bezbednost`,
     author: `@AleksandarM986`,
     VudroVilson: `Centar za američke studije Vudro Vilson`,
-    regionSafety: `Centar za regionalnu bezbednost`,
+    regionSafety: `Centar za regionalnu bezbednost i transatlantske integracije Ronald Regan`,
     siteUrl: `https://ksap.org.rs`,
   },
   plugins: [
