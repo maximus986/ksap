@@ -1,16 +1,15 @@
 /** @jsx jsx */
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import { jsx, useThemeUI } from 'theme-ui';
 import { Banner } from '../../components/banner';
 import Hero from '../../components/hero';
 import Layout from '../../components/layout';
+import { SectionContainer } from '../../components/sectionContainer';
 import SEO from '../../components/seo';
 import { useHeroImage } from '../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../hooks/useSiteMetadata';
-import { SectionContainer } from '../../components/sectionContainer';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
 export const PAGE_QURY = graphql`
   {
@@ -27,9 +26,6 @@ const ONama = ({ data }) => {
     about: { content },
   } = data;
   const { name, childImageSharp } = useHeroImage();
-  const {
-    siteMetadata: { title },
-  } = useSiteMetadata();
   const {
     theme: { colors },
   } = useThemeUI();
