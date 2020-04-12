@@ -5,16 +5,16 @@ import { AboutUs } from '../components/aboutUs';
 import { Academy } from '../components/Academy';
 import { Banner } from '../components/banner';
 import { Contact } from '../components/contact';
-import { Founders } from '../components/founders/founders';
 import Hero from '../components/hero';
 import Layout from '../components/layout';
 import Map from '../components/map';
 import { Membership } from '../components/membership';
 import { News } from '../components/news';
 import SEO from '../components/seo';
+import { SliderItems } from '../components/slider/sliderItems';
 import { useHeroImage } from '../hooks/useHeroImage';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
-import foundersMembersSectionImg from '../images/section-bg.png';
+import sliderMembersSectionImg from '../images/section-bg.png';
 
 const IndexPage = () => {
   const { name, childImageSharp } = useHeroImage();
@@ -33,10 +33,10 @@ const IndexPage = () => {
         <Banner>dobro došli u ksap</Banner>
       </Hero>
       <AboutUs />
-      <FoundersNewsBackgroundSection {...{ colors }}>
-        <Founders />
+      <SliderNewsBackgroundSection {...{ colors }}>
+        <SliderItems />
         <News />
-      </FoundersNewsBackgroundSection>
+      </SliderNewsBackgroundSection>
       <Membership />
       <Academy />
       <Contact />
@@ -47,8 +47,8 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-const FoundersNewsBackgroundSection = styled.div`
-  background-image: url(${foundersMembersSectionImg});
+const SliderNewsBackgroundSection = styled.div`
+  background-image: url(${sliderMembersSectionImg});
   background-color: ${props => props.colors.primary};
   background-position: 12% 67%;
   background-repeat: no-repeat;
