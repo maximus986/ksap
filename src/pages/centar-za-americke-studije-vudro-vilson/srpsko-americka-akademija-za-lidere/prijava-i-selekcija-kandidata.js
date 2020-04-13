@@ -79,10 +79,7 @@ const PrijavaISelekcijaKandidata = ({ data }) => {
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>Srpsko-američka akademija za lidere</Banner>
       </Hero>
-      <SectionContainer
-        sectionTitle="Prijava i selekcija kandidata"
-        sectionBgColor={colors.muted}
-      >
+      <SectionContainer sectionBgColor={colors.muted}>
         <Container>
           <Content sx={{ fontFamily: 'body', color: 'primary' }}>
             {documentToReactComponents(application.content.json, options)}

@@ -80,7 +80,7 @@ const Projekti = ({ data }) => {
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>{regionSafety}</Banner>
       </Hero>
-      <SectionContainer sectionTitle="projekti" sectionBgColor={colors.muted}>
+      <SectionContainer sectionBgColor={colors.muted}>
         <Container>
           <Content sx={{ fontFamily: 'body', color: 'primary' }}>
             {documentToReactComponents(projects.content.json, options)}

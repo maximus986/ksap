@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
-import { graphql, Link } from 'gatsby';
+import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 import { Grid, jsx, useThemeUI } from 'theme-ui';
 import { Banner } from '../../components/banner';
@@ -11,7 +11,7 @@ import SEO from '../../components/seo';
 import { useHeroImage } from '../../hooks/useHeroImage';
 import { useSiteMetadata } from '../../hooks/useSiteMetadata';
 
-const Dogadjaji = ({ data }) => {
+const Dogadjaji = () => {
   const { name, childImageSharp } = useHeroImage();
   const {
     siteMetadata: { title },

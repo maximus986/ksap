@@ -117,7 +117,7 @@ const BoardMemberContainer = styled.figure`
   align-self: baseline;
   @media (min-width: 576px) {
     width: 450px;
-    margin: 4rem auto 0;
+    margin: 4rem 0 0;
   }
 `;
 
