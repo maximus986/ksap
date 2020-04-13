@@ -1,38 +1,23 @@
 /** @jsx jsx */
-import { useState } from 'react';
 import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 import { jsx, useThemeUI } from 'theme-ui';
 import navLinks from '../../static-data/nav-links';
-import { Link } from 'gatsby';
-import { GoPlus, GoDash } from 'react-icons/go';
 
 export const Navigation = ({ showMenu, onNavigate }) => {
-  const [showSubMenu, setShowSubMenu] = useState(false);
   const {
     theme: { colors },
   } = useThemeUI();
-
-  const handleShowSubMenu = () => {
-    setShowSubMenu(showSubMenu => !showSubMenu);
-  };
 
   return (
     <NavigationContainer>
       <NavLinks open={showMenu}>
         {navLinks.map((link, i) => (
           <ListItem key={i}>
-            {link.submenu &&
-              (showSubMenu ? (
-                <MenuBtn {...{ colors }} onClick={handleShowSubMenu}>
-                  <GoDash />
-                </MenuBtn>
-              ) : (
-                <MenuBtn {...{ colors }} onClick={handleShowSubMenu}>
-                  <GoPlus />
-                </MenuBtn>
-              ))}
             {!link.path ? (
-              <FakeTopLink sx={{ fontFamily: 'body' }}>{link.text}</FakeTopLink>
+              <FakeTopLink sx={{ fontFamily: 'body' }} key={`${i}-fake`}>
+                {link.text}
+              </FakeTopLink>
             ) : (
               <NavLink
                 to={link.path}
@@ -54,7 +39,6 @@ export const Navigation = ({ showMenu, onNavigate }) => {
 
             {link.submenu && (
               <NavLinksLevel1
-                openSubmenu={showSubMenu}
                 {...{ colors }}
                 sx={{
                   bg: `rgba(30, 37, 72, 0.7)`,
@@ -115,7 +99,6 @@ export const Navigation = ({ showMenu, onNavigate }) => {
                                 {subMenuLink.text}
                               </FakeLink>
                             )}
-
                             {subMenuLink.submenu && (
                               <NavLinksLevel3
                                 sx={{
@@ -168,10 +151,12 @@ const NavigationContainer = styled.nav`
 `;
 
 const NavLinks = styled.ul`
-  text-align: center;
-  overflow: hidden;
+  text-align: left;
+  overflow: scroll;
+  overflow-x: hidden;
   transition: height 0.35s ease;
   height: ${props => (props.open ? '100vh' : '0')};
+  padding-bottom: ${props => (props.open ? '40px' : '0')};
   @media (min-width: 576px) {
     height: ${props => (props.open ? '100vh' : '0')};
   }
@@ -203,7 +188,7 @@ const NavLink = styled(Link)`
   display: block;
   font-size: 1.7rem;
   text-transform: uppercase;
-  padding: 2rem 1.2rem;
+  padding: 2rem 0;
   color: inherit;
   width: 264px;
   margin: 0 auto;
@@ -246,11 +231,9 @@ const MenuBtn = styled.span`
 `;
 
 const NavLinksLevel1 = styled.ul`
-  text-align: center;
+  text-align: left;
   transition: height 0.35s ease;
-  height: ${props => (props.openSubmenu ? '230px' : '0')};
   @media (min-width: 576px) {
-    height: ${props => (props.openSubmenu ? '280px' : '0')};
   }
   @media (min-width: 992px) {
     position: absolute;
@@ -270,7 +253,7 @@ const NavLinkLevel1 = styled(Link)`
   display: block;
   font-size: 1.7rem;
   text-transform: uppercase;
-  padding: 2rem 1.2rem;
+  padding: 1rem 0;
   color: inherit;
   width: 264px;
   margin: 0 auto;
@@ -298,12 +281,13 @@ const NavLinkLevel1 = styled(Link)`
 `;
 
 const NavLinksLevel2 = styled.ul`
-  text-align: center;
+  text-align: left;
   overflow: hidden;
   transition: height 0.35s ease;
-  height: ${props => (props.openSubmenu ? '230px' : '0')};
+  height: auto;
+  /* height: ${props => (props.openSubmenu ? '230px' : '0')}; */
   @media (min-width: 576px) {
-    height: ${props => (props.openSubmenu ? '280px' : '0')};
+    /* height: ${props => (props.openSubmenu ? '280px' : '0')}; */
   }
   @media (min-width: 992px) {
     position: absolute;
@@ -358,7 +342,7 @@ const NavLinkLevel2 = styled(Link)`
   display: block;
   font-size: 1.7rem;
   text-transform: uppercase;
-  padding: 2rem 1.2rem;
+  padding: 1rem 3.2rem;
   color: inherit;
   width: 264px;
   margin: 0 auto;
@@ -386,12 +370,13 @@ const NavLinkLevel2 = styled(Link)`
 `;
 
 const NavLinksLevel3 = styled.ul`
-  text-align: center;
+  text-align: left;
   overflow: hidden;
   transition: height 0.35s ease;
-  height: ${props => (props.openSubmenu ? '230px' : '0')};
+  height: auto;
+  /* height: ${props => (props.openSubmenu ? '230px' : '0')}; */
   @media (min-width: 576px) {
-    height: ${props => (props.openSubmenu ? '280px' : '0')};
+    /* height: ${props => (props.openSubmenu ? '280px' : '0')}; */
   }
   @media (min-width: 992px) {
     position: absolute;
@@ -419,7 +404,7 @@ const NavLinkLevel3 = styled(Link)`
   display: block;
   font-size: 1.7rem;
   text-transform: uppercase;
-  padding: 2rem 1.2rem;
+  padding: 1rem 3.2rem;
   color: inherit;
   width: 264px;
   margin: 0 auto;
@@ -450,7 +435,7 @@ const FakeLink = styled.p`
   display: block;
   font-size: 1.7rem;
   text-transform: uppercase;
-  padding: 2rem 1.2rem;
+  padding: 0;
   color: inherit;
   width: 264px;
   margin: 0 auto;
