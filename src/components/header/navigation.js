@@ -31,45 +31,126 @@ export const Navigation = ({ showMenu, onNavigate }) => {
                   <GoPlus />
                 </MenuBtn>
               ))}
-            <NavLink
-              to={link.path}
-              sx={{
-                fontFamily: 'body',
-                fontWeight: 'medium',
-                transition: 'link',
-                '&:hover': {
-                  color: 'secondary',
-                },
-              }}
-              activeClassName="active"
-              onClick={onNavigate}
-              {...{ colors }}
-            >
-              {link.text}
-            </NavLink>
+            {!link.path ? (
+              <FakeTopLink sx={{ fontFamily: 'body' }}>{link.text}</FakeTopLink>
+            ) : (
+              <NavLink
+                to={link.path}
+                sx={{
+                  fontFamily: 'body',
+                  fontWeight: 'medium',
+                  transition: 'link',
+                  '&:hover': {
+                    color: 'secondary',
+                  },
+                }}
+                activeClassName="active"
+                onClick={onNavigate}
+                {...{ colors }}
+              >
+                {link.text}
+              </NavLink>
+            )}
+
             {link.submenu && (
-              <SubMenuLinks openSubmenu={showSubMenu} {...{ colors }}>
+              <NavLinksLevel1
+                openSubmenu={showSubMenu}
+                {...{ colors }}
+                sx={{
+                  bg: `rgba(30, 37, 72, 0.7)`,
+                }}
+              >
                 {link.submenu.map((subMenuLink, i) => (
-                  <ListItem key={i}>
-                    <SubMenuNavLink
-                      to={subMenuLink.path}
-                      sx={{
-                        fontFamily: 'body',
-                        fontWeight: 'medium',
-                        transition: 'link',
-                        '&:hover': {
-                          color: 'secondary',
-                        },
-                      }}
-                      activeClassName="active"
-                      onClick={onNavigate}
-                      {...{ colors }}
-                    >
-                      {subMenuLink.text}
-                    </SubMenuNavLink>
-                  </ListItem>
+                  <ListItemLevel1 key={i}>
+                    {subMenuLink.path ? (
+                      <NavLinkLevel1
+                        to={subMenuLink.path}
+                        sx={{
+                          fontFamily: 'body',
+                          fontWeight: 'medium',
+                          transition: 'link',
+                          '&:hover': {
+                            color: 'secondary',
+                          },
+                        }}
+                        activeClassName="active"
+                        onClick={onNavigate}
+                        {...{ colors }}
+                      >
+                        {subMenuLink.text}
+                      </NavLinkLevel1>
+                    ) : (
+                      <FakeLink sx={{ fontFamily: 'body' }}>
+                        {subMenuLink.text}
+                      </FakeLink>
+                    )}
+                    {subMenuLink.submenu && (
+                      <NavLinksLevel2
+                        sx={{
+                          bg: `rgba(30, 37, 72, 0.7)`,
+                          backdropFilter: 'blur(10px)',
+                        }}
+                      >
+                        {subMenuLink.submenu.map((subMenuLink, i) => (
+                          <ListItemLevel2 key={i}>
+                            {subMenuLink.path ? (
+                              <NavLinkLevel2
+                                to={subMenuLink.path}
+                                sx={{
+                                  fontFamily: 'body',
+                                  fontWeight: 'medium',
+                                  transition: 'link',
+                                  '&:hover': {
+                                    color: 'secondary',
+                                  },
+                                }}
+                                activeClassName="active"
+                                onClick={onNavigate}
+                                {...{ colors }}
+                              >
+                                {subMenuLink.text}
+                              </NavLinkLevel2>
+                            ) : (
+                              <FakeLink sx={{ fontFamily: 'body' }}>
+                                {subMenuLink.text}
+                              </FakeLink>
+                            )}
+
+                            {subMenuLink.submenu && (
+                              <NavLinksLevel3
+                                sx={{
+                                  bg: `rgba(30, 37, 72, 0.9)`,
+                                }}
+                              >
+                                {subMenuLink.submenu.map((subMenuLink, i) => (
+                                  <ListItemLevel3 key={i}>
+                                    <NavLinkLevel3
+                                      to={subMenuLink.path}
+                                      sx={{
+                                        fontFamily: 'body',
+                                        fontWeight: 'medium',
+                                        transition: 'link',
+                                        '&:hover': {
+                                          color: 'secondary',
+                                        },
+                                      }}
+                                      activeClassName="active"
+                                      onClick={onNavigate}
+                                      {...{ colors }}
+                                    >
+                                      {subMenuLink.text}
+                                    </NavLinkLevel3>
+                                  </ListItemLevel3>
+                                ))}
+                              </NavLinksLevel3>
+                            )}
+                          </ListItemLevel2>
+                        ))}
+                      </NavLinksLevel2>
+                    )}
+                  </ListItemLevel1>
                 ))}
-              </SubMenuLinks>
+              </NavLinksLevel1>
             )}
           </ListItem>
         ))}
@@ -109,8 +190,11 @@ const ListItem = styled.li`
     position: relative;
     @media(min-width: 992px) {
       &:hover > ul {
-        height: 457px;
-    }
+        display: flex;
+      }
+      &:hover > p {
+      color: #db2c26;
+      }
     }
   }
 `;
@@ -161,9 +245,8 @@ const MenuBtn = styled.span`
   }
 `;
 
-const SubMenuLinks = styled.ul`
+const NavLinksLevel1 = styled.ul`
   text-align: center;
-  overflow: hidden;
   transition: height 0.35s ease;
   height: ${props => (props.openSubmenu ? '230px' : '0')};
   @media (min-width: 576px) {
@@ -173,17 +256,17 @@ const SubMenuLinks = styled.ul`
     position: absolute;
     top: 100%;
     left: 9px;
-    width: 90%;
-    padding: 0.5rem 0;
+    width: auto;
+    min-width: 200px;
+    padding: 1.5rem 0 1.5rem 1rem;
+    display: none;
     height: auto;
-    display: flex;
-    height: 0;
     flex-direction: column;
     text-align: left;
   }
 `;
 
-const SubMenuNavLink = styled(Link)`
+const NavLinkLevel1 = styled(Link)`
   display: block;
   font-size: 1.7rem;
   text-transform: uppercase;
@@ -198,6 +281,219 @@ const SubMenuNavLink = styled(Link)`
   @media (min-width: 992px) {
     width: auto;
     padding: 0.5rem 0;
+    font-size: 1.7rem;
+  }
+  @media (min-width: 1200px) {
+    font-size: 1.9rem;
+  }
+  @media (min-width: 1600px) {
+    font-size: 2.3rem;
+  }
+  @media (min-width: 1800px) {
+    font-size: 2.5rem;
+  }
+  &.active {
+    color: ${props => props.colors.secondary};
+  }
+`;
+
+const NavLinksLevel2 = styled.ul`
+  text-align: center;
+  overflow: hidden;
+  transition: height 0.35s ease;
+  height: ${props => (props.openSubmenu ? '230px' : '0')};
+  @media (min-width: 576px) {
+    height: ${props => (props.openSubmenu ? '280px' : '0')};
+  }
+  @media (min-width: 992px) {
+    position: absolute;
+    overflow: visible;
+    left: 100%;
+    top: -43%;
+    width: 300px;
+    padding: 1.5rem 0 1.5rem 1rem;
+    display: none;
+    height: auto;
+    flex-direction: column;
+    text-align: left;
+  }
+  @media (min-width: 1200px) {
+    top: -47%;
+  }
+  @media (min-width: 1600px) {
+    top: -40%;
+  }
+  @media (min-width: 1800px) {
+    top: -37%;
+  }
+`;
+
+const ListItemLevel1 = styled.li`
+  list-style-type: none;
+  color: #fff;
+  position: relative;
+  @media(min-width: 992px) {
+    &:hover > ul {
+        display: flex;
+      }
+      &:hover > p {
+      color: #db2c26;
+      }
+    }
+  }`;
+const ListItemLevel2 = styled.li`
+  list-style-type: none;
+  color: #fff;
+  position: relative;
+  @media (min-width: 992px) {
+    &:hover > ul {
+      display: flex;
+    }
+    &:hover > p {
+      color: #db2c26;
+    }
+  }
+`;
+const NavLinkLevel2 = styled(Link)`
+  display: block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  padding: 2rem 1.2rem;
+  color: inherit;
+  width: 264px;
+  margin: 0 auto;
+  @media (min-width: 576px) {
+    width: 320px;
+    font-size: 2rem;
+  }
+  @media (min-width: 992px) {
+    width: auto;
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+  }
+  @media (min-width: 1200px) {
+    font-size: 1.8rem;
+  }
+  @media (min-width: 1600px) {
+    font-size: 2rem;
+  }
+  @media (min-width: 1800px) {
+    font-size: 2.2rem;
+  }
+  &.active {
+    color: ${props => props.colors.secondary};
+  }
+`;
+
+const NavLinksLevel3 = styled.ul`
+  text-align: center;
+  overflow: hidden;
+  transition: height 0.35s ease;
+  height: ${props => (props.openSubmenu ? '230px' : '0')};
+  @media (min-width: 576px) {
+    height: ${props => (props.openSubmenu ? '280px' : '0')};
+  }
+  @media (min-width: 992px) {
+    position: absolute;
+    left: 100%;
+    top: -32%;
+    width: 300px;
+    padding: 1.5rem 0 1.5rem 1rem;
+    display: none;
+    height: auto;
+    flex-direction: column;
+    text-align: left;
+  }
+`;
+const ListItemLevel3 = styled.li`
+  list-style-type: none;
+  color: #fff;
+  position: relative;
+  @media (min-width: 992px) {
+    &:hover > ul {
+      display: flex;
+    }
+  }
+`;
+const NavLinkLevel3 = styled(Link)`
+  display: block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  padding: 2rem 1.2rem;
+  color: inherit;
+  width: 264px;
+  margin: 0 auto;
+  @media (min-width: 576px) {
+    width: 320px;
+    font-size: 2rem;
+  }
+  @media (min-width: 992px) {
+    width: auto;
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+  }
+  @media (min-width: 1200px) {
+    font-size: 1.8rem;
+  }
+  @media (min-width: 1600px) {
+    font-size: 2rem;
+  }
+  @media (min-width: 1800px) {
+    font-size: 2.2rem;
+  }
+  &.active {
+    color: ${props => props.colors.secondary};
+  }
+`;
+
+const FakeLink = styled.p`
+  display: block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  padding: 2rem 1.2rem;
+  color: inherit;
+  width: 264px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 0.3s linear;
+  font-weight: 500;
+  @media (min-width: 576px) {
+    width: 320px;
+    font-size: 2rem;
+  }
+  @media (min-width: 992px) {
+    width: auto;
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+  }
+  @media (min-width: 1200px) {
+    font-size: 1.8rem;
+  }
+  @media (min-width: 1600px) {
+    font-size: 2rem;
+  }
+  @media (min-width: 1800px) {
+    font-size: 2.2rem;
+  }
+`;
+
+const FakeTopLink = styled.p`
+  display: block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  padding: 2rem 1.2rem;
+  color: inherit;
+  width: 264px;
+  margin: 0 auto;
+  transition: 0.3s linear;
+  cursor: pointer;
+  @media (min-width: 576px) {
+    width: 320px;
+    font-size: 2rem;
+  }
+  @media (min-width: 992px) {
+    width: auto;
+    padding: 0 1rem;
     font-size: 1.9rem;
   }
   @media (min-width: 1200px) {
@@ -208,8 +504,5 @@ const SubMenuNavLink = styled(Link)`
   }
   @media (min-width: 1800px) {
     font-size: 3rem;
-  }
-  &.active {
-    color: ${props => props.colors.secondary};
   }
 `;
