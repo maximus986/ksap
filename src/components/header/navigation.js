@@ -23,7 +23,6 @@ export const Navigation = ({ showMenu, onNavigate }) => {
                 to={link.path}
                 sx={{
                   fontFamily: 'body',
-                  fontWeight: 'medium',
                   transition: 'link',
                   '&:hover': {
                     color: 'secondary',
@@ -51,7 +50,6 @@ export const Navigation = ({ showMenu, onNavigate }) => {
                         to={subMenuLink.path}
                         sx={{
                           fontFamily: 'body',
-                          fontWeight: 'medium',
                           transition: 'link',
                           '&:hover': {
                             color: 'secondary',
@@ -186,17 +184,19 @@ const ListItem = styled.li`
 
 const NavLink = styled(Link)`
   display: block;
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   text-transform: uppercase;
-  padding: 2rem 0;
+  padding: 1rem 0;
   color: inherit;
   width: 264px;
   margin: 0 auto;
+  font-weight: 700;
   @media (min-width: 576px) {
     width: 320px;
     font-size: 2rem;
   }
   @media (min-width: 992px) {
+    font-weight: 500;
     width: auto;
     padding: 0 1rem;
     font-size: 1.9rem;
@@ -257,11 +257,13 @@ const NavLinkLevel1 = styled(Link)`
   color: inherit;
   width: 264px;
   margin: 0 auto;
+  font-weight: 700;
   @media (min-width: 576px) {
     width: 320px;
     font-size: 2rem;
   }
   @media (min-width: 992px) {
+    font-weight: 500;
     width: auto;
     padding: 0.5rem 0;
     font-size: 1.7rem;
@@ -313,10 +315,12 @@ const NavLinksLevel2 = styled.ul`
 `;
 
 const ListItemLevel1 = styled.li`
+  padding-left: 40px;
   list-style-type: none;
   color: #fff;
   position: relative;
   @media(min-width: 992px) {
+    padding-left: 0;
     &:hover > ul {
         display: flex;
       }
@@ -441,12 +445,13 @@ const FakeLink = styled.p`
   margin: 0 auto;
   cursor: pointer;
   transition: 0.3s linear;
-  font-weight: 500;
+  font-weight: 700;
   @media (min-width: 576px) {
     width: 320px;
     font-size: 2rem;
   }
   @media (min-width: 992px) {
+    font-weight: 500;
     width: auto;
     padding: 0.5rem 0;
     font-size: 1.5rem;
@@ -464,19 +469,20 @@ const FakeLink = styled.p`
 
 const FakeTopLink = styled.p`
   display: block;
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   text-transform: uppercase;
-  padding: 2rem 1.2rem;
+  padding: 1rem 0;
   color: inherit;
   width: 264px;
   margin: 0 auto;
   transition: 0.3s linear;
   cursor: pointer;
+  font-weight: 700;
   @media (min-width: 576px) {
     width: 320px;
-    font-size: 2rem;
   }
   @media (min-width: 992px) {
+    font-weight: 500;
     width: auto;
     padding: 0 1rem;
     font-size: 1.9rem;
