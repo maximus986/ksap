@@ -124,6 +124,9 @@ const BoardMemberContainer = styled.figure`
     width: 450px;
     margin: 4rem auto 0;
   }
+  @media (min-width: 992px) {
+    margin: 0;
+  }
 `;
 
 const BoardMemberImg = styled(Img)`

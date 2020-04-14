@@ -17,7 +17,7 @@ const Clanovi = () => {
     <Layout>
       <SEO title={title} />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
-        <Banner>članstvo</Banner>
+        <Banner>članovi</Banner>
       </Hero>
     </Layout>
   );

@@ -90,7 +90,7 @@ const PostaniteClan = ({ data }) => {
     <Layout>
       <SEO title={title} />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
-        <Banner>članstvo</Banner>
+        <Banner>postanite član</Banner>
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
         <MembershipContainer sx={{ fontFamily: 'body', textAlign: 'left' }}>

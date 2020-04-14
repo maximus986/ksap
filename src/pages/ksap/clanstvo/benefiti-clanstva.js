@@ -77,7 +77,7 @@ const BenefitiClanstva = ({ data }) => {
     <Layout>
       <SEO title={title} />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
-        <Banner>članstvo</Banner>
+        <Banner>benefiti članstva</Banner>
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
         <MembershipContainer sx={{ fontFamily: 'body', textAlign: 'left' }}>
