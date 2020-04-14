@@ -3,3 +3,4 @@
 
 // export const wrapRootElement = ({ element }) => <Layout>{element}</Layout>;
 require('typeface-playfair-display');
+require('@openfonts/gotu_all');
