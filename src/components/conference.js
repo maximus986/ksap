@@ -25,7 +25,7 @@ export const Conference = () => {
 
   return (
     <SectionContainer
-      sectionTitle="međunarodna onlina konferencija"
+      sectionTitle="međunarodna online konferencija"
       sectionBgColor={colors.muted}
     >
       <NewsContainer>
