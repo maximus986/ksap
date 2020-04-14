@@ -31,8 +31,8 @@ export const SliderItems = () => {
     <SectionContainer sectionTitle="KSAP koktel">
       <SliderItemsContainer>
         <Slider {...carouselSettings}>
-          {sliderItems.edges.map(node => {
-            return <SliderItem slider={node} key={node.id} />;
+          {sliderItems.edges.map((node, i) => {
+            return <SliderItem slider={node} key={i} />;
           })}
         </Slider>
       </SliderItemsContainer>

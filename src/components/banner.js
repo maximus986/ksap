@@ -2,10 +2,16 @@
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
 
-export const Banner = ({ children }) => {
+export const Banner = ({ hero, children }) => {
   return (
     <BannerContainer>
-      <h1 sx={{ fontFamily: 'heading', fontWeight: 'bold', color: 'heading' }}>
+      <h1
+        sx={{
+          fontFamily: 'heading',
+          fontWeight: hero ? 'bold' : 'medium',
+          color: 'heading',
+        }}
+      >
         {children}
       </h1>
     </BannerContainer>

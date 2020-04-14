@@ -78,7 +78,7 @@ const Projekti = ({ data }) => {
     <Layout>
       <SEO title={regionSafety} />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
-        <Banner>{regionSafety}</Banner>
+        <Banner>projekti</Banner>
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
         <Container>

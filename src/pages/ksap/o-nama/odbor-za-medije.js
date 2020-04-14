@@ -74,7 +74,7 @@ const OdborZaMedije = ({ data }) => {
                           }}
                           key={index}
                         >
-                          {`${index + 1}. ${position.position}`}
+                          {position.position}
                         </BoardMemberPosition>
                       )
                     )}

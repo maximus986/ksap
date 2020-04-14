@@ -215,20 +215,20 @@ const NavLink = styled(Link)`
   }
 `;
 
-const MenuBtn = styled.span`
-  position: absolute;
-  top: 25px;
-  right: 0;
-  width: 3rem;
-  height: 3rem;
-  line-height: 3.2rem;
-  cursor: pointer;
-  font-size: 3.2rem;
-  color: ${props => props.colors.secondary};
-  @media (min-width: 992px) {
-    display: none;
-  }
-`;
+// const MenuBtn = styled.span`
+//   position: absolute;
+//   top: 25px;
+//   right: 0;
+//   width: 3rem;
+//   height: 3rem;
+//   line-height: 3.2rem;
+//   cursor: pointer;
+//   font-size: 3.2rem;
+//   color: ${props => props.colors.secondary};
+//   @media (min-width: 992px) {
+//     display: none;
+//   }
+// `;
 
 const NavLinksLevel1 = styled.ul`
   text-align: left;

@@ -30,7 +30,7 @@ const IndexPage = () => {
     <Layout>
       <SEO title={title} />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
-        <Banner>dobro došli u ksap</Banner>
+        <Banner hero>dobro došli u ksap</Banner>
       </Hero>
       <AboutUs />
       <SliderNewsBackgroundSection {...{ colors }}>

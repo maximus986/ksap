@@ -80,7 +80,7 @@ const OCentru = ({ data }) => {
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>{regionSafety}</Banner>
       </Hero>
-      <SectionContainer sectionBgColor={colors.muted}>
+      <SectionContainer sectionTitle="o centru" sectionBgColor={colors.muted}>
         <Container>
           <Content sx={{ fontFamily: 'body', color: 'primary' }}>
             {documentToReactComponents(aboutCenter.content.json, options)}

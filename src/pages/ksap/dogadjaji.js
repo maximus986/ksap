@@ -34,16 +34,6 @@ const Dogadjaji = () => {
                 overflow: 'hidden',
               }}
             >
-              <GalleryLabel
-                sx={{
-                  fontSize: '3rem',
-                  fontFamily: 'body',
-                  color: 'background',
-                  zIndex: 10,
-                }}
-              >
-                KSAP Koktel
-              </GalleryLabel>
               <Link
                 to="/ksap/dogadjaji/ksap-koktel"
                 sx={{
@@ -58,6 +48,17 @@ const Dogadjaji = () => {
                   },
                 }}
               >
+                <GalleryLabel
+                  sx={{
+                    fontSize: '3rem',
+                    fontFamily: 'body',
+                    color: 'background',
+                    zIndex: 10,
+                  }}
+                >
+                  KSAP Koktel
+                </GalleryLabel>
+
                 <Image fluid={childImageSharp.fluid} alt={name} />
               </Link>
             </div>

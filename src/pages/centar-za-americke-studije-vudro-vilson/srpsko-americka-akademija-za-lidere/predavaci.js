@@ -18,7 +18,7 @@ const Predavaci = ({ data }) => {
     <Layout>
       <SEO title={VudroVilson} />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
-        <Banner>Srpsko-američka akademija za lidere</Banner>
+        <Banner>predavači</Banner>
       </Hero>
       <Container>
         <Content sx={{ fontFamily: 'body', color: 'primary' }}></Content>

@@ -77,7 +77,7 @@ const Moduli = ({ data }) => {
     <Layout>
       <SEO title={VudroVilson} />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
-        <Banner>Srpsko-američka akademija za lidere</Banner>
+        <Banner>moduli</Banner>
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
         <Container>
