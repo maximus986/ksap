@@ -43,7 +43,7 @@ export default [
         submenu: [
           {
             path: `/ksap/clanstvo/postanite-clan`,
-            text: `postanite-član`,
+            text: `postanite član`,
           },
           {
             path: `/ksap/clanstvo/benefiti-clanstva`,
@@ -107,6 +107,10 @@ export default [
       {
         path: `/centar-za-americke-studije-vudro-vilson/analize-i-istrazivanja`,
         text: `analize i istraživanja`,
+      },
+      {
+        path: `/centar-za-americke-studije-vudro-vilson/predavaci`,
+        text: `predavači`,
       },
     ],
   },
