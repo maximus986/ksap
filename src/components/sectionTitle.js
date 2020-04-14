@@ -10,7 +10,7 @@ export const SectionTitle = ({ children }) => {
     <Title
       {...{ colors }}
       sx={{
-        fontFamily: 'heading',
+        fontFamily: 'body',
         color: 'heading',
       }}
     >

@@ -28,6 +28,7 @@ export const Academy = () => {
             fontSize: ['3rem', '5rem', null, '9rem'],
             textTransform: 'uppercase',
             transition: '0.3s',
+            fontFamily: 'body',
             '&:hover': {
               color: 'primary',
             },

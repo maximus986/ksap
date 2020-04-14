@@ -45,8 +45,8 @@ export default {
     },
   },
   fonts: {
-    body: 'Roboto',
-    heading: 'NeoplantaBG',
+    body: 'Gotu',
+    heading: 'Playfair-Display',
     monospace: 'Menlo, monospace',
   },
   fontWeights: {

@@ -22,19 +22,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Roboto`,
-            variants: [`300`, `300i`, `400`, `400i`, `700`],
-            subsets: [`latin-ext`],
-          },
-        ],
-      },
-    },
-
-    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -72,6 +59,27 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: 'Gotu',
+              variants: ['400'],
+              //subsets: ['latin']
+              //text: 'Hello'
+              //fontDisplay: 'swap',
+              //strategy: 'selfHosted' // 'base64' || 'cdn'
+            },
+          ],
+        },
+        //formats: ['woff2', 'woff'],
+        //useMinify: true,
+        //usePreload: true,
+        //usePreconnect: false,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
