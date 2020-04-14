@@ -15,6 +15,7 @@ import { SliderItems } from '../components/slider/sliderItems';
 import { useHeroImage } from '../hooks/useHeroImage';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import sliderMembersSectionImg from '../images/section-bg.png';
+import { Conference } from '../components/conference';
 
 const IndexPage = () => {
   const { name, childImageSharp } = useHeroImage();
@@ -36,6 +37,7 @@ const IndexPage = () => {
       <SliderNewsBackgroundSection {...{ colors }}>
         <SliderItems />
         <News />
+        <Conference />
       </SliderNewsBackgroundSection>
       <Membership />
       <Academy />
