@@ -4,18 +4,18 @@ import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import { jsx, useThemeUI } from 'theme-ui';
-import { Banner } from '../../components/banner';
-import Hero from '../../components/hero';
-import Layout from '../../components/layout';
-import { SectionContainer } from '../../components/sectionContainer';
-import SEO from '../../components/seo';
-import { useHeroImage } from '../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../hooks/useSiteMetadata';
+import { Banner } from '../../../components/banner';
+import Hero from '../../../components/hero';
+import Layout from '../../../components/layout';
+import { SectionContainer } from '../../../components/sectionContainer';
+import SEO from '../../../components/seo';
+import { useHeroImage } from '../../../hooks/useHeroImage';
+import { useSiteMetadata } from '../../../hooks/useSiteMetadata';
 
 export const PAGE_QUERY = graphql`
   {
-    teachers: contentfulRonaldRegan(
-      id: { eq: "21b70d00-738a-5755-a89a-f424ea094373" }
+    academy: contentfulRonaldRegan(
+      id: { eq: "dfdcfb8e-cc49-5ca6-8883-5ecfa35e489b" }
     ) {
       content {
         json
@@ -34,7 +34,7 @@ const Predavaci = ({ data }) => {
     theme: { colors },
   } = useThemeUI();
 
-  const { teachers } = data;
+  const { academy } = data;
 
   const Bold = ({ children }) => (
     <span sx={{ fontWeight: 'bold' }}>{children}</span>
@@ -78,12 +78,12 @@ const Predavaci = ({ data }) => {
     <Layout>
       <SEO title={regionSafety} />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
-        <Banner>predavači</Banner>
+        <Banner>akademija</Banner>
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
         <Container>
           <Content sx={{ fontFamily: 'body', color: 'primary' }}>
-            {documentToReactComponents(teachers.content.json, options)}
+            {documentToReactComponents(academy.content.json, options)}
           </Content>
         </Container>
       </SectionContainer>

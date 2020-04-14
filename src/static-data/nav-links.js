@@ -122,12 +122,29 @@ export default [
         text: `o centru`,
       },
       {
-        path: `/centar-za-regionalnu-bezbednost-i-transatlantske-integracije-ronald-regan/projekti`,
-        text: `projekti`,
+        text: `akademija`,
+        submenu: [
+          {
+            path: `/centar-za-regionalnu-bezbednost-i-transatlantske-integracije-ronald-regan/akademija/akademija`,
+            text: `akademija`,
+          },
+          {
+            path: `/centar-za-regionalnu-bezbednost-i-transatlantske-integracije-ronald-regan/akademija/polaznici`,
+            text: `polaznici`,
+          },
+          {
+            path: `/centar-za-regionalnu-bezbednost-i-transatlantske-integracije-ronald-regan/akademija/moduli`,
+            text: `moduli`,
+          },
+          {
+            path: `/centar-za-regionalnu-bezbednost-i-transatlantske-integracije-ronald-regan/akademija/predavaci`,
+            text: `predavači`,
+          },
+        ],
       },
       {
-        path: `/centar-za-regionalnu-bezbednost-i-transatlantske-integracije-ronald-regan/predavaci`,
-        text: `predavači`,
+        path: `/centar-za-regionalnu-bezbednost-i-transatlantske-integracije-ronald-regan/projekti`,
+        text: `projekti`,
       },
     ],
   },
