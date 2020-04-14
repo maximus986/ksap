@@ -38,13 +38,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `fonts`,
-        path: `${__dirname}/src/fonts`,
-      },
-    },
     `gatsby-plugin-emotion`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-playground`,
@@ -69,17 +62,11 @@ module.exports = {
             {
               family: 'Gotu',
               variants: ['400'],
-              //subsets: ['latin']
-              //text: 'Hello'
-              //fontDisplay: 'swap',
-              //strategy: 'selfHosted' // 'base64' || 'cdn'
+              subsets: ['latin'],
+              fontDisplay: 'swap',
             },
           ],
         },
-        //formats: ['woff2', 'woff'],
-        //useMinify: true,
-        //usePreload: true,
-        //usePreconnect: false,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
