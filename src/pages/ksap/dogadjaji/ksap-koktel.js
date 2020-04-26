@@ -15,7 +15,9 @@ import { useSiteMetadata } from '../../../hooks/useSiteMetadata';
 
 export const PAGE_QUERY = graphql`
   {
-    gallery: allFile(filter: { relativeDirectory: { eq: "gallery" } }) {
+    gallery: allFile(
+      filter: { relativeDirectory: { eq: "gallery/ksap-koktel" } }
+    ) {
       edges {
         node {
           id
