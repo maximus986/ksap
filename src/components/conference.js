@@ -8,11 +8,10 @@ import { SectionContainer } from './sectionContainer';
 export const Conference = () => {
   const { news } = useStaticQuery(graphql`
     {
-      news: contentfulNews {
-        title
-        image {
-          fluid {
-            ...GatsbyContentfulFluid_withWebp
+      news: file(relativePath: { eq: "conferences/conference2904.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 4000, quality: 90) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
@@ -25,7 +24,7 @@ export const Conference = () => {
 
   return (
     <SectionContainer
-      sectionTitle="međunarodna online konferencija"
+      sectionTitle="online konferencija"
       sectionBgColor={colors.muted}
     >
       <NewsContainer>
@@ -36,8 +35,10 @@ export const Conference = () => {
             mx: ['auto'],
           }}
         >
-          <Link
-            to="/ksap/aktuelnosti"
+          <a
+            href="http://communications.rs/srbekonomija/"
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{
               display: 'block',
               div: {
@@ -46,14 +47,17 @@ export const Conference = () => {
               },
               '&:hover': {
                 div: {
-                  transform: 'scale(1.05)',
-                  opacity: '0.8',
+                  transform: 'scale(1.02)',
+                  opacity: '0.9',
                 },
               },
             }}
           >
-            <Image fluid={news.image.fluid} alt={news.title} />
-          </Link>
+            <Image
+              fluid={news.childImageSharp.fluid}
+              alt="Oline konferencija"
+            />
+          </a>
         </div>
       </NewsContainer>
     </SectionContainer>
