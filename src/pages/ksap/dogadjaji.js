@@ -10,6 +10,7 @@ import { SectionContainer } from '../../components/sectionContainer';
 import SEO from '../../components/seo';
 import { useHeroImage } from '../../hooks/useHeroImage';
 import { useSiteMetadata } from '../../hooks/useSiteMetadata';
+import galleries from '../../static-data/gallery-config';
 
 const Dogadjaji = () => {
   const { name, childImageSharp } = useHeroImage();
@@ -28,40 +29,42 @@ const Dogadjaji = () => {
       <SectionContainer sectionBgColor={colors.muted}>
         <Container>
           <Grid columns={[1, '1fr 1fr', null, '1fr 1fr 1fr']} gap={'20px'}>
-            <div
-              sx={{
-                position: 'relative',
-                overflow: 'hidden',
-              }}
-            >
-              <Link
-                to="/ksap/dogadjaji/ksap-koktel"
+            {galleries.map(({ path, label }, i) => (
+              <div
                 sx={{
-                  div: {
-                    transition: 'link',
-                  },
-                  '&:hover': {
-                    div: {
-                      transform: 'scale(1.2)',
-                      opacity: '0.8',
-                    },
-                  },
+                  position: 'relative',
+                  overflow: 'hidden',
                 }}
+                key={i}
               >
-                <GalleryLabel
+                <Link
+                  to={path}
                   sx={{
-                    fontSize: '3rem',
-                    fontFamily: 'body',
-                    color: 'background',
-                    zIndex: 10,
+                    div: {
+                      transition: 'link',
+                    },
+                    '&:hover': {
+                      div: {
+                        transform: 'scale(1.2)',
+                        opacity: '0.8',
+                      },
+                    },
                   }}
                 >
-                  KSAP Koktel
-                </GalleryLabel>
-
-                <Image fluid={childImageSharp.fluid} alt={name} />
-              </Link>
-            </div>
+                  <GalleryLabel
+                    sx={{
+                      fontSize: ['1.5rem', null, '2rem'],
+                      fontFamily: 'body',
+                      color: 'background',
+                      zIndex: 10,
+                    }}
+                  >
+                    {label}
+                  </GalleryLabel>
+                  <Image fluid={childImageSharp.fluid} alt={name} />
+                </Link>
+              </div>
+            ))}
           </Grid>
         </Container>
       </SectionContainer>
@@ -92,7 +95,12 @@ const Container = styled.div`
 
 const GalleryLabel = styled.h4`
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
 `;
