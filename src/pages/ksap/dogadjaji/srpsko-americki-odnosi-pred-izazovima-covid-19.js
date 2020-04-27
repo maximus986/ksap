@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
@@ -8,6 +9,7 @@ import Hero from '../../../components/hero';
 import Layout from '../../../components/layout';
 import { SectionContainer } from '../../../components/sectionContainer';
 import SEO from '../../../components/seo';
+import { useContentfulContent } from '../../../hooks/useContentfulContent';
 import { useHeroImage } from '../../../hooks/useHeroImage';
 import { useSiteMetadata } from '../../../hooks/useSiteMetadata';
 
@@ -32,12 +34,23 @@ export const PAGE_QUERY = graphql`
         }
       }
     }
+    onlineConf: contentfulHappening(
+      id: { eq: "744f2913-ecdc-5537-b28d-684a9e4c4012" }
+    ) {
+      title
+      content {
+        json
+      }
+    }
   }
 `;
 
 const SrpskoAmerickiOdnosiPredIzazovimaCovid19 = ({ data }) => {
-  const { gallery } = data;
-
+  const { gallery, onlineConf } = data;
+  const sortedGallery = gallery.edges.sort((galleryItem1, galleryItem2) =>
+    galleryItem1.node.name > galleryItem2.node.name ? 1 : -1
+  );
+  console.log(sortedGallery);
   const { name, childImageSharp } = useHeroImage();
   const {
     siteMetadata: { title },
@@ -46,6 +59,8 @@ const SrpskoAmerickiOdnosiPredIzazovimaCovid19 = ({ data }) => {
     theme: { colors },
   } = useThemeUI();
 
+  const options = useContentfulContent();
+
   return (
     <Layout>
       <SEO title={title} />
@@ -53,15 +68,16 @@ const SrpskoAmerickiOdnosiPredIzazovimaCovid19 = ({ data }) => {
         <Banner>Srpsko-američki odnosi pred izazovima COVID-19</Banner>
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
-        <CoctailContainer sx={{ fontFamily: 'body', textAlign: 'left' }}>
+        <ConfContainer sx={{ fontFamily: 'body', textAlign: 'left' }}>
+          {documentToReactComponents(onlineConf.content.json, options)}
           <Grid columns={[1, '1fr 1fr', '1fr 1fr 1fr']} gap={'20px'}>
-            {gallery.edges.map(({ node }) => (
+            {sortedGallery.map(({ node }) => (
               <figure key={node.id}>
                 <Image fluid={node.childImageSharp.fluid} alt={node.name} />
               </figure>
             ))}
           </Grid>
-        </CoctailContainer>
+        </ConfContainer>
       </SectionContainer>
     </Layout>
   );
@@ -69,7 +85,7 @@ const SrpskoAmerickiOdnosiPredIzazovimaCovid19 = ({ data }) => {
 
 export default SrpskoAmerickiOdnosiPredIzazovimaCovid19;
 
-const CoctailContainer = styled.div`
+const ConfContainer = styled.div`
   padding: 0 1.6rem;
   letter-spacing: 2px;
   font-size: 2rem;
