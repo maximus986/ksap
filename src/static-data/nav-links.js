@@ -64,8 +64,16 @@ export default [
         text: `događaji`,
         submenu: [
           {
+            path: `/ksap/dogadjaji/mogucnost-doprinosa-ksap-u-promovisanju-demokratskih-vrednosti-i-ljudskih-prava-u-republici-srbiji`,
+            text: `okrugli sto 2018`,
+          },
+          {
             path: `/ksap/dogadjaji/ksap-koktel`,
             text: `ksap koktel`,
+          },
+          {
+            path: `/ksap/dogadjaji/srpsko-americki-odnosi-pred-izazovima-covid-19`,
+            text: `srpsko američki odnosi pred izazovima covid 19`,
           },
         ],
       },
