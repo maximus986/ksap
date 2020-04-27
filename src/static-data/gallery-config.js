@@ -2,8 +2,7 @@ export default [
   {
     path:
       '/ksap/dogadjaji/mogucnost-doprinosa-ksap-u-promovisanju-demokratskih-vrednosti-i-ljudskih-prava-u-republici-srbiji',
-    label:
-      'Mogućnosti doprinosa KSAP u promovisanju demokratskih vrednosti i ljudskih prava u Republici Srbiji',
+    label: 'Okrugli sto 2018',
   },
   {
     path: '/ksap/dogadjaji/ksap-koktel',
