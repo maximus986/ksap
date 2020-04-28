@@ -50,7 +50,6 @@ const SrpskoAmerickiOdnosiPredIzazovimaCovid19 = ({ data }) => {
   const sortedGallery = gallery.edges.sort((galleryItem1, galleryItem2) =>
     galleryItem1.node.name > galleryItem2.node.name ? 1 : -1
   );
-  console.log(sortedGallery);
   const { name, childImageSharp } = useHeroImage();
   const {
     siteMetadata: { title },
