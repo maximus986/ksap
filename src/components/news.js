@@ -5,7 +5,7 @@ import isSameDay from 'date-fns/isSameDay';
 import sr from 'date-fns/locale/sr-Latn';
 import toDate from 'date-fns/toDate';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { jsx } from 'theme-ui';
@@ -35,6 +35,15 @@ export const News = () => {
     toDate(new Date(event.eventDate))
   );
 
+  useEffect(() => {
+    let selectedEvent = null;
+    events.edges.forEach(({ event }) => {
+      if (isSameDay(date, new Date(event.eventDate))) {
+        selectedEvent = event;
+      }
+      setShownEvent(selectedEvent);
+    });
+  }, [date, events.edges]);
   const highlightWithRanges = [
     {
       'react-datepicker__day--highlighted-custom-1': [...highlightDates],
