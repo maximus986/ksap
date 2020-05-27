@@ -22,7 +22,7 @@ export const Academy = () => {
     <BgImage fluid={academyImage.childImageSharp.fluid} alt={academyImage.name}>
       <h1 sx={{ textAlign: 'center', width: ['95%', '88%'], mx: 'auto' }}>
         <Link
-          to="/centar-za-americke-studije-vudro-vilson"
+          to="/centar-za-americke-studije-vudro-vilson/srpsko-americka-akademija-za-lidere"
           sx={{
             color: 'background',
             fontSize: ['3rem', '5rem', null, '9rem'],
