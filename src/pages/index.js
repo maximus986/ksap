@@ -37,6 +37,8 @@ const IndexPage = () => {
       <SliderNewsBackgroundSection {...{ colors }}>
         <SliderItems />
         <News />
+        {/* NOTE: Conference */}
+        <Conference />
       </SliderNewsBackgroundSection>
       <Membership />
       <Academy />
