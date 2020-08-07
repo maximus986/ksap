@@ -29,6 +29,7 @@
     "gatsby-source-contentful": "^2.1.89",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-sharp": "^2.3.13",
+    "grommet": "^2.14.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-datepicker": "^2.14.0",
@@ -39,6 +40,7 @@
     "react-icons": "^3.9.0",
     "react-slick": "^0.25.2",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^5.1.1",
     "theme-ui": "^0.3.1",
     "typeface-playfair-display": "^1.1.4"
   },

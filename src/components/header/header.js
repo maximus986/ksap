@@ -6,9 +6,11 @@ import { GoThreeBars, GoX } from 'react-icons/go';
 import { jsx, useThemeUI } from 'theme-ui';
 import logo from '../../images/logo.png';
 import { Navigation } from './navigation';
+import { NavigationRefactor } from './navigationRefactor';
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+
   const {
     theme: { colors },
   } = useThemeUI();
@@ -34,7 +36,11 @@ export const Header = () => {
         )}
       </HeaderActionWrapper>
       <NavContainer>
-        <Navigation showMenu={showMenu} onNavigate={() => setShowMenu(false)} />
+        {/* <Navigation showMenu={showMenu} onNavigate={() => setShowMenu(false)} /> */}
+        <NavigationRefactor
+          showMenu={showMenu}
+          onNavigate={() => setShowMenu(false)}
+        />
       </NavContainer>
     </HeaderContainer>
   );
