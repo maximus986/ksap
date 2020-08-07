@@ -53,7 +53,10 @@ export const Conference = () => {
               },
             }}
           > */}
-          <Image fluid={news.childImageSharp.fluid} alt="Oline konferencija" />
+          <Image
+            fluid={news.childImageSharp.fluid}
+            alt="Početak drugog ciklusa nastave"
+          />
           {/* </a> */}
         </div>
       </NewsContainer>
