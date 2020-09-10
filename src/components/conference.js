@@ -8,7 +8,7 @@ import { SectionContainer } from './sectionContainer';
 export const Conference = () => {
   const { news } = useStaticQuery(graphql`
     {
-      news: file(relativePath: { eq: "conferences/akademija.jpg" }) {
+      news: file(relativePath: { eq: "conferences/savethedate.jpeg" }) {
         childImageSharp {
           fluid(maxWidth: 4000, quality: 90) {
             ...GatsbyImageSharpFluid_withWebp
@@ -24,7 +24,7 @@ export const Conference = () => {
 
   return (
     <SectionContainer
-      sectionTitle="početak drugog ciklusa nastave"
+      sectionTitle="Pamtimo i stojimo uz SAD"
       sectionBgColor={colors.muted}
     >
       <NewsContainer>
@@ -55,7 +55,7 @@ export const Conference = () => {
           > */}
           <Image
             fluid={news.childImageSharp.fluid}
-            alt="Početak drugog ciklusa nastave"
+            alt="Pamtimo i stojimo uz SAD"
           />
           {/* </a> */}
         </div>

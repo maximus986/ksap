@@ -128,7 +128,7 @@ const NewsContainer = styled.div`
     border-radius: 0;
     .react-datepicker {
       &__navigation {
-        border: 0.65rem solid transparent;
+        border: 1rem solid transparent;
         height: 15px;
         width: 15px;
         &--previous:hover {
