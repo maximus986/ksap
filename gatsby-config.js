@@ -10,14 +10,14 @@ module.exports = {
     author: `@AleksandarM986`,
     VudroVilson: `Centar za američke studije Vudro Vilson`,
     regionSafety: `Centar za regionalnu bezbednost i transatlantske integracije Ronald Regan`,
-    siteUrl: `https://ksap.org.rs`,
+    siteUrl: `http://ksap.org.rs`,
   },
   plugins: [
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: `https://ksap.org.rs`,
-        sitemap: `https://ksap.org.rs/sitemap.xml`,
+        host: `http://ksap.org.rs`,
+        sitemap: `http://ksap.org.rs/sitemap.xml`,
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
