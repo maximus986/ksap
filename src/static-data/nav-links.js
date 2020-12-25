@@ -65,15 +65,31 @@ export default [
         submenu: [
           {
             path: `/ksap/dogadjaji/mogucnost-doprinosa-ksap-u-promovisanju-demokratskih-vrednosti-i-ljudskih-prava-u-republici-srbiji`,
-            text: `okrugli sto 2018`,
+            text: `Okrugli sto 2018`,
           },
           {
             path: `/ksap/dogadjaji/ksap-koktel`,
-            text: `ksap koktel`,
+            text: `KSAP Koktel`,
           },
           {
             path: `/ksap/dogadjaji/srpsko-americki-odnosi-pred-izazovima-covid-19`,
-            text: `srpsko američki odnosi pred izazovima covid 19`,
+            text: `Srpsko-američki odnosi pred izazovima COVID-19`,
+          },
+          {
+            path: `/ksap/dogadjaji/pamtimo-i-stojimo-uz-sad`,
+            text: `Pamtimo i stojimo uz SAD`,
+          },
+          {
+            path: `/ksap/dogadjaji/alumni-meeting-and-networking`,
+            text: `Alumni meeting and networking`,
+          },
+          {
+            path: `/ksap/dogadjaji/treci-ciklus-srpsko-americke-akademije-za-lidere`,
+            text: `Treći ciklus srpsko-američke akademije za lidere`,
+          },
+          {
+            path: `/ksap/dogadjaji/cetvrti-ciklus-srpsko-americke-akademije-za-lidere`,
+            text: `Četvrti ciklus srpsko-američke akademije za lidere`,
           },
         ],
       },
