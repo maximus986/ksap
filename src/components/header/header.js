@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { GoThreeBars, GoX } from 'react-icons/go';
 import { jsx, useThemeUI } from 'theme-ui';
 import logo from '../../images/logo.png';
+import { Social } from '../social';
 import { Navigation } from './navigation';
 
 export const Header = () => {
@@ -19,23 +20,33 @@ export const Header = () => {
 
   return (
     <HeaderContainer {...{ colors }}>
-      <HeaderActionWrapper>
-        <Link to="/">
-          <Img src={logo} alt="Logo" />
-        </Link>
-        {!showMenu ? (
-          <MenuBtn {...{ colors }} onClick={handleShowMenu}>
-            <GoThreeBars />
-          </MenuBtn>
-        ) : (
-          <MenuBtn {...{ colors }} onClick={handleShowMenu}>
-            <GoX />
-          </MenuBtn>
-        )}
-      </HeaderActionWrapper>
-      <NavContainer>
-        <Navigation showMenu={showMenu} onNavigate={() => setShowMenu(false)} />
-      </NavContainer>
+      <div>
+        <SocialContainer sx={{ mb: 5 }}>
+          <Social />
+        </SocialContainer>
+        <BottomHeader>
+          <HeaderActionWrapper>
+            <Link to="/">
+              <Img src={logo} alt="Logo" />
+            </Link>
+            {!showMenu ? (
+              <MenuBtn {...{ colors }} onClick={handleShowMenu}>
+                <GoThreeBars />
+              </MenuBtn>
+            ) : (
+              <MenuBtn {...{ colors }} onClick={handleShowMenu}>
+                <GoX />
+              </MenuBtn>
+            )}
+          </HeaderActionWrapper>
+          <NavContainer>
+            <Navigation
+              showMenu={showMenu}
+              onNavigate={() => setShowMenu(false)}
+            />
+          </NavContainer>
+        </BottomHeader>
+      </div>
     </HeaderContainer>
   );
 };
@@ -62,10 +73,10 @@ const HeaderContainer = styled.header`
     padding: 4rem;
     box-shadow: none;
   @media (min-width: 1200px) {
-    padding: 8rem 8rem;
+    padding: 2rem 8rem;
   }
   @media (min-width: 1600px) {
-    padding: 8rem 15rem;
+    padding: 4rem 15rem;
   }
 `;
 
@@ -106,5 +117,21 @@ const MenuBtn = styled.span`
   color: ${props => props.colors.secondary};
   @media (min-width: 992px) {
     display: none;
+  }
+`;
+
+const SocialContainer = styled.div`
+  display: none;
+  @media (min-width: 992px) {
+    display: flex;
+    justify-content: flex-end;
+  }
+`;
+
+const BottomHeader = styled.div`
+  @media (min-width: 992px) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 `;

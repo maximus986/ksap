@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import { jsx, useThemeUI } from 'theme-ui';
 import navLinks from '../../static-data/nav-links';
+import { Social } from '../social';
 
 export const Navigation = ({ showMenu, onNavigate }) => {
   const {
@@ -135,6 +136,9 @@ export const Navigation = ({ showMenu, onNavigate }) => {
             )}
           </ListItem>
         ))}
+        <SocialContainer>
+          <Social />
+        </SocialContainer>
       </NavLinks>
     </NavigationContainer>
   );
@@ -154,7 +158,7 @@ const NavLinks = styled.ul`
   overflow-x: hidden;
   transition: height 0.35s ease;
   height: ${props => (props.open ? '100vh' : '0')};
-  padding-bottom: ${props => (props.open ? '40px' : '0')};
+  padding-bottom: ${props => (props.open ? '90px' : '0')};
   @media (min-width: 576px) {
     height: ${props => (props.open ? '100vh' : '0')};
   }
@@ -168,16 +172,15 @@ const NavLinks = styled.ul`
 `;
 
 const ListItem = styled.li`
-    list-style-type: none;
-    color: #fff;
-    position: relative;
-    @media(min-width: 992px) {
-      &:hover > ul {
-        display: flex;
-      }
-      &:hover > p {
+  list-style-type: none;
+  color: #fff;
+  position: relative;
+  @media (min-width: 992px) {
+    &:hover > ul {
+      display: flex;
+    }
+    &:hover > p {
       color: #db2c26;
-      }
     }
   }
 `;
@@ -319,16 +322,17 @@ const ListItemLevel1 = styled.li`
   list-style-type: none;
   color: #fff;
   position: relative;
-  @media(min-width: 992px) {
+  @media (min-width: 992px) {
     padding-left: 0;
     &:hover > ul {
-        display: flex;
-      }
-      &:hover > p {
-      color: #db2c26;
-      }
+      display: flex;
     }
-  }`;
+    &:hover > p {
+      color: #db2c26;
+    }
+  }
+`;
+
 const ListItemLevel2 = styled.li`
   list-style-type: none;
   color: #fff;
@@ -495,5 +499,16 @@ const FakeTopLink = styled.p`
   }
   @media (min-width: 1800px) {
     font-size: 3rem;
+  }
+`;
+
+const SocialContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: -1.6rem;
+  @media (min-width: 992px) {
+    display: none;
   }
 `;
