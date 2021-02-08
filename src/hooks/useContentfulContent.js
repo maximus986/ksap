@@ -20,6 +20,31 @@ export const useContentfulContent = () => {
       {children}
     </h5>
   );
+  const Heading4 = ({ children }) => (
+    <h4
+      sx={{
+        fontSize: ['3rem', '3.5rem'],
+        fontFamily: 'body',
+        mb: 25,
+        mt: 40,
+        lineHeight: 1.25,
+      }}
+    >
+      {children}
+    </h4>
+  );
+  const Heading3 = ({ children }) => (
+    <h3
+      sx={{
+        fontSize: ['4rem', '4.5rem'],
+        fontFamily: 'body',
+        mb: 40,
+        lineHeight: 1.25,
+      }}
+    >
+      {children}
+    </h3>
+  );
   const UlList = ({ children }) => (
     <ul sx={{ pl: ['4rem', '10rem'], textAlign: ['left'] }}>{children}</ul>
   );
@@ -35,6 +60,8 @@ export const useContentfulContent = () => {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
       [BLOCKS.HEADING_5]: (node, children) => <Heading5>{children}</Heading5>,
+      [BLOCKS.HEADING_4]: (node, children) => <Heading4>{children}</Heading4>,
+      [BLOCKS.HEADING_3]: (node, children) => <Heading3>{children}</Heading3>,
       [BLOCKS.UL_LIST]: (node, children) => <UlList>{children}</UlList>,
       [BLOCKS.OL_LIST]: (node, children) => <OlList>{children}</OlList>,
       [BLOCKS.LIST_ITEM]: (node, children) => <ListItem>{children}</ListItem>,

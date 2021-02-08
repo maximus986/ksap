@@ -91,6 +91,10 @@ export default [
             path: `/ksap/dogadjaji/cetvrti-ciklus-srpsko-americke-akademije-za-lidere`,
             text: `Četvrti ciklus srpsko-američke akademije za lidere`,
           },
+          {
+            path: `/ksap/dogadjaji/odnos-gradjana-srbije-prema-sad`,
+            text: `Konferencija „Odnos građana Srbije prema SAD"`,
+          },
         ],
       },
       {
