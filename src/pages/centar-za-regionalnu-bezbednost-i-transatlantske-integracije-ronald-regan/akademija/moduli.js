@@ -10,7 +10,6 @@ import { SectionContainer } from '../../../components/sectionContainer';
 import SEO from '../../../components/seo';
 import { useContentfulContent } from '../../../hooks/useContentfulContent';
 import { useHeroImage } from '../../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../../hooks/useSiteMetadata';
 
 export const PAGE_QUERY = graphql`
   {
@@ -26,9 +25,6 @@ export const PAGE_QUERY = graphql`
 
 const Moduli = ({ data }) => {
   const { name, childImageSharp } = useHeroImage();
-  const {
-    siteMetadata: { regionSafety },
-  } = useSiteMetadata();
 
   const {
     theme: { colors },
@@ -40,7 +36,7 @@ const Moduli = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={regionSafety} />
+      <SEO title="Moduli" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>moduli</Banner>
       </Hero>

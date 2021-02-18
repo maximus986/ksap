@@ -9,7 +9,6 @@ import Layout from '../../../components/layout';
 import { SectionContainer } from '../../../components/sectionContainer';
 import SEO from '../../../components/seo';
 import { useHeroImage } from '../../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../../hooks/useSiteMetadata';
 
 export const PAGE_QUERY = graphql`
   {
@@ -38,15 +37,12 @@ const AlumniMeetingAndNetworking = ({ data }) => {
 
   const { name, childImageSharp } = useHeroImage();
   const {
-    siteMetadata: { title },
-  } = useSiteMetadata();
-  const {
     theme: { colors },
   } = useThemeUI();
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title="Alumni meeting and networking" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>Alumni meeting and networking</Banner>
       </Hero>

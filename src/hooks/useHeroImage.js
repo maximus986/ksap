@@ -7,7 +7,7 @@ export const useHeroImage = () => {
         heroImage: file(relativePath: { eq: "ksap.jpg" }) {
           name
           childImageSharp {
-            fluid(maxWidth: 4160, quality: 90) {
+            fluid(maxWidth: 4160, quality: 90, toFormat: WEBP) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }

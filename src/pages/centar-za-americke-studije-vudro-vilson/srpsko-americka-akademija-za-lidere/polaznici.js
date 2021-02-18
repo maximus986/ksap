@@ -9,7 +9,6 @@ import Layout from '../../../components/layout';
 import { SectionContainer } from '../../../components/sectionContainer';
 import SEO from '../../../components/seo';
 import { useHeroImage } from '../../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../../hooks/useSiteMetadata';
 import { useContentfulContent } from '../../../hooks/useContentfulContent';
 
 export const PAGE_QUERY = graphql`
@@ -27,9 +26,6 @@ export const PAGE_QUERY = graphql`
 const Polaznici = ({ data }) => {
   const { attendees } = data;
   const { name, childImageSharp } = useHeroImage();
-  const {
-    siteMetadata: { VudroVilson },
-  } = useSiteMetadata();
 
   const {
     theme: { colors },
@@ -39,7 +35,7 @@ const Polaznici = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={VudroVilson} />
+      <SEO title="Polaznici" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>polaznici</Banner>
       </Hero>

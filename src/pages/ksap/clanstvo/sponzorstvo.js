@@ -10,7 +10,6 @@ import { SectionContainer } from '../../../components/sectionContainer';
 import SEO from '../../../components/seo';
 import { useContentfulContent } from '../../../hooks/useContentfulContent';
 import { useHeroImage } from '../../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../../hooks/useSiteMetadata';
 
 export const PAGE_QUERY = graphql`
   {
@@ -29,9 +28,6 @@ const Sponzorstvo = ({ data }) => {
 
   const { name, childImageSharp } = useHeroImage();
   const {
-    siteMetadata: { title },
-  } = useSiteMetadata();
-  const {
     theme: { colors },
   } = useThemeUI();
 
@@ -39,7 +35,7 @@ const Sponzorstvo = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title="Sponzorstvo" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>sponzorstvo</Banner>
       </Hero>

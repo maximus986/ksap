@@ -38,7 +38,7 @@ const OCentru = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={VudroVilson} />
+      <SEO title="O centru" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>{VudroVilson}</Banner>
       </Hero>

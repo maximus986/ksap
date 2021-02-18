@@ -5,17 +5,13 @@ import Hero from '../../../components/hero';
 import Layout from '../../../components/layout';
 import SEO from '../../../components/seo';
 import { useHeroImage } from '../../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../../hooks/useSiteMetadata';
 
 const Clanovi = () => {
   const { name, childImageSharp } = useHeroImage();
-  const {
-    siteMetadata: { title },
-  } = useSiteMetadata();
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title="Članovi" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>članovi</Banner>
       </Hero>

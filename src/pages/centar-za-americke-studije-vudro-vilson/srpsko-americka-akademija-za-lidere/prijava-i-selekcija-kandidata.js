@@ -10,7 +10,6 @@ import { SectionContainer } from '../../../components/sectionContainer';
 import SEO from '../../../components/seo';
 import { useContentfulContent } from '../../../hooks/useContentfulContent';
 import { useHeroImage } from '../../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../../hooks/useSiteMetadata';
 
 export const PAGE_QUERY = graphql`
   {
@@ -27,9 +26,6 @@ export const PAGE_QUERY = graphql`
 const PrijavaISelekcijaKandidata = ({ data }) => {
   const { application } = data;
   const { name, childImageSharp } = useHeroImage();
-  const {
-    siteMetadata: { VudroVilson },
-  } = useSiteMetadata();
 
   const {
     theme: { colors },
@@ -39,7 +35,7 @@ const PrijavaISelekcijaKandidata = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={VudroVilson} />
+      <SEO title="Prijava i selekcija kandidata" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>prijava i selekcija kandidata</Banner>
       </Hero>

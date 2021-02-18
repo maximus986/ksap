@@ -9,7 +9,6 @@ import Layout from '../../../components/layout';
 import { SectionContainer } from '../../../components/sectionContainer';
 import SEO from '../../../components/seo';
 import { useHeroImage } from '../../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../../hooks/useSiteMetadata';
 
 export const PAGE_QUERY = graphql`
   {
@@ -40,15 +39,15 @@ const OkrugliSto = ({ data }) => {
 
   const { name, childImageSharp } = useHeroImage();
   const {
-    siteMetadata: { title },
-  } = useSiteMetadata();
-  const {
     theme: { colors },
   } = useThemeUI();
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO
+        title="Mogućnosti doprinosa KSAP u promovisanju demokratskih vrednosti i
+          ljudskih prava u Republici Srbiji"
+      />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>
           Mogućnosti doprinosa KSAP u promovisanju demokratskih vrednosti i

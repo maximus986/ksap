@@ -8,7 +8,6 @@ import Layout from '../../components/layout';
 import SEO from '../../components/seo';
 import { useContentfulContent } from '../../hooks/useContentfulContent';
 import { useHeroImage } from '../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../hooks/useSiteMetadata';
 
 export const PAGE_QUERY = graphql`
   {
@@ -24,9 +23,6 @@ export const PAGE_QUERY = graphql`
 
 const Projekti = ({ data }) => {
   const { name, childImageSharp } = useHeroImage();
-  const {
-    siteMetadata: { regionSafety },
-  } = useSiteMetadata();
 
   const {
     theme: { colors },
@@ -38,7 +34,7 @@ const Projekti = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={regionSafety} />
+      <SEO title="Projekti" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>projekti</Banner>
       </Hero>

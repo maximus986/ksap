@@ -9,7 +9,6 @@ import Layout from '../../../components/layout';
 import { SectionContainer } from '../../../components/sectionContainer';
 import SEO from '../../../components/seo';
 import { useHeroImage } from '../../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../../hooks/useSiteMetadata';
 
 export const PAGE_QUERY = graphql`
   {
@@ -40,15 +39,12 @@ const CetvrtiCiklus = ({ data }) => {
 
   const { name, childImageSharp } = useHeroImage();
   const {
-    siteMetadata: { title },
-  } = useSiteMetadata();
-  const {
     theme: { colors },
   } = useThemeUI();
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title="Četvrti ciklus srpsko-američke akademije za lidere" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>Četvrti ciklus srpsko-američke akademije za lidere</Banner>
       </Hero>

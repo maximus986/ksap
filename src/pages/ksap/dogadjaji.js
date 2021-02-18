@@ -9,20 +9,16 @@ import Layout from '../../components/layout';
 import { SectionContainer } from '../../components/sectionContainer';
 import SEO from '../../components/seo';
 import { useHeroImage } from '../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../hooks/useSiteMetadata';
 import galleries from '../../static-data/gallery-config';
 
 const Dogadjaji = () => {
   const { name, childImageSharp } = useHeroImage();
   const {
-    siteMetadata: { title },
-  } = useSiteMetadata();
-  const {
     theme: { colors },
   } = useThemeUI();
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title="Događaji" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>događaji</Banner>
       </Hero>

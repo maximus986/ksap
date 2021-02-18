@@ -9,7 +9,6 @@ import Layout from '../../../components/layout';
 import { SectionContainer } from '../../../components/sectionContainer';
 import SEO from '../../../components/seo';
 import { useHeroImage } from '../../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../../hooks/useSiteMetadata';
 
 export const PAGE_QUERY = graphql`
   {
@@ -36,15 +35,12 @@ const PamtimoIStojimoUzSAD = ({ data }) => {
 
   const { name, childImageSharp } = useHeroImage();
   const {
-    siteMetadata: { title },
-  } = useSiteMetadata();
-  const {
     theme: { colors },
   } = useThemeUI();
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title="Pamtimo i stojimo uz SAD" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>Pamtimo i stojimo uz SAD</Banner>
       </Hero>

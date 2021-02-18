@@ -9,7 +9,6 @@ import Layout from '../../components/layout';
 import { SectionContainer } from '../../components/sectionContainer';
 import SEO from '../../components/seo';
 import { useHeroImage } from '../../hooks/useHeroImage';
-import { useSiteMetadata } from '../../hooks/useSiteMetadata';
 
 export const PAGE_QUERY = graphql`
   {
@@ -36,9 +35,6 @@ export const PAGE_QUERY = graphql`
 const Predavaci = ({ data }) => {
   const { teachers } = data;
   const { name, childImageSharp } = useHeroImage();
-  const {
-    siteMetadata: { regionSafety },
-  } = useSiteMetadata();
   const sortedTeachers = teachers.nodes.sort(
     (teacher1, teacher2) => teacher1.order - teacher2.order
   );
@@ -48,7 +44,7 @@ const Predavaci = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={regionSafety} />
+      <SEO title="Predavači" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>predavači</Banner>
       </Hero>

@@ -40,7 +40,7 @@ const OCentru = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={regionSafety} />
+      <SEO title="O centru" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>{regionSafety}</Banner>
       </Hero>
