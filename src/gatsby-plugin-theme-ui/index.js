@@ -4,6 +4,7 @@ export default {
     background: '#fff',
     primary: '#1e2548',
     secondary: '#db2c26',
+    primaryOpacity: 'rgba(34, 52, 128, 0.41)',
     muted: '#a3a6b6',
     heading: '#fff',
     socialLinks: '#a3a6b6',
