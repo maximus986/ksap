@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `Kongres srpsko-američkog prijateljstva`,
     description: `KSAP je organizacija uticajnih pojedinica iz svih sfera društvenog i političkog života koji žele da Srbiju predstave SAD na jedan potpuno novi način, ali i da upoznaju Srbiju i njene građane sa istinskim vrednostima SAD`,
-    keywords: `Srbija, Sjedinjene Americke drzave, Kongres srpsko-američkog prijateljstva, Vudro Vilson, akademija, regionalna bezbednost`,
+    keywords: `KSAP, ksap, Srbija, Sjedinjene Americke drzave, Kongres srpsko američkog prijateljstva, Vudro Vilson, akademija, regionalna bezbednost`,
     author: `@AleksandarM986`,
     VudroVilson: `Centar za američke studije Vudro Vilson`,
     regionSafety: `Centar za regionalnu bezbednost i transatlantske integracije Ronald Regan`,
