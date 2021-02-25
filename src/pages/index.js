@@ -52,7 +52,7 @@ export default IndexPage;
 
 const SliderNewsBackgroundSection = styled.div`
   background-image: url(${sliderMembersSectionImg});
-  background-color: ${props => props.colors.primaryOpacity};
+  background-color: ${props => props.colors.primaryOpacity_41};
   background-position: 12% 67%;
   background-repeat: no-repeat;
   @media (min-width: 576px) {

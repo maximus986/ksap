@@ -41,7 +41,7 @@ export const Navigation = ({ showMenu, onNavigate }) => {
               <NavLinksLevel1
                 {...{ colors }}
                 sx={{
-                  bg: `rgba(30, 37, 72, 0.7)`,
+                  bg: 'primary',
                 }}
               >
                 {link.submenu.map((subMenuLink, i) => (
@@ -70,7 +70,7 @@ export const Navigation = ({ showMenu, onNavigate }) => {
                     {subMenuLink.submenu && (
                       <NavLinksLevel2
                         sx={{
-                          bg: `rgba(30, 37, 72, 0.7)`,
+                          bg: `primary`,
                           backdropFilter: 'blur(10px)',
                         }}
                       >
@@ -101,7 +101,7 @@ export const Navigation = ({ showMenu, onNavigate }) => {
                             {subMenuLink.submenu && (
                               <NavLinksLevel3
                                 sx={{
-                                  bg: `rgba(30, 37, 72, 0.9)`,
+                                  bg: 'primary',
                                 }}
                               >
                                 {subMenuLink.submenu.map((subMenuLink, i) => (
@@ -169,6 +169,22 @@ const NavLinks = styled.ul`
     text-align: left;
     overflow: visible;
   }
+  @media (min-width: 1200px) {
+    li {
+      padding-right: 3rem;
+    }
+    li:last-of-type {
+      margin: 0;
+    }
+  }
+  @media (min-width: 1800px) {
+    li {
+      padding-right: 9rem;
+    }
+    li:last-of-type {
+      margin: 0;
+    }
+  }
 `;
 
 const ListItem = styled.li`
@@ -176,6 +192,7 @@ const ListItem = styled.li`
   color: #fff;
   position: relative;
   @media (min-width: 992px) {
+    padding-bottom: 1rem;
     &:hover > ul {
       display: flex;
     }
@@ -202,16 +219,13 @@ const NavLink = styled(Link)`
     font-weight: 500;
     width: auto;
     padding: 0 1rem;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
   }
   @media (min-width: 1200px) {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   @media (min-width: 1600px) {
-    font-size: 2.6rem;
-  }
-  @media (min-width: 1800px) {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
   &.active {
     color: ${props => props.colors.secondary};
@@ -240,15 +254,26 @@ const NavLinksLevel1 = styled.ul`
   }
   @media (min-width: 992px) {
     position: absolute;
-    top: 100%;
+    top: 60px;
     left: 9px;
     width: auto;
     min-width: 200px;
-    padding: 1.5rem 0 1.5rem 1rem;
+    padding: 3.5rem 0 1.5rem 1rem;
     display: none;
     height: auto;
     flex-direction: column;
     text-align: left;
+  }
+  @media (min-width: 1200px) {
+    padding: 4.5rem 0 1.5rem 1rem;
+  }
+  @media (min-width: 1600px) {
+    padding: 5.5rem 0 1.5rem 1rem;
+    top: 72px;
+  }
+  @media (min-width: 2300px) {
+    padding: 7.5rem 0 1.5rem 1rem;
+    top: 30px;
   }
 `;
 
@@ -273,12 +298,6 @@ const NavLinkLevel1 = styled(Link)`
   }
   @media (min-width: 1200px) {
     font-size: 1.9rem;
-  }
-  @media (min-width: 1600px) {
-    font-size: 2.3rem;
-  }
-  @media (min-width: 1800px) {
-    font-size: 2.5rem;
   }
   &.active {
     color: ${props => props.colors.secondary};
@@ -314,6 +333,7 @@ const NavLinksLevel2 = styled.ul`
   }
   @media (min-width: 1800px) {
     top: -37%;
+    /* left: 150%; */
   }
 `;
 
@@ -364,13 +384,7 @@ const NavLinkLevel2 = styled(Link)`
     font-size: 1.5rem;
   }
   @media (min-width: 1200px) {
-    font-size: 1.8rem;
-  }
-  @media (min-width: 1600px) {
-    font-size: 2rem;
-  }
-  @media (min-width: 1800px) {
-    font-size: 2.2rem;
+    font-size: 1.9rem;
   }
   &.active {
     color: ${props => props.colors.secondary};
@@ -461,13 +475,7 @@ const FakeLink = styled.p`
     font-size: 1.5rem;
   }
   @media (min-width: 1200px) {
-    font-size: 1.8rem;
-  }
-  @media (min-width: 1600px) {
-    font-size: 2rem;
-  }
-  @media (min-width: 1800px) {
-    font-size: 2.2rem;
+    font-size: 1.9rem;
   }
 `;
 
@@ -489,16 +497,13 @@ const FakeTopLink = styled.p`
     font-weight: 500;
     width: auto;
     padding: 0 1rem;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
   }
   @media (min-width: 1200px) {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   @media (min-width: 1600px) {
-    font-size: 2.6rem;
-  }
-  @media (min-width: 1800px) {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 `;
 

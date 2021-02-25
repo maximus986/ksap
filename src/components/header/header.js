@@ -21,7 +21,7 @@ export const Header = () => {
   return (
     <HeaderContainer {...{ colors }}>
       <div>
-        <SocialContainer sx={{ mb: 5 }}>
+        <SocialContainer sx={{ mb: 3 }}>
           <Social />
         </SocialContainer>
         <BottomHeader>
@@ -60,30 +60,34 @@ const HeaderContainer = styled.header`
   right: 0;
   z-index: 1030;
   padding: 1.2rem 1.6rem 0;
-  box-shadow: -5px 0rem 0rem 3px rgba(0,0,0,0.1);
+  box-shadow: -5px 0rem 0rem 3px rgba(0, 0, 0, 0.1);
   @media (min-width: 576px) {
     padding: 1.8rem 2.6rem 0.6rem;
   }
   @media (min-width: 992px) {
     position: absolute;
-    background: transparent;
+    background: ${props => props.colors.primary};
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 4rem;
+    justify-content: center;
+    padding: 1rem 4rem;
     box-shadow: none;
-  @media (min-width: 1200px) {
-    padding: 2rem 8rem;
-  }
-  @media (min-width: 1600px) {
-    padding: 4rem 15rem;
+    @media (min-width: 1200px) {
+      padding: 2rem 8rem;
+    }
+    @media (min-width: 1600px) {
+      padding: 2rem 15rem;
+    }
   }
 `;
 
 const Img = styled.img`
   height: 5rem;
   @media (min-width: 992px) {
-    height: 7rem;
+    height: 8rem;
+  }
+  @media (min-width: 1200px) {
+    height: 9rem;
   }
   @media (min-width: 1600px) {
     height: 11rem;
