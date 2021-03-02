@@ -95,6 +95,10 @@ export default [
             path: `/ksap/dogadjaji/odnos-gradjana-srbije-prema-sad`,
             text: `Konferencija „Odnos građana Srbije prema SAD"`,
           },
+          {
+            path: `/ksap/dogadjaji/potpisivanje-sporazuma-o-saradnji-KSAP-EWB`,
+            text: `Potpisivanje sporazuma o saradnji KSAP-EWB"`,
+          },
         ],
       },
       {
