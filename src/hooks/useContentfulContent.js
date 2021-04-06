@@ -36,7 +36,7 @@ export const useContentfulContent = () => {
   const Heading3 = ({ children }) => (
     <h3
       sx={{
-        fontSize: ['4rem', '4.5rem'],
+        fontSize: ['3rem', '4rem', '4.5rem'],
         fontFamily: 'body',
         mb: 40,
         lineHeight: 1.25,

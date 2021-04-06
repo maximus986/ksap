@@ -29,7 +29,7 @@ const BannerContainer = styled.div`
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: 4rem;
     text-transform: uppercase;
     text-align: center;

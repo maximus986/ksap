@@ -36,4 +36,8 @@ export default [
     path: '/ksap/dogadjaji/potpisivanje-sporazuma-o-saradnji-KSAP-EWB',
     label: 'Potpisivanje sporazuma o saradnji KSAP-EWB"',
   },
+  {
+    path: '/ksap/dogadjaji/metju-palmer-na-konferenciji-KSAP-i-EWB',
+    label: 'Metju Palmer na konferenciji KSAP-a i EWB-a',
+  },
 ];
