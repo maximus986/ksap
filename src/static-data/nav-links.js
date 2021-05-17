@@ -103,6 +103,10 @@ export default [
             path: `/ksap/dogadjaji/metju-palmer-na-konferenciji-KSAP-i-EWB`,
             text: `Metju Palmer na konferenciji KSAP-a i EWB-a"`,
           },
+          {
+            path: `/ksap/dogadjaji/potvrdjeno-prijateljstvo-srbije-i-sad-i-za-vreme-pandemije-virusa-covid-19`,
+            text: `Potvrđeno prijateljstvo Srbije i SAD i za vreme pandemije virusa COVID-19`,
+          },
         ],
       },
       {
