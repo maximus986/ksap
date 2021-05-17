@@ -17,7 +17,7 @@ const NotFoundPage = () => {
         <SubTitle sx={{ color: 'heading', fontFamily: 'body' }}>
           Zahtevana stranica nije pronađena.
         </SubTitle>
-        <Button path="/">
+        <Button to="/">
           <span sx={{ fontFamily: 'body' }}>Početna strana</span>
         </Button>
       </SectionContainer>
