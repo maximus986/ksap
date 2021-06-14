@@ -34,20 +34,25 @@ const Kontakt = () => {
               columns={[1, null, '1fr 1fr']}
               gap={['30px']}
               sx={{
-                alignItems: 'center',
+                alignItems: 'baseline',
                 width: [null, null, null, '70%'],
                 mx: [null, null, null, 'auto'],
               }}
             >
               <div>
-                <p sx={{ fontWeight: '700' }}>Adresa:</p>
+                <Title>Adresa:</Title>
                 <p>Đorđa Radojlovića 21 Beograd</p>
               </div>
               <div>
-                <p sx={{ fontWeight: '700' }}>Email adresa:</p>
+                <Title>Email adresa:</Title>
                 <Link href="mailto: office@ksap.org.rs" {...{ colors }}>
                   office@ksap.org.rs
                 </Link>
+                <p sx={{ mt: '15px' }}>
+                  <Link href="mailto: akademija.ksap@gmail.com" {...{ colors }}>
+                    akademija.ksap@gmail.com
+                  </Link>
+                </p>
               </div>
             </Grid>
           </Content>
@@ -87,6 +92,11 @@ const Content = styled.div`
   @media (min-width: 1800px) {
     font-size: 2.5rem;
   }
+`;
+
+const Title = styled.p`
+  font-weight: 700;
+  margin-bottom: 10px;
 `;
 
 const Link = styled.a`
