@@ -107,6 +107,28 @@ export default [
             path: `/ksap/dogadjaji/potvrdjeno-prijateljstvo-srbije-i-sad-i-za-vreme-pandemije-virusa-covid-19`,
             text: `Potvrđeno prijateljstvo Srbije i SAD i za vreme pandemije virusa COVID-19`,
           },
+          {
+            path: `/ksap/dogadjaji/koncept-smanjenje-stetnost-izazovi-modernog-drustva`,
+            text: `Koncept smanjenje štetnost - izazovi modernog društva`,
+          },
+          {
+            path: `/ksap/dogadjaji/one-year-later–pamtimo-i-stojimo-uz-SAD`,
+            text: `One year later – Pamtimo i stojimo uz SAD`,
+          },
+          {
+            path: `/ksap/dogadjaji/peti-ciklus-akademije-za-lidere`,
+            text: `Peti ciklus Akademije za lidere`,
+          },
+          {
+            path: `/ksap/dogadjaji/americka-vojna-pomoc-jugoslaviji-sedamdesetih-godina-od-pocetka`,
+            text:
+              'HLADNORATOVSKO SAVEZNIŠTVO : Američka vojna pomoć Jugoslaviji sedamdesetih godina od početka (1951- 2021)',
+          },
+          {
+            path: `/ksap/dogadjaji/put-ka-stabilizaciji-saradnji-i-prosperitetu-regiona`,
+            text:
+              'OTVORENI BALKAN – Put ka stabilizaciji, saradnji i prosperitetu regiona',
+          },
         ],
       },
       {
