@@ -11,6 +11,7 @@ import SEO from '../../../components/seo';
 import { useHeroImage } from '../../../hooks/useHeroImage';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { useContentfulContent } from '../../../hooks/useContentfulContent';
+import { StyledGalleryImage } from '../../../components/StyledGalleryImage';
 
 export const PAGE_QUERY = graphql`
   {
@@ -64,9 +65,10 @@ const OneYearLaterPamtimoIStojimoUzSAD = ({ data }) => {
           {documentToReactComponents(conference.content.json, options)}
           <Grid columns={[1, '1fr 1fr', '1fr 1fr 1fr']} gap={'20px'}>
             {gallery.edges.map(({ node }) => (
-              <figure key={node.id}>
-                <Image fluid={node.childImageSharp.fluid} alt={node.name} />
-              </figure>
+              <StyledGalleryImage
+                fluid={node.childImageSharp.fluid}
+                alt={node.name}
+              />
             ))}
           </Grid>
         </CoctailContainer>

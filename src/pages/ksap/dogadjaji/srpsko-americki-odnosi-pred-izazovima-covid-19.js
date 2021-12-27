@@ -9,6 +9,7 @@ import Hero from '../../../components/hero';
 import Layout from '../../../components/layout';
 import { SectionContainer } from '../../../components/sectionContainer';
 import SEO from '../../../components/seo';
+import { StyledGalleryImage } from '../../../components/StyledGalleryImage';
 import { useContentfulContent } from '../../../hooks/useContentfulContent';
 import { useHeroImage } from '../../../hooks/useHeroImage';
 
@@ -67,9 +68,10 @@ const SrpskoAmerickiOdnosiPredIzazovimaCovid19 = ({ data }) => {
           {documentToReactComponents(onlineConf.content.json, options)}
           <Grid columns={[1, '1fr 1fr', '1fr 1fr 1fr']} gap={'20px'}>
             {sortedGallery.map(({ node }) => (
-              <figure key={node.id}>
-                <Image fluid={node.childImageSharp.fluid} alt={node.name} />
-              </figure>
+              <StyledGalleryImage
+                fluid={node.childImageSharp.fluid}
+                alt={node.name}
+              />
             ))}
           </Grid>
         </ConfContainer>
