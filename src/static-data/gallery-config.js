@@ -47,8 +47,9 @@ export default [
       'Potvrđeno prijateljstvo Srbije i SAD i za vreme pandemije virusa COVID-19',
   },
   {
-    path: '/ksap/dogadjaji/koncept-smanjenje-stetnost-izazovi-modernog-drustva',
-    label: 'Koncept smanjenje štetnost - izazovi modernog društva',
+    path:
+      '/ksap/dogadjaji/koncept-smanjenja-stetnosti-izazovi-modernog-drustva',
+    label: 'Koncept smanjenja štetnosti - izazovi modernog društva',
   },
   {
     path: '/ksap/dogadjaji/one-year-later–pamtimo-i-stojimo-uz-SAD',

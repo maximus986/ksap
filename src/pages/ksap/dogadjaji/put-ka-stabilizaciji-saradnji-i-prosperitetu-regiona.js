@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
-import Image from 'gatsby-image';
 import { Grid, jsx, useThemeUI } from 'theme-ui';
 import { Banner } from '../../../components/banner';
 import Hero from '../../../components/hero';
@@ -11,9 +10,29 @@ import SEO from '../../../components/seo';
 import { useHeroImage } from '../../../hooks/useHeroImage';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { useContentfulContent } from '../../../hooks/useContentfulContent';
+import { StyledGalleryImage } from '../../../components/StyledGalleryImage';
 
 export const PAGE_QUERY = graphql`
   {
+    gallery: allFile(
+      filter: {
+        relativeDirectory: {
+          eq: "gallery/put-ka-stabilizaciji-saradnji-i-prosperitetu-regiona"
+        }
+      }
+    ) {
+      edges {
+        node {
+          id
+          name
+          childImageSharp {
+            fluid(maxWidth: 4160, quality: 90) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    }
     conference: contentfulHappening(
       id: { eq: "8d041d0a-2817-5a6f-880b-2594bf3e37f4" }
     ) {
@@ -25,7 +44,7 @@ export const PAGE_QUERY = graphql`
 `;
 
 const PutKaStabilizacijiSaradnjiIProsperitetuRegiona = ({ data }) => {
-  const { conference } = data;
+  const { conference, gallery } = data;
 
   const { name, childImageSharp } = useHeroImage();
   const {
@@ -46,6 +65,14 @@ const PutKaStabilizacijiSaradnjiIProsperitetuRegiona = ({ data }) => {
       <SectionContainer sectionBgColor={colors.muted}>
         <CoctailContainer sx={{ fontFamily: 'body', textAlign: 'left' }}>
           {documentToReactComponents(conference.content.json, options)}
+          <Grid columns={[1, '1fr 1fr', '1fr 1fr 1fr']} gap={'20px'}>
+            {gallery.edges.map(({ node }) => (
+              <StyledGalleryImage
+                fluid={node.childImageSharp.fluid}
+                alt={node.name}
+              />
+            ))}
+          </Grid>
         </CoctailContainer>
       </SectionContainer>
     </Layout>

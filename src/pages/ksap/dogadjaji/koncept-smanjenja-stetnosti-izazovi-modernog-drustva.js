@@ -56,9 +56,9 @@ const KonceptSmanjenjeStetnost = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Koncept smanjenje štetnost - izazovi modernog društva" />
+      <SEO title="Koncept smanjenja štetnosti  - izazovi modernog društva" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
-        <Banner>Koncept smanjenje štetnost - izazovi modernog društva</Banner>
+        <Banner>Koncept smanjenja štetnosti - izazovi modernog društva</Banner>
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
         <CoctailContainer sx={{ fontFamily: 'body', textAlign: 'left' }}>
