@@ -11,9 +11,15 @@ export default {
     socialLinks: '#a3a6b6',
     modes: {
       dark: {
-        text: '#fff',
-        background: '#000',
-        primary: '#0cf',
+        text: '#0d153e',
+        background: '#fff',
+        primary: '#1e2548',
+        secondary: '#db2c26',
+        primaryOpacity_41: 'rgba(34, 52, 128, 0.41)',
+        headerBg: 'rgba(30, 37, 72, 0.7)',
+        muted: '#a3a6b6',
+        heading: '#fff',
+        socialLinks: '#a3a6b6',
       },
     },
   },
