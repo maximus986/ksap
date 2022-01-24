@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import { jsx, useThemeUI } from 'theme-ui';
+import { jsx, useThemeUI, Grid } from 'theme-ui';
 import { Banner } from '../../../components/banner';
 import Hero from '../../../components/hero';
 import Layout from '../../../components/layout';
@@ -49,10 +49,16 @@ const SavetodavniOdbor = ({ data }) => {
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
         <Container>
-          <BoardMembersContainer>
+          <Grid
+            columns={[
+              [1, '1fr'],
+              [2, '1fr 1fr'],
+              [3, '1fr 1fr 1fr'],
+            ]}
+          >
             {sortedBoardMembers.map(boardMember => {
               return (
-                <BoardMemberContainer key={boardMember.id}>
+                <div key={boardMember.id}>
                   {boardMember.image && (
                     <BoardMemberImg
                       fluid={boardMember.image.fluid}
@@ -79,10 +85,10 @@ const SavetodavniOdbor = ({ data }) => {
                       )
                     )}
                   </figcaption>
-                </BoardMemberContainer>
+                </div>
               );
             })}
-          </BoardMembersContainer>
+          </Grid>
         </Container>
       </SectionContainer>
     </Layout>
@@ -104,34 +110,8 @@ const Container = styled.div`
   }
 `;
 
-const BoardMembersContainer = styled.div`
-  overflow-x: hidden;
-  @media (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: start;
-    justify-content: space-between;
-  }
-`;
-
-const BoardMemberContainer = styled.figure`
-  text-align: center;
-  letter-spacing: 2px;
-  line-height: 4rem;
-  margin-bottom: 4rem;
-  align-self: baseline;
-  @media (min-width: 576px) {
-    width: 450px;
-    margin: 4rem auto 0;
-  }
-  @media (min-width: 992px) {
-    margin: 0;
-  }
-`;
-
 const BoardMemberImg = styled(Img)`
-  line-height: 4rem;
-  letter-spacing: 2px;
+  aspect-ratio: 1.2;
   margin-bottom: 2rem;
 `;
 
