@@ -71,4 +71,10 @@ export default [
     label:
       'OTVORENI BALKAN – Put ka stabilizaciji, saradnji i prosperitetu regiona',
   },
+  {
+    path:
+      '/ksap/dogadjaji/nacionalno-istrazivanje-o-faktorima-koji-doprinose-efektu-staklenog-plafona-za-zene-u-biznisu',
+    label:
+      'Nacionalno istraživanje o faktorima koji doprinose efektu "staklenog plafona" za žene u biznisu',
+  },
 ];
