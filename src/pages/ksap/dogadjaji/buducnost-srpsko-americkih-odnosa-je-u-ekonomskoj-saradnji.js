@@ -17,7 +17,7 @@ export const PAGE_QUERY = graphql`
     gallery: allFile(
       filter: {
         relativeDirectory: {
-          eq: "gallery/nacionalno-istrazivanje-o-faktorima-koji-doprinose-efektu-staklenog-plafona-za-zene-u-biznisu"
+          eq: "gallery/buducnost-srpsko-americkih-odnosa-je-u-ekonomskoj-saradnji"
         }
       }
     ) {
@@ -34,7 +34,7 @@ export const PAGE_QUERY = graphql`
       }
     }
     conference: contentfulHappening(
-      id: { eq: "1c9cda2a-b5de-5bc1-a545-2a4be96c177d" }
+      id: { eq: "b0ef752f-a18b-51c3-8618-2529a76250d0" }
     ) {
       content {
         json
@@ -43,9 +43,7 @@ export const PAGE_QUERY = graphql`
   }
 `;
 
-const NacionalnoIstrazivanjeOFaktorimaKojiDoprinoseEfektuStaklenogPlafonaZaZeneUBiznisu = ({
-  data,
-}) => {
+const BuducnostSrpskoAmerickihOdnosaJeUEkonomskojSaradnji = ({ data }) => {
   const { conference, gallery } = data;
 
   const { name, childImageSharp } = useHeroImage();
@@ -57,11 +55,10 @@ const NacionalnoIstrazivanjeOFaktorimaKojiDoprinoseEfektuStaklenogPlafonaZaZeneU
 
   return (
     <Layout>
-      <SEO title="Nacionalno istraživanje o faktorima koji doprinose efektu 'staklenog plafona' za žene u biznisu" />
+      <SEO title="Eskobar: Budućnost srpsko-američkih odnosa je u ekonomskoj saradnji" />
       <Hero img={childImageSharp.fluid} alt={name} hero={true}>
         <Banner>
-          Nacionalno istraživanje o faktorima koji doprinose efektu "staklenog
-          plafona" za žene u biznisu
+          Eskobar: Budućnost srpsko-američkih odnosa je u ekonomskoj saradnji
         </Banner>
       </Hero>
       <SectionContainer sectionBgColor={colors.muted}>
@@ -81,7 +78,7 @@ const NacionalnoIstrazivanjeOFaktorimaKojiDoprinoseEfektuStaklenogPlafonaZaZeneU
   );
 };
 
-export default NacionalnoIstrazivanjeOFaktorimaKojiDoprinoseEfektuStaklenogPlafonaZaZeneUBiznisu;
+export default BuducnostSrpskoAmerickihOdnosaJeUEkonomskojSaradnji;
 
 const CoctailContainer = styled.div`
   padding: 0 1.6rem;

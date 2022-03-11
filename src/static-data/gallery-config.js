@@ -73,6 +73,12 @@ export default [
   },
   {
     path:
+      '/ksap/dogadjaji/buducnost-srpsko-americkih-odnosa-je-u-ekonomskoj-saradnji',
+    label:
+      'Eskobar: Budućnost srpsko-američkih odnosa je u ekonomskoj saradnji',
+  },
+  {
+    path:
       '/ksap/dogadjaji/nacionalno-istrazivanje-o-faktorima-koji-doprinose-efektu-staklenog-plafona-za-zene-u-biznisu',
     label:
       'Nacionalno istraživanje o faktorima koji doprinose efektu "staklenog plafona" za žene u biznisu',
